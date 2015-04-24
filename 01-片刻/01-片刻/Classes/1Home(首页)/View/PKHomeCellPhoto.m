@@ -8,6 +8,7 @@
 
 #import "PKHomeCellPhoto.h"
 #import "PKHomeModelRoot.h"
+#import "PKHomeModelImgUrl.h"
 
 
 @interface PKHomeCellPhoto()
@@ -55,8 +56,32 @@
     // 1,设置cell的标题
     self.LabelTopType.text = [NSString stringWithFormat:@"%@ · %@",model.name,model.enname];
     
+    // 2,设置图片
+    NSArray * imageArray = model.imglist;
+    PKHomeModelImgUrl * imageModel = nil;
+    NSArray * tempArr = @[self.imageViewTop,self.imageViewLeft,self.imageViewRight];
+    // 2.1 上
     
-    [self.imageViewTop sd_setImageWithURL:[NSURL URLWithString:model.coverimg] placeholderImage:[UIImage imageNamed:@"pig_3"]];
+    for (int i = 0; i<3; i++) {
+        
+        imageModel = imageArray[i];
+        if (imageModel==nil) {
+            break;
+        }
+        [tempArr[i] sd_setImageWithURL:[NSURL URLWithString:imageModel.imgurl] placeholderImage:[UIImage imageNamed:@"pig_3"]];
+        ((UIImageView *)tempArr[i]).contentMode = UIViewContentModeScaleAspectFill;
+        ((UIImageView *)tempArr[i]).layer.masksToBounds = YES;
+    }
+    
+    // 3,设置内容标题
+    self.LabelTitle.text = model.title;
+    
+    
+    // 4,设置内容
+    self.labelContent.text = model.content;
+
+    // 5,设置按钮
+    [self.likeBtn setTitle:[NSString stringWithFormat:@"%d",model.like.intValue] forState:UIControlStateNormal];
 
     
 }

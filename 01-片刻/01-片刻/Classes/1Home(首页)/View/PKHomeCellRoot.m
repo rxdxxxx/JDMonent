@@ -26,23 +26,46 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-//        // 1.添加顶部的view
-//        [self setupTopView];
-//        
+
+//
 //        // 2.添加微博的工具条
 //        [self setupStatusToolbar];
     }
     return self;
 }
 
+
+
 - (void)awakeFromNib {
     // Initialization code
+    
+
+    
+}
+
+-(void)setModel:(PKHomeModelRoot *)model
+{
+    _model = model;
+    
+    // 1.设置选中时的颜色.
+    [self setupView];
+}
+
+/**
+ *
+ */
+-(void)setupView
+{
+    // 0.设置cell选中时的背景
+    self.selectedBackgroundView = [[UIView alloc]init];
+    self.backgroundColor = [UIColor clearColor];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+
 }
 
 @end

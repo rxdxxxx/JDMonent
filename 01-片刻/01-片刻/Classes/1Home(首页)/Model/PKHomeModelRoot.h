@@ -67,6 +67,10 @@
  */
 @property (nonatomic, strong)PKMainModelUserInfo * userinfo;
 /**
+ *  歌曲id
+ */
+@property (nonatomic, copy)NSString * songid;
+/**
  *  音频播放的具体信息
  */
 @property (nonatomic, strong)PKHomeModelPlayInfo * playinfo;

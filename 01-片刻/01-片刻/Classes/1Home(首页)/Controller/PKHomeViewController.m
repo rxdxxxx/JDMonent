@@ -20,6 +20,9 @@
 #import "PKHomeCellMor.h"
 #import "PKHomeCellPhoto.h"
 
+/*工具类*/
+#import "IWHttpTool.h"
+
 
 
 @interface PKHomeViewController ()
@@ -53,6 +56,9 @@ static PKHomeViewController *HomesingletonInstance = nil;
     // 1,发起网络请求
     [self setupRequest];
     
+    // 2,设置tableView
+    [self setupTableView];
+    
 }
 
 /**
@@ -67,7 +73,7 @@ static PKHomeViewController *HomesingletonInstance = nil;
     
     NSMutableDictionary * params = [NSMutableDictionary dictionary];
     params[@"start"] = @0;
-    params[@"limit"] = @20;
+    params[@"limit"] = @40;
     params[@"deviceid"] = @"8DBCAF13-689C-49C1-ADFB-0EC866F4BC2B";
     params[@"client"] = @"1";
     params[@"auth"] = @"";
@@ -78,18 +84,34 @@ static PKHomeViewController *HomesingletonInstance = nil;
     NSString * url = @"http://api2.pianke.me/pub/today";
     
     //发送请求
-    [mgr POST:url parameters:params
-     success:^(AFHTTPRequestOperation *operation, id responseObject) {
-         
-         self.statuses = (NSMutableArray *)[PKHomeModelRoot objectArrayWithKeyValuesArray:responseObject[@"data"][@"list"]];
-         
-         [self.tableView reloadData];
-     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-         
-         NSLog(@"%@",error);
-         
-     }];
+    [IWHttpTool postWithURL:url params:params success:^(id json) {
+        
+        self.statuses = (NSMutableArray *)[PKHomeModelRoot objectArrayWithKeyValuesArray:json[@"data"][@"list"]];
+        
+        [self.tableView reloadData];
+        
+    } failure:^(NSError *error) {
+        NSLog(@"%@",error);
+
+    }];
     
+//    [mgr POST:url parameters:params
+//     success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//         
+//
+//     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//         
+//         
+//     }];
+    
+}
+
+/**
+ *  2,设置tableView
+ */
+-(void)setupTableView
+{
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -124,7 +146,6 @@ static PKHomeViewController *HomesingletonInstance = nil;
         case 2:
         {
             cell = [PKHomeCellSound cellWithTableView:tableView];
-
         }
             break;
         case 3:
@@ -133,6 +154,7 @@ static PKHomeViewController *HomesingletonInstance = nil;
         }
             break;
         case 4:
+        case 17:
         {
             cell = [PKHomeCellPhoto cellWithTableView:tableView];
    
@@ -157,7 +179,7 @@ static PKHomeViewController *HomesingletonInstance = nil;
             break;
     }
     
-    // 2.传递frame模型
+    // 2.传递模型
     cell.model = model;
     
     return cell;
@@ -170,7 +192,7 @@ static PKHomeViewController *HomesingletonInstance = nil;
     PKHomeModelRoot * model = self.statuses[indexPath.row];
 
     
-    // 1,选择不同的cell
+    // 1,选择不同的cell的高度.
     switch (model.type.intValue) {
         case 2:
         {
@@ -185,6 +207,8 @@ static PKHomeViewController *HomesingletonInstance = nil;
         }
             break;
         case 4:
+        case 17:
+
         {
             return 440;
 
@@ -192,7 +216,7 @@ static PKHomeViewController *HomesingletonInstance = nil;
             break;
         case 5:
         {
-            return 225;
+            return 0;
 
         }
             break;

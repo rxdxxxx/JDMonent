@@ -53,10 +53,18 @@
     // 1,设置cell的标题
     self.LabelTopType.text = [NSString stringWithFormat:@"%@ · %@",model.name,model.enname];
     
-    
+    // 2,设置主题图片
     [self.ImageViewCoverImage sd_setImageWithURL:[NSURL URLWithString:model.coverimg] placeholderImage:[UIImage imageNamed:@"pig_3"]];
-
     
+    // 3,设置内容标题
+    self.LabelTitle.text = model.title;
+    
+    // 4,设置内容
+    self.LabelContent.text = model.content;
+//    self.LabelTitle.numberOfLines = 0;
+
+    // 5,设置按钮
+    [self.likeBtn setTitle:[NSString stringWithFormat:@"%d",model.like.intValue] forState:UIControlStateNormal];
 }
 
 - (void)awakeFromNib {

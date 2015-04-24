@@ -12,12 +12,6 @@
 
 @interface PKHomeCellMusic()
 
-@property (weak, nonatomic) IBOutlet UILabel *LabelTopType;
-@property (weak, nonatomic) IBOutlet UILabel *LabelTitle;
-@property (weak, nonatomic) IBOutlet UILabel *LabelSinger;
-@property (weak, nonatomic) IBOutlet UILabel *LabelContent;
-@property (weak, nonatomic) IBOutlet UIButton *likeBtn;
-@property (weak, nonatomic) IBOutlet UIImageView *ImageView;
 
 @end
 
@@ -49,14 +43,7 @@
 -(void)setModel:(PKHomeModelRoot *)model
 {
     [super setModel:model];
-    
-    // 1,设置cell的标题
-    self.LabelTopType.text = [NSString stringWithFormat:@"%@ · %@",model.name,model.enname];
-    
-    
-    [self.ImageView sd_setImageWithURL:[NSURL URLWithString:model.coverimg] placeholderImage:[UIImage imageNamed:@"pig_3"]];
-
-    
+      
 }
 
 - (void)awakeFromNib {

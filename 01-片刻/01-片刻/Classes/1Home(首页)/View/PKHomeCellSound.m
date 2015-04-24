@@ -8,6 +8,7 @@
 
 #import "PKHomeCellSound.h"
 #import "PKHomeModelRoot.h"
+#import "PKMainModelUserInfo.h"
 
 @interface PKHomeCellSound ()
 
@@ -58,8 +59,18 @@
     self.LabelTopType.text = [NSString stringWithFormat:@"%@ · %@",model.name,model.enname];
 
     
-    
+    // 2,设置主题图片
     [self.ThemeImageView sd_setImageWithURL:[NSURL URLWithString:model.coverimg] placeholderImage:[UIImage imageNamed:@"pig_3"]];
+    
+    // 3,设置内容标题
+    self.LabelTitle.text = model.title;
+    
+    // 4,设置作者
+    PKMainModelUserInfo * userInfo = model.userinfo;
+    self.Labeluname.text = [NSString stringWithFormat:@"by : %@",userInfo.uname];
+    
+    // 5,设置按钮
+    [self.likeButton setTitle:[NSString stringWithFormat:@"%d",model.like.intValue] forState:UIControlStateNormal];
     
     
 }
