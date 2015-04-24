@@ -12,6 +12,7 @@
 		BC07A36B1AE8C34900A26B66 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC07A36A1AE8C34900A26B66 /* Images.xcassets */; };
 		BC07A36E1AE8C34900A26B66 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC07A36C1AE8C34900A26B66 /* LaunchScreen.xib */; };
 		BC07A37A1AE8C34A00A26B66 /* _1___Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = BC07A3791AE8C34A00A26B66 /* _1___Tests.m */; };
+		BC0BE8D71AEA70D9003D7491 /* PKHomeDetialController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0BE8D61AEA70D9003D7491 /* PKHomeDetialController.m */; };
 		BC2FCF8C1AE9E42F0014B413 /* PKMainModelUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2FCF8B1AE9E42F0014B413 /* PKMainModelUserInfo.m */; };
 		BC2FCF951AE9E5150014B413 /* PKHomeModelRoot.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2FCF941AE9E5150014B413 /* PKHomeModelRoot.m */; };
 		BC2FCF981AE9F28B0014B413 /* PKHomeModelPlayInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2FCF971AE9F28B0014B413 /* PKHomeModelPlayInfo.m */; };
@@ -129,6 +130,8 @@
 		BC07A3731AE8C34A00A26B66 /* 01-片刻Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "01-片刻Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC07A3781AE8C34A00A26B66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BC07A3791AE8C34A00A26B66 /* _1___Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "_1___Tests.m"; sourceTree = "<group>"; };
+		BC0BE8D51AEA70D9003D7491 /* PKHomeDetialController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKHomeDetialController.h; sourceTree = "<group>"; };
+		BC0BE8D61AEA70D9003D7491 /* PKHomeDetialController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKHomeDetialController.m; sourceTree = "<group>"; };
 		BC2FCF8A1AE9E42F0014B413 /* PKMainModelUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKMainModelUserInfo.h; sourceTree = "<group>"; };
 		BC2FCF8B1AE9E42F0014B413 /* PKMainModelUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKMainModelUserInfo.m; sourceTree = "<group>"; };
 		BC2FCF931AE9E5150014B413 /* PKHomeModelRoot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKHomeModelRoot.h; sourceTree = "<group>"; };
@@ -453,6 +456,8 @@
 			children = (
 				BC6823051AE8EA83000C57B3 /* PKHomeViewController.h */,
 				BC6823061AE8EA83000C57B3 /* PKHomeViewController.m */,
+				BC0BE8D51AEA70D9003D7491 /* PKHomeDetialController.h */,
+				BC0BE8D61AEA70D9003D7491 /* PKHomeDetialController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1059,6 +1064,7 @@
 				BC68231A1AE92921000C57B3 /* PKHomeCellSound.m in Sources */,
 				BC6823101AE8FB7A000C57B3 /* PKCommunityViewController.m in Sources */,
 				BC2FCF981AE9F28B0014B413 /* PKHomeModelPlayInfo.m in Sources */,
+				BC0BE8D71AEA70D9003D7491 /* PKHomeDetialController.m in Sources */,
 				BC6822B41AE8DF60000C57B3 /* MJMethod.m in Sources */,
 				BC6822A91AE8DF60000C57B3 /* AFSecurityPolicy.m in Sources */,
 				BC6823071AE8EA83000C57B3 /* PKHomeViewController.m in Sources */,

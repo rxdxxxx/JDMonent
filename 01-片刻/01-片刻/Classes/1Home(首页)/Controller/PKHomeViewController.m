@@ -20,6 +20,9 @@
 #import "PKHomeCellMor.h"
 #import "PKHomeCellPhoto.h"
 
+/*详情控制器*/
+#import "PKHomeDetialController.h"
+
 /*工具类*/
 #import "IWHttpTool.h"
 
@@ -74,12 +77,12 @@ static PKHomeViewController *HomesingletonInstance = nil;
     NSMutableDictionary * params = [NSMutableDictionary dictionary];
     params[@"start"] = @0;
     params[@"limit"] = @40;
-    params[@"deviceid"] = @"8DBCAF13-689C-49C1-ADFB-0EC866F4BC2B";
+//    params[@"deviceid"] = @"8DBCAF13-689C-49C1-ADFB-0EC866F4BC2B";
     params[@"client"] = @"1";
-    params[@"auth"] = @"";
-    params[@"version"] = @"3.0.1";
+//    params[@"auth"] = @"";
+//    params[@"version"] = @"3.0.1";
 
-    
+//    start=0&client=2&limit=10
     
     NSString * url = @"http://api2.pianke.me/pub/today";
     
@@ -232,6 +235,55 @@ static PKHomeViewController *HomesingletonInstance = nil;
         }
             
         break;
+    }
+}
+
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    PKHomeModelRoot * model = self.statuses[indexPath.row];
+    
+    // 1,选择不同的cell的高度.
+    switch (model.type.intValue) {
+        case 2://sound
+        {
+            PKHomeDetialController * dc = [[PKHomeDetialController alloc]init];
+            [[SlideNavigationController sharedInstance] pushViewController:dc animated:YES];
+            
+        }
+            break;
+        case 3://Topic
+        {
+            
+            
+        }
+            break;
+        case 4://photo
+        case 17://illustration
+            
+        {
+            
+            
+        }
+            break;
+        case 5://Music
+        {
+           
+            
+        }
+            break;
+        case 24://Timeline
+        {
+          
+        }
+            break;
+            
+        default:// Mor 等
+        {
+            
+        }
+            
+            break;
     }
 }
 
