@@ -7,6 +7,15 @@
 //
 
 #import "PKHomeCellMusic.h"
+@interface PKHomeCellMusic()
+@property (weak, nonatomic) IBOutlet UILabel *LabelTopType;
+@property (weak, nonatomic) IBOutlet UILabel *LabelTitle;
+@property (weak, nonatomic) IBOutlet UILabel *LabelSinger;
+@property (weak, nonatomic) IBOutlet UILabel *LabelContent;
+@property (weak, nonatomic) IBOutlet UIButton *likeBtn;
+@property (weak, nonatomic) IBOutlet UIImageView *ImageView;
+
+@end
 
 @implementation PKHomeCellMusic
 

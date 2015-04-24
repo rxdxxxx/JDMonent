@@ -12,6 +12,11 @@
 		BC07A36B1AE8C34900A26B66 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC07A36A1AE8C34900A26B66 /* Images.xcassets */; };
 		BC07A36E1AE8C34900A26B66 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC07A36C1AE8C34900A26B66 /* LaunchScreen.xib */; };
 		BC07A37A1AE8C34A00A26B66 /* _1___Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = BC07A3791AE8C34A00A26B66 /* _1___Tests.m */; };
+		BC2FCF891AE9E30A0014B413 /* PKHomeModelSound.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2FCF881AE9E30A0014B413 /* PKHomeModelSound.m */; };
+		BC2FCF8C1AE9E42F0014B413 /* PKMainModelUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2FCF8B1AE9E42F0014B413 /* PKMainModelUserInfo.m */; };
+		BC2FCF951AE9E5150014B413 /* PKHomeModelRoot.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2FCF941AE9E5150014B413 /* PKHomeModelRoot.m */; };
+		BC2FCF981AE9F28B0014B413 /* PKHomeModelPlayInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2FCF971AE9F28B0014B413 /* PKHomeModelPlayInfo.m */; };
+		BC2FCF9E1AE9F3E20014B413 /* PKMainModelShareInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2FCF9D1AE9F3E20014B413 /* PKMainModelShareInfo.m */; };
 		BC6822A51AE8DF60000C57B3 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = BC68222E1AE8DF60000C57B3 /* AFHTTPRequestOperation.m */; };
 		BC6822A61AE8DF60000C57B3 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BC6822301AE8DF60000C57B3 /* AFHTTPRequestOperationManager.m */; };
 		BC6822A71AE8DF60000C57B3 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BC6822321AE8DF60000C57B3 /* AFHTTPSessionManager.m */; };
@@ -99,6 +104,7 @@
 		BC6823441AE92BB8000C57B3 /* PKHomeCellMor.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC6823421AE92BB8000C57B3 /* PKHomeCellMor.xib */; };
 		BC6823481AE92BDD000C57B3 /* PKHomeCellPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = BC6823461AE92BDD000C57B3 /* PKHomeCellPhoto.m */; };
 		BC6823491AE92BDD000C57B3 /* PKHomeCellPhoto.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC6823471AE92BDD000C57B3 /* PKHomeCellPhoto.xib */; };
+		BCC2911C1AEA0C2A009190D5 /* PKHomeModelImgUrl.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC2911B1AEA0C2A009190D5 /* PKHomeModelImgUrl.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,6 +128,16 @@
 		BC07A3731AE8C34A00A26B66 /* 01-片刻Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "01-片刻Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC07A3781AE8C34A00A26B66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BC07A3791AE8C34A00A26B66 /* _1___Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "_1___Tests.m"; sourceTree = "<group>"; };
+		BC2FCF871AE9E30A0014B413 /* PKHomeModelSound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKHomeModelSound.h; sourceTree = "<group>"; };
+		BC2FCF881AE9E30A0014B413 /* PKHomeModelSound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKHomeModelSound.m; sourceTree = "<group>"; };
+		BC2FCF8A1AE9E42F0014B413 /* PKMainModelUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKMainModelUserInfo.h; sourceTree = "<group>"; };
+		BC2FCF8B1AE9E42F0014B413 /* PKMainModelUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKMainModelUserInfo.m; sourceTree = "<group>"; };
+		BC2FCF931AE9E5150014B413 /* PKHomeModelRoot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKHomeModelRoot.h; sourceTree = "<group>"; };
+		BC2FCF941AE9E5150014B413 /* PKHomeModelRoot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKHomeModelRoot.m; sourceTree = "<group>"; };
+		BC2FCF961AE9F28B0014B413 /* PKHomeModelPlayInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKHomeModelPlayInfo.h; sourceTree = "<group>"; };
+		BC2FCF971AE9F28B0014B413 /* PKHomeModelPlayInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKHomeModelPlayInfo.m; sourceTree = "<group>"; };
+		BC2FCF9C1AE9F3E20014B413 /* PKMainModelShareInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKMainModelShareInfo.h; sourceTree = "<group>"; };
+		BC2FCF9D1AE9F3E20014B413 /* PKMainModelShareInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKMainModelShareInfo.m; sourceTree = "<group>"; };
 		BC68222D1AE8DF60000C57B3 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		BC68222E1AE8DF60000C57B3 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
 		BC68222F1AE8DF60000C57B3 /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
@@ -290,6 +306,8 @@
 		BC6823451AE92BDD000C57B3 /* PKHomeCellPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKHomeCellPhoto.h; sourceTree = "<group>"; };
 		BC6823461AE92BDD000C57B3 /* PKHomeCellPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKHomeCellPhoto.m; sourceTree = "<group>"; };
 		BC6823471AE92BDD000C57B3 /* PKHomeCellPhoto.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PKHomeCellPhoto.xib; sourceTree = "<group>"; };
+		BCC2911A1AEA0C29009190D5 /* PKHomeModelImgUrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKHomeModelImgUrl.h; sourceTree = "<group>"; };
+		BCC2911B1AEA0C2A009190D5 /* PKHomeModelImgUrl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKHomeModelImgUrl.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -402,6 +420,10 @@
 		BC68220F1AE8DD2F000C57B3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BC2FCF8A1AE9E42F0014B413 /* PKMainModelUserInfo.h */,
+				BC2FCF8B1AE9E42F0014B413 /* PKMainModelUserInfo.m */,
+				BC2FCF9C1AE9F3E20014B413 /* PKMainModelShareInfo.h */,
+				BC2FCF9D1AE9F3E20014B413 /* PKMainModelShareInfo.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -435,6 +457,14 @@
 		BC6822131AE8DD2F000C57B3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BC2FCF871AE9E30A0014B413 /* PKHomeModelSound.h */,
+				BC2FCF881AE9E30A0014B413 /* PKHomeModelSound.m */,
+				BC2FCF931AE9E5150014B413 /* PKHomeModelRoot.h */,
+				BC2FCF941AE9E5150014B413 /* PKHomeModelRoot.m */,
+				BC2FCF961AE9F28B0014B413 /* PKHomeModelPlayInfo.h */,
+				BC2FCF971AE9F28B0014B413 /* PKHomeModelPlayInfo.m */,
+				BCC2911A1AEA0C29009190D5 /* PKHomeModelImgUrl.h */,
+				BCC2911B1AEA0C2A009190D5 /* PKHomeModelImgUrl.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -989,9 +1019,11 @@
 				BC6822C71AE8DF60000C57B3 /* MJRefreshGifHeader.m in Sources */,
 				BC6822B21AE8DF60000C57B3 /* MJIvar.m in Sources */,
 				BC6822C51AE8DF60000C57B3 /* MJRefreshFooter.m in Sources */,
+				BC2FCF9E1AE9F3E20014B413 /* PKMainModelShareInfo.m in Sources */,
 				BC6822C61AE8DF60000C57B3 /* MJRefreshGifFooter.m in Sources */,
 				BC6822CF1AE8DF60000C57B3 /* NSData+ImageContentType.m in Sources */,
 				BC6822AE1AE8DF60000C57B3 /* MBProgressHUD+MJ.m in Sources */,
+				BCC2911C1AEA0C2A009190D5 /* PKHomeModelImgUrl.m in Sources */,
 				BC6822D41AE8DF60000C57B3 /* SDWebImageDownloaderOperation.m in Sources */,
 				BC6822C31AE8DF60000C57B3 /* MJRefreshComponent.m in Sources */,
 				BC6822D21AE8DF60000C57B3 /* SDWebImageDecoder.m in Sources */,
@@ -1001,6 +1033,7 @@
 				BC6822CC1AE8DF60000C57B3 /* UIScrollView+MJRefresh.m in Sources */,
 				BC6823021AE8E555000C57B3 /* PKLeftMenuController.m in Sources */,
 				BC6822CB1AE8DF60000C57B3 /* UIScrollView+MJExtension.m in Sources */,
+				BC2FCF951AE9E5150014B413 /* PKHomeModelRoot.m in Sources */,
 				BC6822CE1AE8DF60000C57B3 /* MKAnnotationView+WebCache.m in Sources */,
 				BC6822E11AE8DFA1000C57B3 /* IWHttpTool.m in Sources */,
 				BC6822C01AE8DF60000C57B3 /* MJPhotoView.m in Sources */,
@@ -1020,6 +1053,7 @@
 				BC6822B31AE8DF60000C57B3 /* MJMember.m in Sources */,
 				BC68231A1AE92921000C57B3 /* PKHomeCellSound.m in Sources */,
 				BC6823101AE8FB7A000C57B3 /* PKCommunityViewController.m in Sources */,
+				BC2FCF981AE9F28B0014B413 /* PKHomeModelPlayInfo.m in Sources */,
 				BC6822B41AE8DF60000C57B3 /* MJMethod.m in Sources */,
 				BC6822A91AE8DF60000C57B3 /* AFSecurityPolicy.m in Sources */,
 				BC6823071AE8EA83000C57B3 /* PKHomeViewController.m in Sources */,
@@ -1040,12 +1074,14 @@
 				BC6822F71AE8E473000C57B3 /* SlideNavigationContorllerAnimatorScale.m in Sources */,
 				BC6822D51AE8DF60000C57B3 /* SDWebImageManager.m in Sources */,
 				BC6822BF1AE8DF60000C57B3 /* MJPhotoToolbar.m in Sources */,
+				BC2FCF8C1AE9E42F0014B413 /* PKMainModelUserInfo.m in Sources */,
 				BC6822BC1AE8DF60000C57B3 /* MJPhotoBrowser.m in Sources */,
 				BC07A3631AE8C34900A26B66 /* AppDelegate.m in Sources */,
 				BC6822D11AE8DF60000C57B3 /* SDWebImageCompat.m in Sources */,
 				BC6822CD1AE8DF60000C57B3 /* UIView+MJExtension.m in Sources */,
 				BC6823161AE8FBD8000C57B3 /* PKSettingViewController.m in Sources */,
 				BC6822A71AE8DF60000C57B3 /* AFHTTPSessionManager.m in Sources */,
+				BC2FCF891AE9E30A0014B413 /* PKHomeModelSound.m in Sources */,
 				BC6822C11AE8DF60000C57B3 /* SDWebImageManager+MJ.m in Sources */,
 				BC6822B01AE8DF60000C57B3 /* MBProgressHUD.m in Sources */,
 				BC6822A61AE8DF60000C57B3 /* AFHTTPRequestOperationManager.m in Sources */,

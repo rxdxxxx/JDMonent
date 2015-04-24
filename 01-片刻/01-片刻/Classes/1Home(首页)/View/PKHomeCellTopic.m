@@ -7,7 +7,17 @@
 //
 
 #import "PKHomeCellTopic.h"
+@interface PKHomeCellTopic()
+@property (weak, nonatomic) IBOutlet UILabel *LabelTopType;
+@property (weak, nonatomic) IBOutlet UILabel *LabelTitle;
+@property (weak, nonatomic) IBOutlet UIImageView *imageViewCoverImge;
+@property (weak, nonatomic) IBOutlet UILabel *LabelContent;
+@property (weak, nonatomic) IBOutlet UIButton *likeBtn;
 
+
+
+
+@end
 @implementation PKHomeCellTopic
 
 - (void)awakeFromNib {

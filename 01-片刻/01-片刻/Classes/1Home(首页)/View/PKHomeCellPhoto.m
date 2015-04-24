@@ -7,6 +7,18 @@
 //
 
 #import "PKHomeCellPhoto.h"
+@interface PKHomeCellPhoto()
+@property (weak, nonatomic) IBOutlet UILabel *LabelTopType;
+@property (weak, nonatomic) IBOutlet UIImageView *imageViewTop;
+@property (weak, nonatomic) IBOutlet UIImageView *imageViewLeft;
+
+@property (weak, nonatomic) IBOutlet UIImageView *imageViewRight;
+@property (weak, nonatomic) IBOutlet UILabel *LabelTitle;
+@property (weak, nonatomic) IBOutlet UILabel *labelContent;
+@property (weak, nonatomic) IBOutlet UIButton *likeBtn;
+
+
+@end
 
 @implementation PKHomeCellPhoto
 

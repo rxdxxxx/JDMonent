@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class PKHomeModelRoot;
+
 @interface PKHomeCellSound : UITableViewCell
+
+
 
 @end

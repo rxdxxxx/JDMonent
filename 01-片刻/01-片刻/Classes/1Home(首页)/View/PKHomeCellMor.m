@@ -7,6 +7,16 @@
 //
 
 #import "PKHomeCellMor.h"
+@interface PKHomeCellMor()
+@property (weak, nonatomic) IBOutlet UILabel *LabelTopType;
+@property (weak, nonatomic) IBOutlet UIImageView *ImageViewCoverImage;
+
+@property (weak, nonatomic) IBOutlet UILabel *LabelTitle;
+@property (weak, nonatomic) IBOutlet UILabel *LabelContent;
+@property (weak, nonatomic) IBOutlet UIButton *likeBtn;
+
+
+@end
 
 @implementation PKHomeCellMor
 

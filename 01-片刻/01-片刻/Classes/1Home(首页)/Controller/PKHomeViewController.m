@@ -9,9 +9,13 @@
 #import "PKHomeViewController.h"
 #import "SlideNavigationController.h"
 #import "AFNetworking.h"
+#import "MJExtension.h"
+#import "PKHomeModelRoot.h"
 
 
 @interface PKHomeViewController ()
+
+@property (nonatomic, strong)NSMutableArray * statuses;
 
 @end
 
@@ -55,7 +59,7 @@ static PKHomeViewController *HomesingletonInstance = nil;
     
     NSMutableDictionary * params = [NSMutableDictionary dictionary];
     params[@"start"] = @0;
-    params[@"limit"] = @10;
+    params[@"limit"] = @20;
     params[@"deviceid"] = @"8DBCAF13-689C-49C1-ADFB-0EC866F4BC2B";
     params[@"client"] = @"1";
     params[@"auth"] = @"";
@@ -69,7 +73,8 @@ static PKHomeViewController *HomesingletonInstance = nil;
     [mgr POST:url parameters:params
      success:^(AFHTTPRequestOperation *operation, id responseObject) {
          
-         NSLog(@"%@",responseObject);
+         self.statuses = (NSMutableArray *)[PKHomeModelRoot objectArrayWithKeyValuesArray:responseObject[@"data"][@"list"]];
+         NSLog(@"");
          
      } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
          

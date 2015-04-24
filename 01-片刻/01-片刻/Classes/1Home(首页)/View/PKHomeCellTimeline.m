@@ -8,6 +8,16 @@
 
 #import "PKHomeCellTimeline.h"
 
+@interface PKHomeCellTimeline()
+@property (weak, nonatomic) IBOutlet UILabel *LabelTopType;
+@property (weak, nonatomic) IBOutlet UIImageView *ImageViewCoverImage;
+@property (weak, nonatomic) IBOutlet UILabel *LabelContent;
+@property (weak, nonatomic) IBOutlet UIButton *likeBtn;
+
+
+
+@end
+
 @implementation PKHomeCellTimeline
 
 - (void)awakeFromNib {
