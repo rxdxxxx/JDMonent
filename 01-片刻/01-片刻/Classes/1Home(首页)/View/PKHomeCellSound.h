@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PKHomeCellRoot.h"
 
-@class PKHomeModelRoot;
 
-@interface PKHomeCellSound : UITableViewCell
+@interface PKHomeCellSound : PKHomeCellRoot
+
 
 
 

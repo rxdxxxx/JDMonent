@@ -12,6 +12,15 @@
 #import "MJExtension.h"
 #import "PKHomeModelRoot.h"
 
+/*不同类型的cell*/
+#import "PKHomeCellSound.h"
+#import "PKHomeCellMusic.h"
+#import "PKHomeCellTimeline.h"
+#import "PKHomeCellTopic.h"
+#import "PKHomeCellMor.h"
+#import "PKHomeCellPhoto.h"
+
+
 
 @interface PKHomeViewController ()
 
@@ -38,12 +47,11 @@ static PKHomeViewController *HomesingletonInstance = nil;
 
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     
     // 1,发起网络请求
     [self setupRequest];
-    
-    
     
 }
 
@@ -74,8 +82,8 @@ static PKHomeViewController *HomesingletonInstance = nil;
      success:^(AFHTTPRequestOperation *operation, id responseObject) {
          
          self.statuses = (NSMutableArray *)[PKHomeModelRoot objectArrayWithKeyValuesArray:responseObject[@"data"][@"list"]];
-         NSLog(@"");
          
+         [self.tableView reloadData];
      } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
          
          NSLog(@"%@",error);
@@ -99,28 +107,110 @@ static PKHomeViewController *HomesingletonInstance = nil;
 
 
 #pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+
+    //一共有多少行.
+    return self.statuses.count;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
     
-    // Configure the cell...
+    PKHomeModelRoot * model = self.statuses[indexPath.row];
+    PKHomeCellRoot * cell = nil;
+    
+    // 1,选择不同的cell
+    switch (model.type.intValue) {
+        case 2:
+        {
+            cell = [PKHomeCellSound cellWithTableView:tableView];
+
+        }
+            break;
+        case 3:
+        {
+            cell = [PKHomeCellTopic cellWithTableView:tableView];
+        }
+            break;
+        case 4:
+        {
+            cell = [PKHomeCellPhoto cellWithTableView:tableView];
+   
+        }
+            break;
+        case 5:
+        {
+            cell = [PKHomeCellMusic cellWithTableView:tableView];
+
+        }
+            break;
+        case 24:
+        {
+            cell = [PKHomeCellTimeline cellWithTableView:tableView];
+        }
+            break;
+            
+        default:
+        {
+            cell = [PKHomeCellMor cellWithTableView:tableView];
+        }
+            break;
+    }
+    
+    // 2.传递frame模型
+    cell.model = model;
     
     return cell;
+    
 }
-*/
+
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    PKHomeModelRoot * model = self.statuses[indexPath.row];
+
+    
+    // 1,选择不同的cell
+    switch (model.type.intValue) {
+        case 2:
+        {
+            return 290;
+            
+        }
+            break;
+        case 3:
+        {
+            return 320;
+
+        }
+            break;
+        case 4:
+        {
+            return 440;
+
+        }
+            break;
+        case 5:
+        {
+            return 225;
+
+        }
+            break;
+        case 24:
+        {
+            return 450;
+        }
+            break;
+            
+        default:
+        {
+            return 350;
+        }
+            
+        break;
+    }
+}
+
 
 /*
 // Override to support conditional editing of the table view.

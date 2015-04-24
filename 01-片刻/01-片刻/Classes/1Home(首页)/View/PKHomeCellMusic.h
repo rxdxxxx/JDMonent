@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PKHomeCellMusic : UITableViewCell
+#import "PKHomeCellRoot.h"
+
+@interface PKHomeCellMusic : PKHomeCellRoot
+
 
 @end

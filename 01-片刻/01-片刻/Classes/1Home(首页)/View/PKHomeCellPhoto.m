@@ -7,6 +7,9 @@
 //
 
 #import "PKHomeCellPhoto.h"
+#import "PKHomeModelRoot.h"
+
+
 @interface PKHomeCellPhoto()
 @property (weak, nonatomic) IBOutlet UILabel *LabelTopType;
 @property (weak, nonatomic) IBOutlet UIImageView *imageViewTop;
@@ -21,6 +24,42 @@
 @end
 
 @implementation PKHomeCellPhoto
+#pragma mark - 初始化
++ (instancetype)cellWithTableView:(UITableView *)tableView
+{
+    static NSString *ID = @"PKHomeCellPhoto";
+    PKHomeCellPhoto *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    if (cell == nil) {
+        cell = [[[NSBundle mainBundle]loadNibNamed:@"PKHomeCellPhoto" owner:nil options:nil] lastObject];
+    }
+    return cell;
+}
+
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+{
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    if (self) {
+        //        // 1.添加顶部的view
+        //        [self setupTopView];
+        //
+        //        // 2.添加微博的工具条
+        //        [self setupStatusToolbar];
+    }
+    return self;
+}
+
+-(void)setModel:(PKHomeModelRoot *)model
+{
+    [super setModel:model];
+    
+    // 1,设置cell的标题
+    self.LabelTopType.text = [NSString stringWithFormat:@"%@ · %@",model.name,model.enname];
+    
+    
+    [self.imageViewTop sd_setImageWithURL:[NSURL URLWithString:model.coverimg] placeholderImage:[UIImage imageNamed:@"pig_3"]];
+
+    
+}
 
 - (void)awakeFromNib {
     // Initialization code

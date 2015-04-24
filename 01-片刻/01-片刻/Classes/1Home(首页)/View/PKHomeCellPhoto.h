@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PKHomeCellRoot.h"
 
-@interface PKHomeCellPhoto : UITableViewCell
+@interface PKHomeCellPhoto : PKHomeCellRoot
+
 
 @end
