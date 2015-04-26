@@ -15,10 +15,15 @@
 		BC07A36E1AE8C34900A26B66 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC07A36C1AE8C34900A26B66 /* LaunchScreen.xib */; };
 		BC07A37A1AE8C34A00A26B66 /* _1___Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = BC07A3791AE8C34A00A26B66 /* _1___Tests.m */; };
 		BC0BE8D71AEA70D9003D7491 /* PKHomeDetialController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0BE8D61AEA70D9003D7491 /* PKHomeDetialController.m */; };
+		BC1AA2411AED0CC10090D934 /* PKFMDetialController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1AA2401AED0CC10090D934 /* PKFMDetialController.m */; };
+		BC1AA2441AED0FE00090D934 /* PKFMModelList.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1AA2431AED0FE00090D934 /* PKFMModelList.m */; };
+		BC1AA2471AED0FF30090D934 /* PKFMModelRadioInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1AA2461AED0FF30090D934 /* PKFMModelRadioInfo.m */; };
 		BC2FCF8C1AE9E42F0014B413 /* PKMainModelUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2FCF8B1AE9E42F0014B413 /* PKMainModelUserInfo.m */; };
 		BC2FCF951AE9E5150014B413 /* PKHomeModelRoot.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2FCF941AE9E5150014B413 /* PKHomeModelRoot.m */; };
 		BC2FCF981AE9F28B0014B413 /* PKHomeModelPlayInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2FCF971AE9F28B0014B413 /* PKHomeModelPlayInfo.m */; };
 		BC2FCF9E1AE9F3E20014B413 /* PKMainModelShareInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2FCF9D1AE9F3E20014B413 /* PKMainModelShareInfo.m */; };
+		BC50B9751AECCAE90037CE4B /* PKFMCellList.m in Sources */ = {isa = PBXBuildFile; fileRef = BC50B9731AECCAE90037CE4B /* PKFMCellList.m */; };
+		BC50B9761AECCAE90037CE4B /* PKFMCellList.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC50B9741AECCAE90037CE4B /* PKFMCellList.xib */; };
 		BC6822A51AE8DF60000C57B3 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = BC68222E1AE8DF60000C57B3 /* AFHTTPRequestOperation.m */; };
 		BC6822A61AE8DF60000C57B3 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BC6822301AE8DF60000C57B3 /* AFHTTPRequestOperationManager.m */; };
 		BC6822A71AE8DF60000C57B3 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BC6822321AE8DF60000C57B3 /* AFHTTPSessionManager.m */; };
@@ -138,6 +143,12 @@
 		BC07A3791AE8C34A00A26B66 /* _1___Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "_1___Tests.m"; sourceTree = "<group>"; };
 		BC0BE8D51AEA70D9003D7491 /* PKHomeDetialController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKHomeDetialController.h; sourceTree = "<group>"; };
 		BC0BE8D61AEA70D9003D7491 /* PKHomeDetialController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKHomeDetialController.m; sourceTree = "<group>"; };
+		BC1AA23F1AED0CC10090D934 /* PKFMDetialController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKFMDetialController.h; sourceTree = "<group>"; };
+		BC1AA2401AED0CC10090D934 /* PKFMDetialController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKFMDetialController.m; sourceTree = "<group>"; };
+		BC1AA2421AED0FE00090D934 /* PKFMModelList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKFMModelList.h; sourceTree = "<group>"; };
+		BC1AA2431AED0FE00090D934 /* PKFMModelList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKFMModelList.m; sourceTree = "<group>"; };
+		BC1AA2451AED0FF30090D934 /* PKFMModelRadioInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKFMModelRadioInfo.h; sourceTree = "<group>"; };
+		BC1AA2461AED0FF30090D934 /* PKFMModelRadioInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKFMModelRadioInfo.m; sourceTree = "<group>"; };
 		BC2FCF8A1AE9E42F0014B413 /* PKMainModelUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKMainModelUserInfo.h; sourceTree = "<group>"; };
 		BC2FCF8B1AE9E42F0014B413 /* PKMainModelUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKMainModelUserInfo.m; sourceTree = "<group>"; };
 		BC2FCF931AE9E5150014B413 /* PKHomeModelRoot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKHomeModelRoot.h; sourceTree = "<group>"; };
@@ -146,6 +157,9 @@
 		BC2FCF971AE9F28B0014B413 /* PKHomeModelPlayInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKHomeModelPlayInfo.m; sourceTree = "<group>"; };
 		BC2FCF9C1AE9F3E20014B413 /* PKMainModelShareInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKMainModelShareInfo.h; sourceTree = "<group>"; };
 		BC2FCF9D1AE9F3E20014B413 /* PKMainModelShareInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKMainModelShareInfo.m; sourceTree = "<group>"; };
+		BC50B9721AECCAE90037CE4B /* PKFMCellList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKFMCellList.h; sourceTree = "<group>"; };
+		BC50B9731AECCAE90037CE4B /* PKFMCellList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKFMCellList.m; sourceTree = "<group>"; };
+		BC50B9741AECCAE90037CE4B /* PKFMCellList.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PKFMCellList.xib; sourceTree = "<group>"; };
 		BC68222D1AE8DF60000C57B3 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		BC68222E1AE8DF60000C57B3 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
 		BC68222F1AE8DF60000C57B3 /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
@@ -525,6 +539,8 @@
 			children = (
 				BC6823081AE8FA84000C57B3 /* PKFMViewController.h */,
 				BC6823091AE8FA84000C57B3 /* PKFMViewController.m */,
+				BC1AA23F1AED0CC10090D934 /* PKFMDetialController.h */,
+				BC1AA2401AED0CC10090D934 /* PKFMDetialController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -534,6 +550,10 @@
 			children = (
 				BC01DE471AEBCFE6003875B5 /* PKFMModelDetial.h */,
 				BC01DE481AEBCFE6003875B5 /* PKFMModelDetial.m */,
+				BC1AA2421AED0FE00090D934 /* PKFMModelList.h */,
+				BC1AA2431AED0FE00090D934 /* PKFMModelList.m */,
+				BC1AA2451AED0FF30090D934 /* PKFMModelRadioInfo.h */,
+				BC1AA2461AED0FF30090D934 /* PKFMModelRadioInfo.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -541,6 +561,9 @@
 		BC6822181AE8DD2F000C57B3 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BC50B9721AECCAE90037CE4B /* PKFMCellList.h */,
+				BC50B9731AECCAE90037CE4B /* PKFMCellList.m */,
+				BC50B9741AECCAE90037CE4B /* PKFMCellList.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1008,6 +1031,7 @@
 				BC68233F1AE92B8C000C57B3 /* PKHomeCellTopic.xib in Resources */,
 				BC6823321AE92B32000C57B3 /* PKHomeCellTimeline.xib in Resources */,
 				BC6822BB1AE8DF60000C57B3 /* MJPhotoBrowser.bundle in Resources */,
+				BC50B9761AECCAE90037CE4B /* PKFMCellList.xib in Resources */,
 				BC6822C21AE8DF60000C57B3 /* MJRefresh.bundle in Resources */,
 				BC6823251AE92ACC000C57B3 /* PKHomeCellMusic.xib in Resources */,
 				BC6822AF1AE8DF60000C57B3 /* MBProgressHUD.bundle in Resources */,
@@ -1043,6 +1067,7 @@
 				BC6822C61AE8DF60000C57B3 /* MJRefreshGifFooter.m in Sources */,
 				BC6822CF1AE8DF60000C57B3 /* NSData+ImageContentType.m in Sources */,
 				BC6822AE1AE8DF60000C57B3 /* MBProgressHUD+MJ.m in Sources */,
+				BC1AA2471AED0FF30090D934 /* PKFMModelRadioInfo.m in Sources */,
 				BCC2911F1AEA1B2E009190D5 /* PKHomeCellRoot.m in Sources */,
 				BCC2911C1AEA0C2A009190D5 /* PKHomeModelImgUrl.m in Sources */,
 				BC01DE431AEBC3C5003875B5 /* PKHomeMorController.m in Sources */,
@@ -1070,6 +1095,7 @@
 				BC6822DC1AE8DF60000C57B3 /* UIImageView+WebCache.m in Sources */,
 				BC6822F81AE8E473000C57B3 /* SlideNavigationContorllerAnimatorScaleAndFade.m in Sources */,
 				BC6822FF1AE8E473000C57B3 /* SlideNavigationController.m in Sources */,
+				BC50B9751AECCAE90037CE4B /* PKFMCellList.m in Sources */,
 				BC6822C81AE8DF60000C57B3 /* MJRefreshHeader.m in Sources */,
 				BC6822B71AE8DF60000C57B3 /* NSObject+MJCoding.m in Sources */,
 				BC6822B31AE8DF60000C57B3 /* MJMember.m in Sources */,
@@ -1083,6 +1109,7 @@
 				BC6822B91AE8DF60000C57B3 /* NSObject+MJMember.m in Sources */,
 				BC6822B61AE8DF60000C57B3 /* MJTypeEncoding.m in Sources */,
 				BC6822A51AE8DF60000C57B3 /* AFHTTPRequestOperation.m in Sources */,
+				BC1AA2411AED0CC10090D934 /* PKFMDetialController.m in Sources */,
 				BC68230D1AE8FB43000C57B3 /* PKReadViewController.m in Sources */,
 				BC6822B81AE8DF60000C57B3 /* NSObject+MJKeyValue.m in Sources */,
 				BC6822FA1AE8E473000C57B3 /* SlideNavigationContorllerAnimatorSlideAndFade.m in Sources */,
@@ -1090,6 +1117,7 @@
 				BC6822AC1AE8DF60000C57B3 /* AFURLResponseSerialization.m in Sources */,
 				BC6822BE1AE8DF60000C57B3 /* MJPhotoProgressView.m in Sources */,
 				BC6822BA1AE8DF60000C57B3 /* MJPhoto.m in Sources */,
+				BC1AA2441AED0FE00090D934 /* PKFMModelList.m in Sources */,
 				BC6822C41AE8DF60000C57B3 /* MJRefreshConst.m in Sources */,
 				BC6823431AE92BB8000C57B3 /* PKHomeCellMor.m in Sources */,
 				BC6822D81AE8DF60000C57B3 /* UIImage+GIF.m in Sources */,

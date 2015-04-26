@@ -10,6 +10,9 @@
 #import "IWHttpTool.h"
 #import "MJExtension.h"
 #import "PKFMModelDetial.h"
+#import "PKFMCellList.h"
+#import "PKFMDetialController.h"
+#import "SlideNavigationController.h"
 
 @interface PKFMViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -67,7 +70,7 @@ static PKFMViewController *FMsingletonInstance = nil;
     if (_tableView == nil) {
         UITableView * tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, PKOnePageWidth, PKOnePageHeight) style:UITableViewStyleGrouped];
         tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
+        tableView.contentInset = UIEdgeInsetsMake(44, 0, 0, 0);
         tableView.delegate = self;
         tableView.dataSource = self;
         [self.view addSubview:tableView];
@@ -133,74 +136,25 @@ static PKFMViewController *FMsingletonInstance = nil;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //1,创建 cell
-    static NSString * ID = @"cell";
-    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
-    }
     
-    //2,设置 cell 的数据
-    PKFMModelDetial * model = ( PKFMModelDetial *)self.statuses[indexPath.section][indexPath.row];
-    cell.textLabel.text = model.title;
-    
+    PKFMCellList * cell = [PKFMCellList cellWithTableView:tableView];
+    cell.model = self.statuses[indexPath.section][indexPath.row];
     
     return cell;
 }
 
-
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 150;
 }
-*/
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    PKFMDetialController * detialController = [[PKFMDetialController alloc]init];
+    PKFMModelDetial * model = self.statuses[indexPath.section][indexPath.row];
+    detialController.title = model.title;
+    detialController.model = model;
+    [[SlideNavigationController sharedInstance] pushViewController:detialController animated:YES];
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
