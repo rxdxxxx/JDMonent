@@ -22,6 +22,7 @@
 
 /*详情控制器*/
 #import "PKHomeDetialController.h"
+#import "PKHomeMorController.h"
 
 /*工具类*/
 #import "IWHttpTool.h"
@@ -248,6 +249,7 @@ static PKHomeViewController *HomesingletonInstance = nil;
         case 2://sound
         {
             PKHomeDetialController * dc = [[PKHomeDetialController alloc]init];
+            dc.model = model;
             [[SlideNavigationController sharedInstance] pushViewController:dc animated:YES];
             
         }
@@ -255,14 +257,19 @@ static PKHomeViewController *HomesingletonInstance = nil;
         case 3://Topic
         {
             
-            
+            PKHomeMorController * mc = [[PKHomeMorController alloc]init];
+            mc.model = model;
+            [[SlideNavigationController sharedInstance] pushViewController:mc animated:YES];
+
         }
             break;
         case 4://photo
         case 17://illustration
             
         {
-            
+            PKHomeMorController * mc = [[PKHomeMorController alloc]init];
+            mc.model = model;
+            [[SlideNavigationController sharedInstance] pushViewController:mc animated:YES];
             
         }
             break;
@@ -274,13 +281,19 @@ static PKHomeViewController *HomesingletonInstance = nil;
             break;
         case 24://Timeline
         {
-          
+            PKHomeMorController * mc = [[PKHomeMorController alloc]init];
+            mc.model = model;
+            [[SlideNavigationController sharedInstance] pushViewController:mc animated:YES];
+
         }
             break;
             
         default:// Mor 等
         {
-            
+            PKHomeMorController * mc = [[PKHomeMorController alloc]init];
+            mc.model = model;
+            [[SlideNavigationController sharedInstance] pushViewController:mc animated:YES];
+
         }
             
             break;

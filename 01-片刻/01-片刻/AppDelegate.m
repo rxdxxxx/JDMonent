@@ -10,6 +10,7 @@
 #import "SlideNavigationController.h"
 #import "PKLeftMenuController.h"
 #import "PKHomeViewController.h"
+#import "PKHomeDetialController.h"
 
 
 @interface AppDelegate ()
@@ -24,6 +25,7 @@
     
     
     PKHomeViewController * homeVC = [[PKHomeViewController alloc] init];
+//    PKHomeDetialController * homeVC = [[PKHomeDetialController alloc] init];
     homeVC.title = @"首页";
     SlideNavigationController * slideNav = [[SlideNavigationController alloc]initWithRootViewController:homeVC];
 

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC01DE431AEBC3C5003875B5 /* PKHomeMorController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC01DE421AEBC3C4003875B5 /* PKHomeMorController.m */; };
+		BC01DE491AEBCFE6003875B5 /* PKFMModelDetial.m in Sources */ = {isa = PBXBuildFile; fileRef = BC01DE481AEBCFE6003875B5 /* PKFMModelDetial.m */; };
 		BC07A3601AE8C34900A26B66 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BC07A35F1AE8C34900A26B66 /* main.m */; };
 		BC07A3631AE8C34900A26B66 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BC07A3621AE8C34900A26B66 /* AppDelegate.m */; };
 		BC07A36B1AE8C34900A26B66 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC07A36A1AE8C34900A26B66 /* Images.xcassets */; };
@@ -120,6 +122,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BC01DE411AEBC3C4003875B5 /* PKHomeMorController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKHomeMorController.h; sourceTree = "<group>"; };
+		BC01DE421AEBC3C4003875B5 /* PKHomeMorController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKHomeMorController.m; sourceTree = "<group>"; };
+		BC01DE471AEBCFE6003875B5 /* PKFMModelDetial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKFMModelDetial.h; sourceTree = "<group>"; };
+		BC01DE481AEBCFE6003875B5 /* PKFMModelDetial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKFMModelDetial.m; sourceTree = "<group>"; };
 		BC07A35A1AE8C34900A26B66 /* 01-片刻.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "01-片刻.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC07A35E1AE8C34900A26B66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BC07A35F1AE8C34900A26B66 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -458,6 +464,8 @@
 				BC6823061AE8EA83000C57B3 /* PKHomeViewController.m */,
 				BC0BE8D51AEA70D9003D7491 /* PKHomeDetialController.h */,
 				BC0BE8D61AEA70D9003D7491 /* PKHomeDetialController.m */,
+				BC01DE411AEBC3C4003875B5 /* PKHomeMorController.h */,
+				BC01DE421AEBC3C4003875B5 /* PKHomeMorController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -524,6 +532,8 @@
 		BC6822171AE8DD2F000C57B3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BC01DE471AEBCFE6003875B5 /* PKFMModelDetial.h */,
+				BC01DE481AEBCFE6003875B5 /* PKFMModelDetial.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1023,6 +1033,7 @@
 			files = (
 				BC6822F61AE8E473000C57B3 /* SlideNavigationContorllerAnimatorFade.m in Sources */,
 				BC6822D91AE8DF60000C57B3 /* UIImage+MultiFormat.m in Sources */,
+				BC01DE491AEBCFE6003875B5 /* PKFMModelDetial.m in Sources */,
 				BC6822D31AE8DF60000C57B3 /* SDWebImageDownloader.m in Sources */,
 				BC6822DA1AE8DF60000C57B3 /* UIImage+WebP.m in Sources */,
 				BC6822C71AE8DF60000C57B3 /* MJRefreshGifHeader.m in Sources */,
@@ -1034,6 +1045,7 @@
 				BC6822AE1AE8DF60000C57B3 /* MBProgressHUD+MJ.m in Sources */,
 				BCC2911F1AEA1B2E009190D5 /* PKHomeCellRoot.m in Sources */,
 				BCC2911C1AEA0C2A009190D5 /* PKHomeModelImgUrl.m in Sources */,
+				BC01DE431AEBC3C5003875B5 /* PKHomeMorController.m in Sources */,
 				BC6822D41AE8DF60000C57B3 /* SDWebImageDownloaderOperation.m in Sources */,
 				BC6822C31AE8DF60000C57B3 /* MJRefreshComponent.m in Sources */,
 				BC6822D21AE8DF60000C57B3 /* SDWebImageDecoder.m in Sources */,

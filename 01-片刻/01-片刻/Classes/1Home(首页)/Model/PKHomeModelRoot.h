@@ -73,7 +73,7 @@
 /**
  *  音频播放的具体信息
  */
-@property (nonatomic, strong)PKHomeModelPlayInfo * playinfo;
+@property (nonatomic, strong)PKHomeModelPlayInfo * playInfo;
 /**
  *  音频的播放列表, 其中每一个模型是: PKHomeModelPlayInfo
  */

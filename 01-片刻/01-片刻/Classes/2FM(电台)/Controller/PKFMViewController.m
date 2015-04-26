@@ -7,8 +7,18 @@
 //
 
 #import "PKFMViewController.h"
+#import "IWHttpTool.h"
+#import "MJExtension.h"
+#import "PKFMModelDetial.h"
 
-@interface PKFMViewController ()
+@interface PKFMViewController ()<UITableViewDelegate,UITableViewDataSource>
+
+@property (nonatomic, strong)NSMutableArray * hotlist;
+@property (nonatomic, strong)NSMutableArray * alllist;
+@property (nonatomic, strong)NSMutableArray * statuses;
+@property (nonatomic, weak)UITableView * tableView;
+
+
 
 @end
 
@@ -32,39 +42,112 @@ static PKFMViewController *FMsingletonInstance = nil;
     return FMsingletonInstance;
 }
 
+- (void)dealloc
+{
+    self.hotlist = nil;
+    self.alllist = nil;
+    self.statuses = nil;
+    self.tableView = nil;
+}
+
 - (BOOL)slideNavigationControllerShouldDisplayLeftMenu
 {
     return YES;
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+-(NSMutableArray *)statuses
+{
+    if (_statuses == nil) {
+        _statuses = [[NSMutableArray alloc]init];
+    }
+    return _statuses;
+}
+-(UITableView *)tableView
+{
+    if (_tableView == nil) {
+        UITableView * tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, PKOnePageWidth, PKOnePageHeight) style:UITableViewStyleGrouped];
+        tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
+        tableView.delegate = self;
+        tableView.dataSource = self;
+        [self.view addSubview:tableView];
+        _tableView = tableView;
+    }
+    return _tableView;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)viewDidLoad {
+    
+    [super viewDidLoad];
+    self.view.backgroundColor = [UIColor whiteColor];
+    
+    // 1,发起网络请求
+    [self setupRequest];
+    
+
+    
 }
+
+/**
+ *  发起网络请求
+ */
+-(void)setupRequest
+{
+    
+    
+    NSMutableDictionary * params = [NSMutableDictionary dictionary];
+    params[@"client"] = @"2";
+    
+    NSString * url = @"http://api2.pianke.me/ting/radio";
+    //发送请求
+    [IWHttpTool postWithURL:url params:params success:^(id json) {
+        
+        self.hotlist = (NSMutableArray *)[PKFMModelDetial objectArrayWithKeyValuesArray:json[@"data"][@"hotlist"]];
+        
+        self.alllist = (NSMutableArray *)[PKFMModelDetial objectArrayWithKeyValuesArray:json[@"data"][@"alllist"]];
+        
+        [self.statuses addObject:self.hotlist];
+        [self.statuses addObject:self.alllist];
+        
+        [self.tableView reloadData];
+        
+    } failure:^(NSError *error) {
+        NSLog(@"%@",error);
+        
+    }];
+    
+
+    
+}
+
+
 
 #pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return self.statuses.count;
+}
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [self.statuses[section] count];
+}
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //1,创建 cell
+    static NSString * ID = @"cell";
+    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
+    }
+    
+    //2,设置 cell 的数据
+    PKFMModelDetial * model = ( PKFMModelDetial *)self.statuses[indexPath.section][indexPath.row];
+    cell.textLabel.text = model.title;
+    
+    
+    return cell;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
-}
 
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

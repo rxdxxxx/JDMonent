@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PKFMViewController : UITableViewController
+@interface PKFMViewController : UIViewController
 
 + (PKFMViewController *)sharedInstance;
 

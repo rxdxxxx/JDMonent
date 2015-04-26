@@ -30,4 +30,8 @@
 // 5,常用的对象
 #define PKNotificationCenter [NSNotificationCenter defaultCenter]
 
+#define PKOnePageWidth ([UIScreen mainScreen].bounds.size.width)
+#define PKOnePageHeight ([UIScreen mainScreen].bounds.size.height)
+
+
 #endif
