@@ -11,8 +11,7 @@
 #import "UIImageView+WebCache.h"
 #import "PKMainModelUserInfo.h"
 
-/** 表格的边框宽度 */
-#define PKStatusTableBorder 5
+
 
 @interface PKFMCellList ()
 @property (weak, nonatomic) IBOutlet UIImageView *CellImageView;
@@ -29,6 +28,13 @@
     self.selectedBackgroundView = [[UIView alloc]init];
     self.backgroundColor = [UIColor clearColor];
     
+}
+
+-(void)layoutSubviews
+{
+    UIImageView * imV = [[UIImageView alloc]initWithFrame:self.bounds];
+    [imV setImage:[UIImage resizedImageWithName:@"timeline_card_bottom_background"]];
+    self.backgroundView = imV;
 }
 
 #pragma mark - 初始化
@@ -64,7 +70,7 @@
     
     // 1,设置cell的标题
     self.titleLabel.text = [NSString stringWithFormat:@" · %@",model.title];
-    
+    self.titleLabel.backgroundColor = [UIColor colorWithRed:0.03f green:0.22f blue:0.38f alpha:1.00f];
     
     // 2,设置主题图片
     [self.CellImageView sd_setImageWithURL:[NSURL URLWithString:model.coverimg] placeholderImage:[UIImage imageNamed:@"pig_3"]];
@@ -74,7 +80,8 @@
     // 3,设置作者名称
     PKMainModelUserInfo * userInfo = model.userinfo;
     self.unameLabel.text = [NSString stringWithFormat:@"by : %@",userInfo.uname];
-    
+    self.unameLabel.backgroundColor = [UIColor colorWithRed:0.03f green:0.22f blue:0.38f alpha:0.50f];
+
     
     
 }

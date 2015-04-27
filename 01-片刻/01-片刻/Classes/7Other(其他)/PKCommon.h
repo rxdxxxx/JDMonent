@@ -9,6 +9,10 @@
 #ifndef _1____PKCommon_h
 #define _1____PKCommon_h
 
+// 0,导入自建分类
+#import "UIImage+name.h"
+
+
 
 //1,判断是否为 iOS7 iOS8
 #define iOS7     ([[UIDevice currentDevice].systemVersion doubleValue] >= 7.0)
@@ -33,5 +37,7 @@
 #define PKOnePageWidth ([UIScreen mainScreen].bounds.size.width)
 #define PKOnePageHeight ([UIScreen mainScreen].bounds.size.height)
 
+/** 表格的边框宽度 */
+#define PKStatusTableBorder 5
 
 #endif

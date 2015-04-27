@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PKReadViewController : UITableViewController
+@interface PKReadViewController : UIViewController
 
 + (PKReadViewController *)sharedInstance;
 

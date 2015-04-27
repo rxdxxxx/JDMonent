@@ -15,6 +15,18 @@
 		BC07A36E1AE8C34900A26B66 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC07A36C1AE8C34900A26B66 /* LaunchScreen.xib */; };
 		BC07A37A1AE8C34A00A26B66 /* _1___Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = BC07A3791AE8C34A00A26B66 /* _1___Tests.m */; };
 		BC0BE8D71AEA70D9003D7491 /* PKHomeDetialController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0BE8D61AEA70D9003D7491 /* PKHomeDetialController.m */; };
+		BC0F509B1AEDCDB400B8E020 /* PKReadModelRoot.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0F509A1AEDCDB400B8E020 /* PKReadModelRoot.m */; };
+		BC0F509E1AEDD78300B8E020 /* PKReadViewDetialController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0F509D1AEDD78300B8E020 /* PKReadViewDetialController.m */; };
+		BC0F50A21AEDD91C00B8E020 /* PKReadCellDetial.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0F50A01AEDD91C00B8E020 /* PKReadCellDetial.m */; };
+		BC0F50A31AEDD91C00B8E020 /* PKReadCellDetial.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC0F50A11AEDD91C00B8E020 /* PKReadCellDetial.xib */; };
+		BC0F50A61AEDD96200B8E020 /* PKReadModelDetialHot.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0F50A51AEDD96200B8E020 /* PKReadModelDetialHot.m */; };
+		BC0F50AD1AEDE54200B8E020 /* NSDate+CountTime.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0F50A81AEDE54200B8E020 /* NSDate+CountTime.m */; };
+		BC0F50AE1AEDE54200B8E020 /* UIBarButtonItem+JD.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0F50AA1AEDE54200B8E020 /* UIBarButtonItem+JD.m */; };
+		BC0F50AF1AEDE54200B8E020 /* UIImage+name.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0F50AC1AEDE54200B8E020 /* UIImage+name.m */; };
+		BC0F50B21AEDEBA000B8E020 /* PKReadViewArticleController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0F50B11AEDEBA000B8E020 /* PKReadViewArticleController.m */; };
+		BC0F50B51AEDEBF400B8E020 /* PKReadModelArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0F50B41AEDEBF400B8E020 /* PKReadModelArticle.m */; };
+		BC0F50B81AEE01C000B8E020 /* PKFragmentModelRoot.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0F50B71AEE01C000B8E020 /* PKFragmentModelRoot.m */; };
+		BC0F50BB1AEE034900B8E020 /* PKFragmentCellRoot.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0F50BA1AEE034900B8E020 /* PKFragmentCellRoot.m */; };
 		BC1AA2411AED0CC10090D934 /* PKFMDetialController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1AA2401AED0CC10090D934 /* PKFMDetialController.m */; };
 		BC1AA2441AED0FE00090D934 /* PKFMModelList.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1AA2431AED0FE00090D934 /* PKFMModelList.m */; };
 		BC1AA2471AED0FF30090D934 /* PKFMModelRadioInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1AA2461AED0FF30090D934 /* PKFMModelRadioInfo.m */; };
@@ -143,6 +155,29 @@
 		BC07A3791AE8C34A00A26B66 /* _1___Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "_1___Tests.m"; sourceTree = "<group>"; };
 		BC0BE8D51AEA70D9003D7491 /* PKHomeDetialController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKHomeDetialController.h; sourceTree = "<group>"; };
 		BC0BE8D61AEA70D9003D7491 /* PKHomeDetialController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKHomeDetialController.m; sourceTree = "<group>"; };
+		BC0F50991AEDCDB400B8E020 /* PKReadModelRoot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKReadModelRoot.h; sourceTree = "<group>"; };
+		BC0F509A1AEDCDB400B8E020 /* PKReadModelRoot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKReadModelRoot.m; sourceTree = "<group>"; };
+		BC0F509C1AEDD78300B8E020 /* PKReadViewDetialController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKReadViewDetialController.h; sourceTree = "<group>"; };
+		BC0F509D1AEDD78300B8E020 /* PKReadViewDetialController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKReadViewDetialController.m; sourceTree = "<group>"; };
+		BC0F509F1AEDD91C00B8E020 /* PKReadCellDetial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKReadCellDetial.h; sourceTree = "<group>"; };
+		BC0F50A01AEDD91C00B8E020 /* PKReadCellDetial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKReadCellDetial.m; sourceTree = "<group>"; };
+		BC0F50A11AEDD91C00B8E020 /* PKReadCellDetial.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PKReadCellDetial.xib; sourceTree = "<group>"; };
+		BC0F50A41AEDD96200B8E020 /* PKReadModelDetialHot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKReadModelDetialHot.h; sourceTree = "<group>"; };
+		BC0F50A51AEDD96200B8E020 /* PKReadModelDetialHot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKReadModelDetialHot.m; sourceTree = "<group>"; };
+		BC0F50A71AEDE54200B8E020 /* NSDate+CountTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+CountTime.h"; sourceTree = "<group>"; };
+		BC0F50A81AEDE54200B8E020 /* NSDate+CountTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+CountTime.m"; sourceTree = "<group>"; };
+		BC0F50A91AEDE54200B8E020 /* UIBarButtonItem+JD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+JD.h"; sourceTree = "<group>"; };
+		BC0F50AA1AEDE54200B8E020 /* UIBarButtonItem+JD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+JD.m"; sourceTree = "<group>"; };
+		BC0F50AB1AEDE54200B8E020 /* UIImage+name.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+name.h"; sourceTree = "<group>"; };
+		BC0F50AC1AEDE54200B8E020 /* UIImage+name.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+name.m"; sourceTree = "<group>"; };
+		BC0F50B01AEDEBA000B8E020 /* PKReadViewArticleController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKReadViewArticleController.h; sourceTree = "<group>"; };
+		BC0F50B11AEDEBA000B8E020 /* PKReadViewArticleController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKReadViewArticleController.m; sourceTree = "<group>"; };
+		BC0F50B31AEDEBF400B8E020 /* PKReadModelArticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKReadModelArticle.h; sourceTree = "<group>"; };
+		BC0F50B41AEDEBF400B8E020 /* PKReadModelArticle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKReadModelArticle.m; sourceTree = "<group>"; };
+		BC0F50B61AEE01C000B8E020 /* PKFragmentModelRoot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKFragmentModelRoot.h; sourceTree = "<group>"; };
+		BC0F50B71AEE01C000B8E020 /* PKFragmentModelRoot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKFragmentModelRoot.m; sourceTree = "<group>"; };
+		BC0F50B91AEE034900B8E020 /* PKFragmentCellRoot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKFragmentCellRoot.h; sourceTree = "<group>"; };
+		BC0F50BA1AEE034900B8E020 /* PKFragmentCellRoot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKFragmentCellRoot.m; sourceTree = "<group>"; };
 		BC1AA23F1AED0CC10090D934 /* PKFMDetialController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKFMDetialController.h; sourceTree = "<group>"; };
 		BC1AA2401AED0CC10090D934 /* PKFMDetialController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKFMDetialController.m; sourceTree = "<group>"; };
 		BC1AA2421AED0FE00090D934 /* PKFMModelList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKFMModelList.h; sourceTree = "<group>"; };
@@ -583,6 +618,10 @@
 			children = (
 				BC68230B1AE8FB43000C57B3 /* PKReadViewController.h */,
 				BC68230C1AE8FB43000C57B3 /* PKReadViewController.m */,
+				BC0F509C1AEDD78300B8E020 /* PKReadViewDetialController.h */,
+				BC0F509D1AEDD78300B8E020 /* PKReadViewDetialController.m */,
+				BC0F50B01AEDEBA000B8E020 /* PKReadViewArticleController.h */,
+				BC0F50B11AEDEBA000B8E020 /* PKReadViewArticleController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -590,6 +629,12 @@
 		BC68221B1AE8DD2F000C57B3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BC0F50991AEDCDB400B8E020 /* PKReadModelRoot.h */,
+				BC0F509A1AEDCDB400B8E020 /* PKReadModelRoot.m */,
+				BC0F50A41AEDD96200B8E020 /* PKReadModelDetialHot.h */,
+				BC0F50A51AEDD96200B8E020 /* PKReadModelDetialHot.m */,
+				BC0F50B31AEDEBF400B8E020 /* PKReadModelArticle.h */,
+				BC0F50B41AEDEBF400B8E020 /* PKReadModelArticle.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -597,6 +642,9 @@
 		BC68221C1AE8DD2F000C57B3 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BC0F509F1AEDD91C00B8E020 /* PKReadCellDetial.h */,
+				BC0F50A01AEDD91C00B8E020 /* PKReadCellDetial.m */,
+				BC0F50A11AEDD91C00B8E020 /* PKReadCellDetial.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -656,6 +704,8 @@
 		BC6822231AE8DD2F000C57B3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BC0F50B61AEE01C000B8E020 /* PKFragmentModelRoot.h */,
+				BC0F50B71AEE01C000B8E020 /* PKFragmentModelRoot.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -663,6 +713,8 @@
 		BC6822241AE8DD2F000C57B3 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BC0F50B91AEE034900B8E020 /* PKFragmentCellRoot.h */,
+				BC0F50BA1AEE034900B8E020 /* PKFragmentCellRoot.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -717,6 +769,12 @@
 		BC68222A1AE8DD2F000C57B3 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				BC0F50A71AEDE54200B8E020 /* NSDate+CountTime.h */,
+				BC0F50A81AEDE54200B8E020 /* NSDate+CountTime.m */,
+				BC0F50A91AEDE54200B8E020 /* UIBarButtonItem+JD.h */,
+				BC0F50AA1AEDE54200B8E020 /* UIBarButtonItem+JD.m */,
+				BC0F50AB1AEDE54200B8E020 /* UIImage+name.h */,
+				BC0F50AC1AEDE54200B8E020 /* UIImage+name.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -1032,6 +1090,7 @@
 				BC6823321AE92B32000C57B3 /* PKHomeCellTimeline.xib in Resources */,
 				BC6822BB1AE8DF60000C57B3 /* MJPhotoBrowser.bundle in Resources */,
 				BC50B9761AECCAE90037CE4B /* PKFMCellList.xib in Resources */,
+				BC0F50A31AEDD91C00B8E020 /* PKReadCellDetial.xib in Resources */,
 				BC6822C21AE8DF60000C57B3 /* MJRefresh.bundle in Resources */,
 				BC6823251AE92ACC000C57B3 /* PKHomeCellMusic.xib in Resources */,
 				BC6822AF1AE8DF60000C57B3 /* MBProgressHUD.bundle in Resources */,
@@ -1057,6 +1116,8 @@
 			files = (
 				BC6822F61AE8E473000C57B3 /* SlideNavigationContorllerAnimatorFade.m in Sources */,
 				BC6822D91AE8DF60000C57B3 /* UIImage+MultiFormat.m in Sources */,
+				BC0F509E1AEDD78300B8E020 /* PKReadViewDetialController.m in Sources */,
+				BC0F50A21AEDD91C00B8E020 /* PKReadCellDetial.m in Sources */,
 				BC01DE491AEBCFE6003875B5 /* PKFMModelDetial.m in Sources */,
 				BC6822D31AE8DF60000C57B3 /* SDWebImageDownloader.m in Sources */,
 				BC6822DA1AE8DF60000C57B3 /* UIImage+WebP.m in Sources */,
@@ -1071,6 +1132,7 @@
 				BCC2911F1AEA1B2E009190D5 /* PKHomeCellRoot.m in Sources */,
 				BCC2911C1AEA0C2A009190D5 /* PKHomeModelImgUrl.m in Sources */,
 				BC01DE431AEBC3C5003875B5 /* PKHomeMorController.m in Sources */,
+				BC0F50BB1AEE034900B8E020 /* PKFragmentCellRoot.m in Sources */,
 				BC6822D41AE8DF60000C57B3 /* SDWebImageDownloaderOperation.m in Sources */,
 				BC6822C31AE8DF60000C57B3 /* MJRefreshComponent.m in Sources */,
 				BC6822D21AE8DF60000C57B3 /* SDWebImageDecoder.m in Sources */,
@@ -1093,6 +1155,7 @@
 				BC6822C91AE8DF60000C57B3 /* MJRefreshLegendFooter.m in Sources */,
 				BC6822F91AE8E473000C57B3 /* SlideNavigationContorllerAnimatorSlide.m in Sources */,
 				BC6822DC1AE8DF60000C57B3 /* UIImageView+WebCache.m in Sources */,
+				BC0F509B1AEDCDB400B8E020 /* PKReadModelRoot.m in Sources */,
 				BC6822F81AE8E473000C57B3 /* SlideNavigationContorllerAnimatorScaleAndFade.m in Sources */,
 				BC6822FF1AE8E473000C57B3 /* SlideNavigationController.m in Sources */,
 				BC50B9751AECCAE90037CE4B /* PKFMCellList.m in Sources */,
@@ -1101,10 +1164,12 @@
 				BC6822B31AE8DF60000C57B3 /* MJMember.m in Sources */,
 				BC68231A1AE92921000C57B3 /* PKHomeCellSound.m in Sources */,
 				BC6823101AE8FB7A000C57B3 /* PKCommunityViewController.m in Sources */,
+				BC0F50AD1AEDE54200B8E020 /* NSDate+CountTime.m in Sources */,
 				BC2FCF981AE9F28B0014B413 /* PKHomeModelPlayInfo.m in Sources */,
 				BC0BE8D71AEA70D9003D7491 /* PKHomeDetialController.m in Sources */,
 				BC6822B41AE8DF60000C57B3 /* MJMethod.m in Sources */,
 				BC6822A91AE8DF60000C57B3 /* AFSecurityPolicy.m in Sources */,
+				BC0F50AF1AEDE54200B8E020 /* UIImage+name.m in Sources */,
 				BC6823071AE8EA83000C57B3 /* PKHomeViewController.m in Sources */,
 				BC6822B91AE8DF60000C57B3 /* NSObject+MJMember.m in Sources */,
 				BC6822B61AE8DF60000C57B3 /* MJTypeEncoding.m in Sources */,
@@ -1127,8 +1192,11 @@
 				BC6822BF1AE8DF60000C57B3 /* MJPhotoToolbar.m in Sources */,
 				BC2FCF8C1AE9E42F0014B413 /* PKMainModelUserInfo.m in Sources */,
 				BC6822BC1AE8DF60000C57B3 /* MJPhotoBrowser.m in Sources */,
+				BC0F50A61AEDD96200B8E020 /* PKReadModelDetialHot.m in Sources */,
 				BC07A3631AE8C34900A26B66 /* AppDelegate.m in Sources */,
 				BC6822D11AE8DF60000C57B3 /* SDWebImageCompat.m in Sources */,
+				BC0F50B81AEE01C000B8E020 /* PKFragmentModelRoot.m in Sources */,
+				BC0F50B21AEDEBA000B8E020 /* PKReadViewArticleController.m in Sources */,
 				BC6822CD1AE8DF60000C57B3 /* UIView+MJExtension.m in Sources */,
 				BC6823161AE8FBD8000C57B3 /* PKSettingViewController.m in Sources */,
 				BC6822A71AE8DF60000C57B3 /* AFHTTPSessionManager.m in Sources */,
@@ -1143,7 +1211,9 @@
 				BC6822D01AE8DF60000C57B3 /* SDImageCache.m in Sources */,
 				BC6823241AE92ACC000C57B3 /* PKHomeCellMusic.m in Sources */,
 				BC6822A81AE8DF60000C57B3 /* AFNetworkReachabilityManager.m in Sources */,
+				BC0F50B51AEDEBF400B8E020 /* PKReadModelArticle.m in Sources */,
 				BC07A3601AE8C34900A26B66 /* main.m in Sources */,
+				BC0F50AE1AEDE54200B8E020 /* UIBarButtonItem+JD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
