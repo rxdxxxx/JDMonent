@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+@class PKFragmentModelRootFrame;
 
 @interface PKFragmentCellRoot : UITableViewCell
+
++ (instancetype)cellWithTableView:(UITableView *)tableView;
+@property (nonatomic, strong)PKFragmentModelRootFrame * statuesFrame;
 
 @end

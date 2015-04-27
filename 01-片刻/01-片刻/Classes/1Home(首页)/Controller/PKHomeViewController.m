@@ -11,6 +11,7 @@
 #import "AFNetworking.h"
 #import "MJExtension.h"
 #import "PKHomeModelRoot.h"
+#import "MJRefresh.h"
 
 /*不同类型的cell*/
 #import "PKHomeCellSound.h"
@@ -57,18 +58,71 @@ static PKHomeViewController *HomesingletonInstance = nil;
     
     [super viewDidLoad];
     
-    // 1,发起网络请求
-    [self setupRequest];
+    // 0,刷新控件
+    [self setupRefreshView];
     
-    // 2,设置tableView
+    // 1,设置tableView
     [self setupTableView];
     
+}
+/**
+ *  集成刷新控件
+ */
+-(void)setupRefreshView
+{
+    
+    // 添加传统的下拉刷新
+    // 设置回调（一旦进入刷新状态，就调用target的action，也就是调用self的loadNewData方法）
+    // 框架中会自动调用一次回调函数.
+    // 也可以禁止自动加载
+    // self.tableView.footer.automaticallyRefresh = NO;
+    [self.tableView addLegendHeaderWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
+    // 马上进入刷新状态
+    [self.tableView.header beginRefreshing];
+    
+
+    // 2,上拉刷新(上拉加载更多数据)
+    [self.tableView addLegendFooterWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
+}
+
+-(void)loadMoreData
+{   
+    NSMutableDictionary * params = [NSMutableDictionary dictionary];
+    params[@"start"] = @(self.statuses.count);
+    params[@"limit"] = @10;
+    params[@"client"] = @"1";
+    
+    NSString * url = @"http://api2.pianke.me/pub/today";
+    
+    
+    
+    // 2,发送请求
+    [IWHttpTool postWithURL:url params:params success:^(id json) {
+        
+        // 创建frame模型对象
+        NSMutableArray* temp = (NSMutableArray *)[PKHomeModelRoot objectArrayWithKeyValuesArray:json[@"data"][@"list"]];
+
+        
+        // 添加
+        [self.statuses addObjectsFromArray:temp];
+        
+        // 刷新表格
+        [self.tableView reloadData];
+        
+        // 让刷新控件停止显示刷新状态
+        [self.tableView.footer endRefreshing];
+        
+    } failure:^(NSError *error) {
+        // 让刷新控件停止显示刷新状态
+        [self.tableView.footer endRefreshing];
+        
+    }];
 }
 
 /**
  *  发起网络请求
  */
--(void)setupRequest
+-(void)loadNewData
 {
     
     AFHTTPRequestOperationManager * mgr = [AFHTTPRequestOperationManager manager];
@@ -77,36 +131,30 @@ static PKHomeViewController *HomesingletonInstance = nil;
     
     NSMutableDictionary * params = [NSMutableDictionary dictionary];
     params[@"start"] = @0;
-    params[@"limit"] = @40;
-//    params[@"deviceid"] = @"8DBCAF13-689C-49C1-ADFB-0EC866F4BC2B";
+    params[@"limit"] = @10;
     params[@"client"] = @"1";
-//    params[@"auth"] = @"";
-//    params[@"version"] = @"3.0.1";
-
-//    start=0&client=2&limit=10
     
     NSString * url = @"http://api2.pianke.me/pub/today";
     
     //发送请求
     [IWHttpTool postWithURL:url params:params success:^(id json) {
         
-        self.statuses = (NSMutableArray *)[PKHomeModelRoot objectArrayWithKeyValuesArray:json[@"data"][@"list"]];
+        NSMutableArray* temp = (NSMutableArray *)[PKHomeModelRoot objectArrayWithKeyValuesArray:json[@"data"][@"list"]];
+        [temp addObjectsFromArray:self.statuses];
+        self.statuses = temp;
         
+        
+        // 刷新tableView
         [self.tableView reloadData];
         
+        
+        // 让刷新控件停止显示刷新状态
+        [self.tableView.header endRefreshing];
+        
     } failure:^(NSError *error) {
-        NSLog(@"%@",error);
-
+        [self.tableView.header endRefreshing];
     }];
     
-//    [mgr POST:url parameters:params
-//     success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//         
-//
-//     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//         
-//         
-//     }];
     
 }
 

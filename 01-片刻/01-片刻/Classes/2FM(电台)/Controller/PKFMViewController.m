@@ -13,6 +13,7 @@
 #import "PKFMCellList.h"
 #import "PKFMDetialController.h"
 #import "SlideNavigationController.h"
+#import "MJRefresh.h"
 
 @interface PKFMViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -68,9 +69,9 @@ static PKFMViewController *FMsingletonInstance = nil;
 -(UITableView *)tableView
 {
     if (_tableView == nil) {
-        UITableView * tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, PKOnePageWidth, PKOnePageHeight) style:UITableViewStyleGrouped];
+        UITableView * tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, PKOnePageWidth, PKOnePageHeight) style:UITableViewStylePlain];
         tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        tableView.contentInset = UIEdgeInsetsMake(44, 0, 0, 0);
+//        tableView.contentInset = UIEdgeInsetsMake(44, 0, 0, 0);
         tableView.delegate = self;
         tableView.dataSource = self;
         [self.view addSubview:tableView];
@@ -84,17 +85,36 @@ static PKFMViewController *FMsingletonInstance = nil;
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     
-    // 1,发起网络请求
-    [self setupRequest];
+    
+    // 0.集成刷新控件
+    [self setupRefreshView];
     
 
     
 }
-
+/**
+ *  集成刷新控件
+ */
+-(void)setupRefreshView
+{
+    
+    // 添加传统的下拉刷新
+    // 设置回调（一旦进入刷新状态，就调用target的action，也就是调用self的loadNewData方法）
+    // 框架中会自动调用一次回调函数.
+    // 也可以禁止自动加载
+    // self.tableView.footer.automaticallyRefresh = NO;
+    [self.tableView addLegendHeaderWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
+    // 马上进入刷新状态
+    [self.tableView.header beginRefreshing];
+    
+    
+    // 2,上拉刷新(上拉加载更多数据)
+    [self.tableView addLegendFooterWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
+}
 /**
  *  发起网络请求
  */
--(void)setupRequest
+-(void)loadNewData
 {
     
     
@@ -105,6 +125,8 @@ static PKFMViewController *FMsingletonInstance = nil;
     //发送请求
     [IWHttpTool postWithURL:url params:params success:^(id json) {
         
+        self.statuses = nil;
+        
         self.hotlist = (NSMutableArray *)[PKFMModelDetial objectArrayWithKeyValuesArray:json[@"data"][@"hotlist"]];
         
         self.alllist = (NSMutableArray *)[PKFMModelDetial objectArrayWithKeyValuesArray:json[@"data"][@"alllist"]];
@@ -112,17 +134,57 @@ static PKFMViewController *FMsingletonInstance = nil;
         [self.statuses addObject:self.hotlist];
         [self.statuses addObject:self.alllist];
         
+        
+        // 刷新tableView
         [self.tableView reloadData];
         
+        
+        // 让刷新控件停止显示刷新状态
+        [self.tableView.header endRefreshing];
+        
     } failure:^(NSError *error) {
-        NSLog(@"%@",error);
+        
+        // 让刷新控件停止显示刷新状态
+        [self.tableView.header endRefreshing];
         
     }];
     
-
-    
 }
 
+-(void)loadMoreData
+{
+    
+    NSMutableDictionary * params = [NSMutableDictionary dictionary];
+    params[@"start"] = @([self.statuses[1] count]);
+    params[@"limit"] = @9;
+    params[@"client"] = @"2";
+    
+    NSString * url = @"http://api2.pianke.me/ting/radio_list";
+    
+    
+    
+    // 2,发送请求
+    [IWHttpTool postWithURL:url params:params success:^(id json) {
+        
+        // 创建frame模型对象
+        NSMutableArray* temp = (NSMutableArray *)[PKFMModelDetial objectArrayWithKeyValuesArray:json[@"data"][@"list"]];
+        
+        
+        // 添加
+        [self.statuses[1] addObjectsFromArray:temp];
+        
+        // 刷新表格
+        [self.tableView reloadData];
+        
+        // 让刷新控件停止显示刷新状态
+        [self.tableView.footer endRefreshing];
+        
+    } failure:^(NSError *error) {
+        // 让刷新控件停止显示刷新状态
+        [self.tableView.footer endRefreshing];
+        
+    }];
+}
 
 
 #pragma mark - Table view data source

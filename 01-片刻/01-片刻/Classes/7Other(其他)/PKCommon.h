@@ -39,5 +39,10 @@
 
 /** 表格的边框宽度 */
 #define PKStatusTableBorder 5
-
+/** 时间的字体 */
+#define PKStatusTimeFont [UIFont systemFontOfSize:12]
+/** 昵称的字体 */
+#define PKStatusNameFont [UIFont systemFontOfSize:15]
+/** 正文的字体 */
+#define PKStatusContentFont [UIFont systemFontOfSize:13]
 #endif

@@ -70,7 +70,7 @@
     
     // 1,设置cell的标题
     self.titleLabel.text = [NSString stringWithFormat:@" · %@",model.title];
-    self.titleLabel.backgroundColor = [UIColor colorWithRed:0.03f green:0.22f blue:0.38f alpha:1.00f];
+    self.titleLabel.backgroundColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0.50f];
     
     // 2,设置主题图片
     [self.CellImageView sd_setImageWithURL:[NSURL URLWithString:model.coverimg] placeholderImage:[UIImage imageNamed:@"pig_3"]];
@@ -80,7 +80,7 @@
     // 3,设置作者名称
     PKMainModelUserInfo * userInfo = model.userinfo;
     self.unameLabel.text = [NSString stringWithFormat:@"by : %@",userInfo.uname];
-    self.unameLabel.backgroundColor = [UIColor colorWithRed:0.03f green:0.22f blue:0.38f alpha:0.50f];
+    self.unameLabel.backgroundColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0.50f];
 
     
     

@@ -71,6 +71,7 @@
     
     // 5,设置按钮
     [self.likeButton setTitle:[NSString stringWithFormat:@"%d",model.like.intValue] forState:UIControlStateNormal];
+    self.likeButton.hidden = YES;
     
     
 }

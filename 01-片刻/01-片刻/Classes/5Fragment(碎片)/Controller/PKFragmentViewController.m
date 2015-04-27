@@ -7,8 +7,17 @@
 //
 
 #import "PKFragmentViewController.h"
+#import "IWHttpTool.h"
+#import "MJExtension.h"
+#import "SlideNavigationController.h"
+#import "PKFragmentModelRoot.h"
+#import "PKFragmentModelRootFrame.h"
+#import "PKFragmentCellRoot.h"
+#import "MJRefresh.h"
 
 @interface PKFragmentViewController ()
+
+@property (nonatomic, strong)NSMutableArray * statuses;
 
 @end
 
@@ -30,6 +39,14 @@ static PKFragmentViewController *fragmentSingletonInstance = nil;
     return fragmentSingletonInstance;
 }
 
+-(NSMutableArray *)statuses
+{
+    if (_statuses == nil) {
+        _statuses = [[NSMutableArray alloc]initWithCapacity:5];
+    }
+    return _statuses;
+}
+
 - (BOOL)slideNavigationControllerShouldDisplayLeftMenu
 {
     return YES;
@@ -38,84 +55,147 @@ static PKFragmentViewController *fragmentSingletonInstance = nil;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+
+    // 1,设置tableView
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.backgroundColor = PKColor(226, 226, 226);
+
+
+    // 2,发起网络请求
+    [self setupRefreshView];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+/**
+ *  集成刷新控件
+ */
+-(void)setupRefreshView
+{
+    
+    // 添加传统的下拉刷新
+    // 设置回调（一旦进入刷新状态，就调用target的action，也就是调用self的loadNewData方法）
+    // 框架中会自动调用一次回调函数.
+    // 也可以禁止自动加载
+    // self.tableView.footer.automaticallyRefresh = NO;
+    [self.tableView addLegendHeaderWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
+    // 马上进入刷新状态
+    [self.tableView.header beginRefreshing];
+    
+    
+    // 2,上拉刷新(上拉加载更多数据)
+    [self.tableView addLegendFooterWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
 }
+/**
+ *  发起网络请求
+ */
+-(void)loadNewData
+{
+    
+    
+    NSMutableDictionary * params = [NSMutableDictionary dictionary];
+    params[@"client"] = @"2";
+    params[@"start"] = @"0";
+    params[@"limit"] = @"10";
+    
+    NSString * url = @"http://api2.pianke.me/timeline/list";
+    
+    //发送请求
+    [IWHttpTool postWithURL:url params:params success:^(id json) {
+        
+        NSArray* tempArray = [PKFragmentModelRoot objectArrayWithKeyValuesArray:json[@"data"][@"list"]];
+        self.statuses = nil;
+        
+        for (PKFragmentModelRoot * rootModel in tempArray) {
+            PKFragmentModelRootFrame * frame = [[PKFragmentModelRootFrame alloc]init];
+            // 传递数据模型
+            frame.status = rootModel;
+            
+            [self.statuses addObject:frame];
+        }
+        
+        
+        [self.tableView reloadData];
+        
+        
+        // 让刷新控件停止显示刷新状态
+        [self.tableView.header endRefreshing];
+        
+    } failure:^(NSError *error) {
+        
+        // 让刷新控件停止显示刷新状态
+        [self.tableView.header endRefreshing];
+        
+    }];
+    
+}
+
+-(void)loadMoreData
+{
+    
+    NSMutableDictionary * params = [NSMutableDictionary dictionary];
+    params[@"start"] = @([self.statuses count]);
+    params[@"limit"] = @10;
+    params[@"client"] = @"2";
+    
+    PKFragmentModelRootFrame * rootFrameModel = self.statuses.lastObject;
+    PKFragmentModelRoot* rootModel = rootFrameModel.status;
+    params[@"addtime"] = rootModel.addtime;
+    
+    NSString * url = @"http://api2.pianke.me/timeline/list";
+    
+    
+    
+    
+    // 2,发送请求
+    [IWHttpTool postWithURL:url params:params success:^(id json) {
+        
+        NSArray* tempArray = [PKFragmentModelRoot objectArrayWithKeyValuesArray:json[@"data"][@"list"]];
+        
+        for (PKFragmentModelRoot * rootModel in tempArray) {
+            PKFragmentModelRootFrame * frame = [[PKFragmentModelRootFrame alloc]init];
+            // 传递数据模型
+            frame.status = rootModel;
+            
+            [self.statuses addObject:frame];
+        }
+
+        
+        // 刷新表格
+        [self.tableView reloadData];
+        
+        // 让刷新控件停止显示刷新状态
+        [self.tableView.footer endRefreshing];
+        
+    } failure:^(NSError *error) {
+        // 让刷新控件停止显示刷新状态
+        [self.tableView.footer endRefreshing];
+        
+    }];
+}
+
+
 
 #pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.statuses.count;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
-}
-
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // 1.创建cell
+    PKFragmentCellRoot *cell = [PKFragmentCellRoot cellWithTableView:tableView];
     
-    // Configure the cell...
+    // 2.传递frame模型
+    cell.statuesFrame = self.statuses[indexPath.row];
     
     return cell;
 }
-*/
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+#pragma mark - 代理方法
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    PKFragmentModelRootFrame *statusFrame = self.statuses[indexPath.row];
+    return statusFrame.cellHeight;
 }
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

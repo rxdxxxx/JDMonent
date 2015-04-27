@@ -52,7 +52,7 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     
-    return 6   ;
+    return 5   ;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -79,14 +79,14 @@
             cell.textLabel.text = @"阅读";
             break;
             
-        case 3:
-            cell.textLabel.text = @"社区";
-            break;
+//        case 3:
+//            cell.textLabel.text = @"社区";
+//            break;
             
-        case 4:
+        case 3:
             cell.textLabel.text = @"碎片";
             break;
-        case 5:
+        case 4:
             cell.textLabel.text = @"设置";
             break;
 
@@ -119,17 +119,17 @@
 
             break;
             
+//        case 3:
+//            vc = [PKCommunityViewController sharedInstance];
+//            vc.title = @"社区";
+//
+//            break;
         case 3:
-            vc = [PKCommunityViewController sharedInstance];
-            vc.title = @"社区";
-
-            break;
-        case 4:
             vc = [PKFragmentViewController sharedInstance];
             vc.title = @"碎片";
 
             break;
-        case 5:
+        case 4:
             vc = [PKSettingViewController sharedInstance];
             vc.title = @"设置";
 

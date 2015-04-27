@@ -60,7 +60,8 @@
 
     // 4,设置按钮
     [self.likeBtn setTitle:[NSString stringWithFormat:@"%d",model.like.intValue] forState:UIControlStateNormal];
-    
+    self.likeBtn.hidden = YES;
+
 }
 
 - (void)awakeFromNib {

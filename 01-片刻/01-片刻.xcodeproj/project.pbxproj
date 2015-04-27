@@ -27,6 +27,7 @@
 		BC0F50B51AEDEBF400B8E020 /* PKReadModelArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0F50B41AEDEBF400B8E020 /* PKReadModelArticle.m */; };
 		BC0F50B81AEE01C000B8E020 /* PKFragmentModelRoot.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0F50B71AEE01C000B8E020 /* PKFragmentModelRoot.m */; };
 		BC0F50BB1AEE034900B8E020 /* PKFragmentCellRoot.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0F50BA1AEE034900B8E020 /* PKFragmentCellRoot.m */; };
+		BC0F50BE1AEE0B8A00B8E020 /* PKFragmentModelRootFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0F50BD1AEE0B8A00B8E020 /* PKFragmentModelRootFrame.m */; };
 		BC1AA2411AED0CC10090D934 /* PKFMDetialController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1AA2401AED0CC10090D934 /* PKFMDetialController.m */; };
 		BC1AA2441AED0FE00090D934 /* PKFMModelList.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1AA2431AED0FE00090D934 /* PKFMModelList.m */; };
 		BC1AA2471AED0FF30090D934 /* PKFMModelRadioInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1AA2461AED0FF30090D934 /* PKFMModelRadioInfo.m */; };
@@ -143,7 +144,7 @@
 		BC01DE421AEBC3C4003875B5 /* PKHomeMorController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKHomeMorController.m; sourceTree = "<group>"; };
 		BC01DE471AEBCFE6003875B5 /* PKFMModelDetial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKFMModelDetial.h; sourceTree = "<group>"; };
 		BC01DE481AEBCFE6003875B5 /* PKFMModelDetial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKFMModelDetial.m; sourceTree = "<group>"; };
-		BC07A35A1AE8C34900A26B66 /* 01-片刻.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "01-片刻.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BC07A35A1AE8C34900A26B66 /* JDMonentPK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JDMonentPK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC07A35E1AE8C34900A26B66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BC07A35F1AE8C34900A26B66 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BC07A3611AE8C34900A26B66 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../../AppDelegate.h; sourceTree = "<group>"; };
@@ -178,6 +179,8 @@
 		BC0F50B71AEE01C000B8E020 /* PKFragmentModelRoot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKFragmentModelRoot.m; sourceTree = "<group>"; };
 		BC0F50B91AEE034900B8E020 /* PKFragmentCellRoot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKFragmentCellRoot.h; sourceTree = "<group>"; };
 		BC0F50BA1AEE034900B8E020 /* PKFragmentCellRoot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKFragmentCellRoot.m; sourceTree = "<group>"; };
+		BC0F50BC1AEE0B8900B8E020 /* PKFragmentModelRootFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKFragmentModelRootFrame.h; sourceTree = "<group>"; };
+		BC0F50BD1AEE0B8A00B8E020 /* PKFragmentModelRootFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKFragmentModelRootFrame.m; sourceTree = "<group>"; };
 		BC1AA23F1AED0CC10090D934 /* PKFMDetialController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKFMDetialController.h; sourceTree = "<group>"; };
 		BC1AA2401AED0CC10090D934 /* PKFMDetialController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKFMDetialController.m; sourceTree = "<group>"; };
 		BC1AA2421AED0FE00090D934 /* PKFMModelList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKFMModelList.h; sourceTree = "<group>"; };
@@ -400,7 +403,7 @@
 		BC07A35B1AE8C34900A26B66 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BC07A35A1AE8C34900A26B66 /* 01-片刻.app */,
+				BC07A35A1AE8C34900A26B66 /* JDMonentPK.app */,
 				BC07A3731AE8C34A00A26B66 /* 01-片刻Tests.xctest */,
 			);
 			name = Products;
@@ -451,7 +454,7 @@
 				BC6822111AE8DD2F000C57B3 /* 1Home(首页) */,
 				BC6822151AE8DD2F000C57B3 /* 2FM(电台) */,
 				BC6822191AE8DD2F000C57B3 /* 3Read(阅读) */,
-				BC68221D1AE8DD2F000C57B3 /* 4Community(社区) */,
+				BC68221D1AE8DD2F000C57B3 /* 移除 4Community(社区) */,
 				BC6822211AE8DD2F000C57B3 /* 5Fragment(碎片) */,
 				BC6822251AE8DD2F000C57B3 /* 6Setting(设置) */,
 				BC6822291AE8DD2F000C57B3 /* 7Other(其他) */,
@@ -649,13 +652,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		BC68221D1AE8DD2F000C57B3 /* 4Community(社区) */ = {
+		BC68221D1AE8DD2F000C57B3 /* 移除 4Community(社区) */ = {
 			isa = PBXGroup;
 			children = (
 				BC68221E1AE8DD2F000C57B3 /* Controller */,
 				BC68221F1AE8DD2F000C57B3 /* Model */,
 				BC6822201AE8DD2F000C57B3 /* View */,
 			);
+			name = "移除 4Community(社区)";
 			path = "4Community(社区)";
 			sourceTree = "<group>";
 		};
@@ -706,6 +710,8 @@
 			children = (
 				BC0F50B61AEE01C000B8E020 /* PKFragmentModelRoot.h */,
 				BC0F50B71AEE01C000B8E020 /* PKFragmentModelRoot.m */,
+				BC0F50BC1AEE0B8900B8E020 /* PKFragmentModelRootFrame.h */,
+				BC0F50BD1AEE0B8A00B8E020 /* PKFragmentModelRootFrame.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1016,7 +1022,7 @@
 			);
 			name = "01-片刻";
 			productName = "01-片刻";
-			productReference = BC07A35A1AE8C34900A26B66 /* 01-片刻.app */;
+			productReference = BC07A35A1AE8C34900A26B66 /* JDMonentPK.app */;
 			productType = "com.apple.product-type.application";
 		};
 		BC07A3721AE8C34A00A26B66 /* 01-片刻Tests */ = {
@@ -1172,6 +1178,7 @@
 				BC0F50AF1AEDE54200B8E020 /* UIImage+name.m in Sources */,
 				BC6823071AE8EA83000C57B3 /* PKHomeViewController.m in Sources */,
 				BC6822B91AE8DF60000C57B3 /* NSObject+MJMember.m in Sources */,
+				BC0F50BE1AEE0B8A00B8E020 /* PKFragmentModelRootFrame.m in Sources */,
 				BC6822B61AE8DF60000C57B3 /* MJTypeEncoding.m in Sources */,
 				BC6822A51AE8DF60000C57B3 /* AFHTTPRequestOperation.m in Sources */,
 				BC1AA2411AED0CC10090D934 /* PKFMDetialController.m in Sources */,
@@ -1331,7 +1338,7 @@
 				GCC_PREFIX_HEADER = "$(SRCROOT)/01-片刻/Classes/7Other(其他)/PrefixHeader.pch";
 				INFOPLIST_FILE = "01-片刻/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = JDMonentPK;
 			};
 			name = Debug;
 		};
@@ -1343,7 +1350,7 @@
 				GCC_PREFIX_HEADER = "$(SRCROOT)/01-片刻/Classes/7Other(其他)/PrefixHeader.pch";
 				INFOPLIST_FILE = "01-片刻/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = JDMonentPK;
 			};
 			name = Release;
 		};

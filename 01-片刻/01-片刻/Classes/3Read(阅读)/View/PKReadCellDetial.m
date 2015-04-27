@@ -73,7 +73,7 @@
     
     // 3,设置图片
     CGFloat imageViewX = self.title.frame.origin.x + 10;
-    CGFloat imageViewY = self.content.frame.origin.y;
+    CGFloat imageViewY = self.content.frame.origin.y + 10;
     CGFloat imageViewW = 130;
     CGFloat imageViewH = 65;
 
