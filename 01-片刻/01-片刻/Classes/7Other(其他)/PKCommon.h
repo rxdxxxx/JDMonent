@@ -37,6 +37,10 @@
 #define PKOnePageWidth ([UIScreen mainScreen].bounds.size.width)
 #define PKOnePageHeight ([UIScreen mainScreen].bounds.size.height)
 
+#define PKPlaceholderImage @"pig_3"
+
+#define PKPlayMusicImage @"pig_3"
+
 /** 表格的边框宽度 */
 #define PKStatusTableBorder 5
 /** 时间的字体 */

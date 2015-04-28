@@ -73,7 +73,7 @@
     self.titleLabel.backgroundColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0.50f];
     
     // 2,设置主题图片
-    [self.CellImageView sd_setImageWithURL:[NSURL URLWithString:model.coverimg] placeholderImage:[UIImage imageNamed:@"pig_3"]];
+    [self.CellImageView sd_setImageWithURL:[NSURL URLWithString:model.coverimg] placeholderImage:[UIImage imageNamed:PKPlaceholderImage]];
     self.CellImageView.contentMode = UIViewContentModeScaleAspectFill;
     self.CellImageView.clipsToBounds = YES;
 

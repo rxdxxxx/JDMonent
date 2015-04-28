@@ -109,7 +109,7 @@
     UIImageView * unameImageView = [[UIImageView alloc]initWithFrame:CGRectMake(unameBtnX, unameBtnY, unameBtnW, unameBtnH)];
     unameImageView.layer.cornerRadius = 15;
     unameImageView.layer.masksToBounds = YES;
-    [unameImageView sd_setImageWithURL:[NSURL URLWithString:self.playInfo.userinfo.icon] placeholderImage:[UIImage imageNamed:@"pig_3"]];
+    [unameImageView sd_setImageWithURL:[NSURL URLWithString:self.playInfo.userinfo.icon] placeholderImage:[UIImage imageNamed:PKPlaceholderImage]];
     PKLog(@"self.model.userinfo.icon:%@",self.model.userinfo.icon);
     [self.scrollView addSubview:unameImageView];
     
@@ -146,7 +146,7 @@
     UIImageView * authorImageView = [[UIImageView alloc]initWithFrame:CGRectMake(authorImageViewX, authorImageViewY, authorImageViewW, authorImageViewH)];
     authorImageView.layer.cornerRadius = 15;
     authorImageView.layer.masksToBounds = YES;
-    [authorImageView sd_setImageWithURL:[NSURL URLWithString:self.playInfo.authorinfo.icon] placeholderImage:[UIImage imageNamed:@"pig_3"]];
+    [authorImageView sd_setImageWithURL:[NSURL URLWithString:self.playInfo.authorinfo.icon] placeholderImage:[UIImage imageNamed:PKPlaceholderImage]];
     [self.scrollView addSubview:authorImageView];
     
     // 1.3
@@ -176,7 +176,7 @@
     // 1,设置中间图片.
 
     UIImageView * musicImageView = [[UIImageView alloc]initWithFrame:frame];
-    [musicImageView sd_setImageWithURL:[NSURL URLWithString:self.playInfo.imgUrl] placeholderImage:[UIImage imageNamed:@"pig_3"]];
+    [musicImageView sd_setImageWithURL:[NSURL URLWithString:self.playInfo.imgUrl] placeholderImage:[UIImage imageNamed:PKPlaceholderImage]];
     [self.scrollView addSubview:musicImageView];
     
     // 2,设置标题
@@ -194,8 +194,6 @@
     // 3,设置进度条,音乐时长.
     
     
-    
-    //
     
 
 

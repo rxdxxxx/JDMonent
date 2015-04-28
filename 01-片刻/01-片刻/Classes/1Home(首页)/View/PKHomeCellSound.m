@@ -60,7 +60,7 @@
 
     
     // 2,设置主题图片
-    [self.ThemeImageView sd_setImageWithURL:[NSURL URLWithString:model.coverimg] placeholderImage:[UIImage imageNamed:@"pig_3"]];
+    [self.ThemeImageView sd_setImageWithURL:[NSURL URLWithString:model.coverimg] placeholderImage:[UIImage imageNamed:PKPlaceholderImage]];
     
     // 3,设置内容标题
     self.LabelTitle.text = model.title;

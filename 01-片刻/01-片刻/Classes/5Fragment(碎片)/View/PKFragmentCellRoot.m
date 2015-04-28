@@ -128,7 +128,7 @@
     PKMainModelUserInfo * user= statues.userinfo;
     
     // 2.头像
-    [self.iconView sd_setImageWithURL:[NSURL URLWithString:user.icon] placeholderImage:[UIImage imageWithName:@"pig_3"]];
+    [self.iconView sd_setImageWithURL:[NSURL URLWithString:user.icon] placeholderImage:[UIImage imageWithName:PKPlaceholderImage]];
     self.iconView.frame = self.statuesFrame.iconViewF;
     
     // 3.昵称
@@ -139,7 +139,7 @@
         
         self.photoView.hidden = NO;
         self.photoView.frame = self.statuesFrame.photoViewF;
-        [self.photoView sd_setImageWithURL:[NSURL URLWithString:statues.coverimg] placeholderImage:[UIImage imageNamed:@"pig_3"]];
+        [self.photoView sd_setImageWithURL:[NSURL URLWithString:statues.coverimg] placeholderImage:[UIImage imageNamed:PKPlaceholderImage]];
         
     } else {
         self.photoView.hidden = YES;
