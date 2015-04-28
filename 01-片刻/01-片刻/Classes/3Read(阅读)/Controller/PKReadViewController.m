@@ -130,7 +130,7 @@ static PKReadViewController *ReadsingletonInstance = nil;
         // 6.2.2.设置背景
         PKReadModelRoot * model = readArray[i];
         
-        [optionBtn sd_setImageWithURL:[NSURL URLWithString:model.coverimg] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"pig_3"]];
+        [optionBtn sd_setImageWithURL:[NSURL URLWithString:model.coverimg] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:PKPlaceholderImage]];
         
         // 6.2.3.设置frame
         // 按钮尺寸

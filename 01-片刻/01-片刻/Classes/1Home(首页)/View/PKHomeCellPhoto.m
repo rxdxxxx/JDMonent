@@ -68,7 +68,7 @@
         if (imageModel==nil) {
             break;
         }
-        [tempArr[i] sd_setImageWithURL:[NSURL URLWithString:imageModel.imgurl] placeholderImage:[UIImage imageNamed:@"pig_3"]];
+        [tempArr[i] sd_setImageWithURL:[NSURL URLWithString:imageModel.imgurl] placeholderImage:[UIImage imageNamed:PKPlaceholderImage]];
         ((UIImageView *)tempArr[i]).contentMode = UIViewContentModeScaleAspectFill;
         ((UIImageView *)tempArr[i]).layer.masksToBounds = YES;
     }

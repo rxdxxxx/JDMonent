@@ -80,7 +80,7 @@
     UIImageView * myImageView = [[UIImageView alloc]initWithFrame:CGRectMake(imageViewX, imageViewY, imageViewW, imageViewH)];
     [self.contentView addSubview:myImageView];
     self.myImageView = myImageView;
-    [self.myImageView sd_setImageWithURL:[NSURL URLWithString:model.coverimg] placeholderImage:[UIImage imageNamed:@"pig_3"]];
+    [self.myImageView sd_setImageWithURL:[NSURL URLWithString:model.coverimg] placeholderImage:[UIImage imageNamed:PKPlaceholderImage]];
     self.myImageView.contentMode = UIViewContentModeScaleAspectFill;
     self.myImageView.clipsToBounds = YES;
     
