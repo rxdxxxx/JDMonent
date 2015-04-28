@@ -28,6 +28,8 @@
 /*工具类*/
 #import "IWHttpTool.h"
 
+#import "PlayerViewController.h"
+
 
 
 @interface PKHomeViewController ()
@@ -296,9 +298,12 @@ static PKHomeViewController *HomesingletonInstance = nil;
     switch (model.type.intValue) {
         case 2://sound
         {
-            PKHomeDetialController * dc = [[PKHomeDetialController alloc]init];
-            dc.model = model;
-            [[SlideNavigationController sharedInstance] pushViewController:dc animated:YES];
+//            PKHomeDetialController * dc = [[PKHomeDetialController alloc]init];
+//            dc = model;
+
+            PlayerViewController * pvc = [[PlayerViewController alloc]init];
+            pvc.model = model;
+            [[SlideNavigationController sharedInstance] pushViewController:pvc animated:YES];
             
         }
             break;
