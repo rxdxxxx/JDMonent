@@ -23,8 +23,13 @@
 
 @implementation PKLeftMenuController
 
+
+
+
 -(void)viewDidLoad
 {
+    [super viewDidLoad];
+    
     self.slideOutAnimationEnabled = YES;
     
     UITableView * tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 200, 320, self.view.frame.size.height-300) style:UITableViewStylePlain ];

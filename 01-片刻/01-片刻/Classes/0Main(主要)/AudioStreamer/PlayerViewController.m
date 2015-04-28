@@ -133,7 +133,7 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
  
     // 0,保存数据模型数组
     self.playListArr = model.playList;
-    self.playInfo = model.playInfo;
+    self.playInfo = model.playInfo; 
     
     // 1,设置播放器的控件
     [self myloadView:self.playInfo];
@@ -141,7 +141,7 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
     // 2,刷新, 第一页
     [self.tableView reloadData];
     
-    // 3,设置音乐播放界面 第二页
+    // 3,设置音乐播放界面 第二页, 合并到了1中
 //    [self setupMusicView];
     
     // 4,添加webView  第三页
@@ -240,7 +240,7 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
     // 1,设置中间图片.
     
     UIImageView * musicImageView = [[UIImageView alloc]initWithFrame:frame];
-    [musicImageView sd_setImageWithURL:[NSURL URLWithString:self.playInfo.imgUrl] placeholderImage:[UIImage imageNamed:@"pig_3"]];
+    [musicImageView sd_setImageWithURL:[NSURL URLWithString:self.playInfo.imgUrl] placeholderImage:[UIImage imageNamed:PKPlaceholderImage]];
     [self.scrollView addSubview:musicImageView];
     
     // 2,设置标题
@@ -277,6 +277,7 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
     
     UIWebView * webView= [[ UIWebView alloc]initWithFrame:frame];
     webView.delegate =self;
+
     
     //2,加载页面
     NSString * urlStr = playInfo.webview_url;
@@ -351,7 +352,7 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
     UIImageView * unameImageView = [[UIImageView alloc]initWithFrame:CGRectMake(unameBtnX, unameBtnY, unameBtnW, unameBtnH)];
     unameImageView.layer.cornerRadius = 15;
     unameImageView.layer.masksToBounds = YES;
-    [unameImageView sd_setImageWithURL:[NSURL URLWithString:playInfo.userinfo.icon] placeholderImage:[UIImage imageNamed:@"pig_3"]];
+    [unameImageView sd_setImageWithURL:[NSURL URLWithString:playInfo.userinfo.icon] placeholderImage:[UIImage imageNamed:PKPlaceholderImage]];
 //    PKLog(@"self.model.userinfo.icon:%@",playInfo.userinfo.icon);
     [self.scrollView addSubview:unameImageView];
     albumUserImage = unameImageView;
@@ -389,7 +390,7 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
     UIImageView * authorImageView = [[UIImageView alloc]initWithFrame:CGRectMake(authorImageViewX, authorImageViewY, authorImageViewW, authorImageViewH)];
     authorImageView.layer.cornerRadius = 15;
     authorImageView.layer.masksToBounds = YES;
-    [authorImageView sd_setImageWithURL:[NSURL URLWithString:playInfo.authorinfo.icon] placeholderImage:[UIImage imageNamed:@"pig_3"]];
+    [authorImageView sd_setImageWithURL:[NSURL URLWithString:playInfo.authorinfo.icon] placeholderImage:[UIImage imageNamed:PKPlaceholderImage]];
     [self.scrollView addSubview:authorImageView];
     albumAuthorImage = authorImageView;
     
@@ -448,7 +449,7 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
     [self _resetStreamer];
 
     // 1,音乐界面
-    [albumImage sd_setImageWithURL:[NSURL URLWithString:playInfo.imgUrl] placeholderImage:[UIImage imageNamed:@"pig_3"]];
+    [albumImage sd_setImageWithURL:[NSURL URLWithString:playInfo.imgUrl] placeholderImage:[UIImage imageNamed:PKPlaceholderImage]];
     albumTitle.text = playInfo.title;
     
     // 2,加载页面
@@ -460,10 +461,10 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
     
     // 3,作者页面
     albumUserLabel.text = playInfo.userinfo.uname;
-    [albumUserImage sd_setImageWithURL:[NSURL URLWithString:playInfo.userinfo.icon] placeholderImage:[UIImage imageNamed:@"pig_3"]];
+    [albumUserImage sd_setImageWithURL:[NSURL URLWithString:playInfo.userinfo.icon] placeholderImage:[UIImage imageNamed:PKPlaceholderImage]];
     
     albumAuthorLabel.text = playInfo.authorinfo.uname;
-    [albumAuthorImage sd_setImageWithURL:[NSURL URLWithString:playInfo.authorinfo.icon] placeholderImage:[UIImage imageNamed:@"pig_3"]];
+    [albumAuthorImage sd_setImageWithURL:[NSURL URLWithString:playInfo.authorinfo.icon] placeholderImage:[UIImage imageNamed:PKPlaceholderImage]];
 }
 
 
@@ -538,7 +539,7 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
     // 1,设置中间图片.
     
     UIImageView * musicImageView = [[UIImageView alloc]initWithFrame:musicImageViewFrame];
-    [musicImageView sd_setImageWithURL:[NSURL URLWithString:playInfo.imgUrl] placeholderImage:[UIImage imageNamed:@"pig_3"]];
+    [musicImageView sd_setImageWithURL:[NSURL URLWithString:playInfo.imgUrl] placeholderImage:[UIImage imageNamed:PKPlaceholderImage]];
     [view addSubview:musicImageView];
     albumImage = musicImageView;
     

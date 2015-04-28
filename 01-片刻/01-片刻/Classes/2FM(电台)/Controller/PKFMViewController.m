@@ -72,6 +72,7 @@ static PKFMViewController *FMsingletonInstance = nil;
         UITableView * tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, PKOnePageWidth, PKOnePageHeight) style:UITableViewStylePlain];
         tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 //        tableView.contentInset = UIEdgeInsetsMake(44, 0, 0, 0);
+        tableView.backgroundColor = PKColor(226, 226, 226);
         tableView.delegate = self;
         tableView.dataSource = self;
         [self.view addSubview:tableView];
@@ -157,7 +158,7 @@ static PKFMViewController *FMsingletonInstance = nil;
     NSMutableDictionary * params = [NSMutableDictionary dictionary];
    
     // 网络不好的时候,避免崩溃
-    NSUInteger num = (self.statuses[1] != nil) ? [self.statuses[1] count] : 0;
+    NSUInteger num = (self.statuses.count>0) ? [self.statuses[1] count] : 0;
     
     params[@"start"] = @(num);
     params[@"limit"] = @9;
