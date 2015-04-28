@@ -28,6 +28,8 @@
 #import "PKHomeModelPlayInfo.h"
 #import "PKMainModelUserInfo.h"
 #import "UIImageView+WebCache.h"
+#import "MBProgressHUD+MJ.h"
+
 
 
 
@@ -333,31 +335,22 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
     UILabel * unameLabeForl = [[UILabel alloc]initWithFrame:CGRectMake(unameLabelForX, unameLabelForY, unameLabelForW, unameLabelForH)];
     unameLabeForl.text = @"主播:";
     unameLabeForl.font = [UIFont systemFontOfSize:11];
-    unameLabeForl.backgroundColor = [UIColor yellowColor];
     [self.scrollView addSubview:unameLabeForl];
 
     
-    // 1.2,主播对应的图片和姓名
+    // 1.2,主播对应的图片
     CGFloat unameBtnX = CGRectGetMaxX(unameLabeForl.frame) + PKBorderMusic ;
     CGFloat unameBtnY = unameLabelForY;
     CGFloat unameBtnW = 30;
     CGFloat unameBtnH = 30;
-    {
-        //    UIButton * unameBtn = [[UIButton alloc]initWithFrame:CGRectMake(unameBtnX, unameBtnY, unameBtnW, unameBtnH)];
-        //    [unameBtn setImage:nil forState:UIControlStateNormal];
-        //    [unameBtn.imageView sd_setImageWithURL:[NSURL URLWithString:self.model.userinfo.icon] placeholderImage:[UIImage imageNamed:@"pig_3"]];
-        //    [unameBtn setTitle:self.model.userinfo.uname forState:UIControlStateNormal];
-        //    [self.scrollView addSubview:unameBtn];
-    }
     UIImageView * unameImageView = [[UIImageView alloc]initWithFrame:CGRectMake(unameBtnX, unameBtnY, unameBtnW, unameBtnH)];
     unameImageView.layer.cornerRadius = 15;
     unameImageView.layer.masksToBounds = YES;
     [unameImageView sd_setImageWithURL:[NSURL URLWithString:playInfo.userinfo.icon] placeholderImage:[UIImage imageNamed:PKPlaceholderImage]];
-//    PKLog(@"self.model.userinfo.icon:%@",playInfo.userinfo.icon);
     [self.scrollView addSubview:unameImageView];
     albumUserImage = unameImageView;
     
-    // 1.3
+    // 1.3主播对应的姓名
     CGFloat unameLabelX = CGRectGetMaxX(unameImageView.frame) + PKBorderMusic  ;
     CGFloat unameLabelY = unameBtnY;
     CGFloat unameLabelW = 100;
@@ -370,7 +363,7 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
     albumUserLabel = unameLabel;
     
     // 2,作者名称
-    // 2.1
+    // 2.1原文
     CGFloat authorLabelForX = 3 * PKOnePageWidth + PKBorderMusic ;
     CGFloat authorLabelForY = CGRectGetMaxY(unameLabeForl.frame) + PKBorderMusic;
     CGFloat authorLabelForW = 30;
@@ -378,10 +371,9 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
     UILabel * authorLabeForl = [[UILabel alloc]initWithFrame:CGRectMake(authorLabelForX, authorLabelForY, authorLabelForW, authorLabelForH)];
     authorLabeForl.text = @"原文:";
     authorLabeForl.font = [UIFont systemFontOfSize:11];
-    authorLabeForl.backgroundColor = [UIColor yellowColor];
     [self.scrollView addSubview:authorLabeForl];
     
-    // 2.2,作者对应的图片和姓名
+    // 2.2,作者对应的图片
     CGFloat authorImageViewX = CGRectGetMaxX(authorLabeForl.frame) + PKBorderMusic ;
     CGFloat authorImageViewY = authorLabelForY;
     CGFloat authorImageViewW = 30;
@@ -394,7 +386,7 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
     [self.scrollView addSubview:authorImageView];
     albumAuthorImage = authorImageView;
     
-    // 1.3
+    // 2.3作者对应的姓名
     CGFloat authorLabelX = CGRectGetMaxX(authorImageView.frame) + PKBorderMusic  ;
     CGFloat authorLabelY = authorLabelForY;
     CGFloat authorLabelW = 100;
@@ -487,6 +479,41 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
     self.pageControl.currentPage = page;
     
 }
+
+#pragma mark - webView的代理方法 -
+/**
+ *  开始发送请求的时候调用
+ *
+ *  @param webView
+ */
+-(void)webViewDidStartLoad:(UIWebView *)webView
+{
+    //显示提醒框
+    [MBProgressHUD showMessage:@"小丁哥正在帮你加载..."];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [MBProgressHUD hideHUD];
+    });
+}
+/**
+ *  请求完毕的时候调用
+ *
+ *  @param webView
+ */
+-(void)webViewDidFinishLoad:(UIWebView *)webView
+{
+    //隐藏提醒框
+//    [MBProgressHUD hideHUD];
+}
+/**
+ *  webView 请求失败
+ */
+-(void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
+{
+    //隐藏提醒框
+//    [MBProgressHUD hideHUD];
+}
+
 /**
  *  当 webView 发送一个请求之前,就会调用这个方法.询问代理可不可以加载这个页面.
  *
@@ -519,7 +546,7 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
 
 
 
-#pragma mark -AudioStreamer-
+#pragma mark - AudioStreamer -
 - (void)myloadView:(PKHomeModelPlayInfo *)playInfo
 {
     CGFloat viewX = PKOnePageWidth;

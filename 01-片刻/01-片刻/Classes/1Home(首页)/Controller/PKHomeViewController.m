@@ -126,11 +126,6 @@ static PKHomeViewController *HomesingletonInstance = nil;
  */
 -(void)loadNewData
 {
-    
-    AFHTTPRequestOperationManager * mgr = [AFHTTPRequestOperationManager manager];
-    //说明服务器,返回的是 json 类型
-    mgr.responseSerializer = [AFJSONResponseSerializer serializer];
-    
     NSMutableDictionary * params = [NSMutableDictionary dictionary];
     params[@"start"] = @0;
     params[@"limit"] = @10;
