@@ -503,7 +503,7 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
 -(void)webViewDidFinishLoad:(UIWebView *)webView
 {
     //隐藏提醒框
-//    [MBProgressHUD hideHUD];
+    [MBProgressHUD hideHUD];
 }
 /**
  *  webView 请求失败
@@ -511,7 +511,7 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
 -(void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
 {
     //隐藏提醒框
-//    [MBProgressHUD hideHUD];
+    [MBProgressHUD hideHUD];
 }
 
 /**

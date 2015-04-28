@@ -44,7 +44,7 @@
     //显示提醒框
     [MBProgressHUD showMessage:@"小丁哥正在帮你加载..."];
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [MBProgressHUD hideHUD];
     });
 }
@@ -56,7 +56,7 @@
 -(void)webViewDidFinishLoad:(UIWebView *)webView
 {
     //隐藏提醒框
-//    [MBProgressHUD hideHUD];
+    [MBProgressHUD hideHUD];
 }
 /**
  *  webView 请求失败
@@ -64,7 +64,7 @@
 -(void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
 {
     //隐藏提醒框
-//    [MBProgressHUD hideHUD];
+    [MBProgressHUD hideHUD];
 }
 
 /**
