@@ -13,19 +13,29 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ss-yk-0X1">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ss-yk-0X1">
                         <rect key="frame" x="5" y="0.0" width="310" height="50"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Jc-yq-U6a">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Jc-yq-U6a">
                         <rect key="frame" x="160" y="50" width="140" height="75"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="1ss-yk-0X1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="2uU-vr-unq"/>
+                    <constraint firstItem="1ss-yk-0X1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="9d5-J3-myq"/>
+                    <constraint firstAttribute="bottom" secondItem="0Jc-yq-U6a" secondAttribute="bottom" constant="24" id="L2o-T0-xdd"/>
+                    <constraint firstItem="0Jc-yq-U6a" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="50" id="Qwm-Dd-j2S"/>
+                    <constraint firstAttribute="trailing" secondItem="1ss-yk-0X1" secondAttribute="trailing" constant="10" id="Sf1-PT-rcJ"/>
+                    <constraint firstAttribute="trailing" secondItem="0Jc-yq-U6a" secondAttribute="trailing" constant="20" id="ZdL-Pk-B9z"/>
+                    <constraint firstItem="0Jc-yq-U6a" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="160" id="Zhw-0y-yKj"/>
+                    <constraint firstAttribute="bottom" secondItem="1ss-yk-0X1" secondAttribute="bottom" constant="100" id="mJd-0Z-pY1"/>
+                </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="content" destination="0Jc-yq-U6a" id="hJR-ff-ac9"/>

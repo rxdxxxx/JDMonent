@@ -52,7 +52,8 @@
         UIImageView *headerView= [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 320, 150)];
         headerView.contentMode = UIViewContentModeScaleAspectFill;
         headerView.clipsToBounds = YES;
-        [headerView sd_setImageWithURL:[NSURL URLWithString:self.radioInfo.coverimg] placeholderImage:[UIImage imageNamed:PKPlaceholderImage]];
+//        [headerView sd_setImageWithURL:[NSURL URLWithString:self.radioInfo.coverimg] placeholderImage:[UIImage imageNamed:PKPlaceholderImage]];
+        [headerView sd_setImageWithURL:[NSURL URLWithString:self.model.coverimg] placeholderImage:[UIImage imageNamed:PKPlaceholderImage]];
         tableView.tableHeaderView = headerView;
         
         
