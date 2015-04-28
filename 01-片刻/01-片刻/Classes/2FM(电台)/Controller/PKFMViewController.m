@@ -155,7 +155,11 @@ static PKFMViewController *FMsingletonInstance = nil;
 {
     
     NSMutableDictionary * params = [NSMutableDictionary dictionary];
-    params[@"start"] = @([self.statuses[1] count]);
+   
+    // 网络不好的时候,避免崩溃
+    NSUInteger num = (self.statuses[1] != nil) ? [self.statuses[1] count] : 0;
+    
+    params[@"start"] = @(num);
     params[@"limit"] = @9;
     params[@"client"] = @"2";
     
