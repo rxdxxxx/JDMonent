@@ -293,7 +293,7 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
 -(void)createPageControl
 {
     CGFloat pageContorlX = 0;
-    CGFloat pageContorlY = self.scrollView.frame.size.height - 50;
+    CGFloat pageContorlY = self.scrollView.frame.size.height - 80;
     CGFloat pageContorlW = PKOnePageWidth;
     CGFloat pageContorlH = 10;
     //创建pageController
@@ -305,7 +305,7 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
     //设置
     self.pageControl.numberOfPages = JDPageNum;
     
-    self.pageControl.currentPageIndicatorTintColor = [UIColor greenColor];
+    self.pageControl.currentPageIndicatorTintColor = [UIColor colorWithRed:0.51f green:0.69f blue:0.21f alpha:1.00f];;
     self.pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
     
     
@@ -582,19 +582,19 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
     [view addSubview:_miscLabel];
     
     _buttonPlayPause = [UIButton buttonWithType:UIButtonTypeSystem];
-    [_buttonPlayPause setFrame:CGRectMake(80.0, CGRectGetMaxY([_miscLabel frame]) + 20.0, 60.0, 20.0)];
+    [_buttonPlayPause setFrame:CGRectMake(80.0,CGRectGetMaxY([musicImageView frame]) + 150.0, 60.0, 20.0)];
     [_buttonPlayPause setTitle:@"Play" forState:UIControlStateNormal];
     [_buttonPlayPause addTarget:self action:@selector(_actionPlayPause:) forControlEvents:UIControlEventTouchDown];
     [view addSubview:_buttonPlayPause];
     
     _buttonNext = [UIButton buttonWithType:UIButtonTypeSystem];
-    [_buttonNext setFrame:CGRectMake(CGRectGetWidth([view bounds]) - 80.0 - 60.0, CGRectGetMinY([_buttonPlayPause frame]), 60.0, 20.0)];
+    [_buttonNext setFrame:CGRectMake(CGRectGetWidth([view bounds]) - 80.0 - 60.0, CGRectGetMaxY([musicImageView frame]) + 150.0, 60.0, 20.0)];
     [_buttonNext setTitle:@"Next" forState:UIControlStateNormal];
     [_buttonNext addTarget:self action:@selector(_actionNext:) forControlEvents:UIControlEventTouchDown];
     [view addSubview:_buttonNext];
     
     _buttonStop = [UIButton buttonWithType:UIButtonTypeSystem];
-    [_buttonStop setFrame:CGRectMake(round((CGRectGetWidth([view bounds]) - 60.0) / 2.0), CGRectGetMaxY([_buttonNext frame]) + 20.0, 60.0, 20.0)];
+    [_buttonStop setFrame:CGRectMake(round((CGRectGetWidth([view bounds]) - 60.0) / 2.0), CGRectGetMaxY([musicImageView frame]) + 150.0, 60.0, 20.0)];
     [_buttonStop setTitle:@"Stop" forState:UIControlStateNormal];
     [_buttonStop addTarget:self action:@selector(_actionStop:) forControlEvents:UIControlEventTouchDown];
     [view addSubview:_buttonStop];
