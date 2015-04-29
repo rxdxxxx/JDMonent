@@ -85,7 +85,7 @@ static PKFMViewController *FMsingletonInstance = nil;
     
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    
+    self.navigationController.navigationBar.backgroundColor = [UIColor colorWithRed:0.68f green:0.79f blue:1.00f alpha:1.00f];
     
     // 0.集成刷新控件
     [self setupRefreshView];

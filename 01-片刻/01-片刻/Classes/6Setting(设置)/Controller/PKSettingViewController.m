@@ -37,11 +37,7 @@ static PKSettingViewController *SettingSingletonInstance = nil;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.navigationController.navigationBar.backgroundColor = [UIColor colorWithRed:0.73f green:0.73f blue:0.73f alpha:1.00f];;
 }
 
 - (void)didReceiveMemoryWarning {

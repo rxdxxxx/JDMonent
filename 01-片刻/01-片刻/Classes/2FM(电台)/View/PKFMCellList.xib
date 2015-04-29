@@ -30,16 +30,16 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="7XR-qu-YY0" secondAttribute="bottom" id="0UL-Cz-QYm" userLabel="imageBottom"/>
-                    <constraint firstAttribute="trailing" secondItem="pEz-xP-SV1" secondAttribute="trailing" id="5tw-ia-NiG" userLabel="TitileRight"/>
-                    <constraint firstAttribute="trailing" secondItem="7XR-qu-YY0" secondAttribute="trailing" id="Bux-9f-Sy5" userLabel="imageright"/>
-                    <constraint firstItem="pEz-xP-SV1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Scq-NZ-f6T" userLabel="TitleLeft"/>
-                    <constraint firstAttribute="trailing" secondItem="6oO-jQ-1c1" secondAttribute="trailing" id="V2T-is-Ooo" userLabel="authorLeft"/>
-                    <constraint firstItem="7XR-qu-YY0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Yug-IS-PE0" userLabel="ImageLeft"/>
-                    <constraint firstItem="6oO-jQ-1c1" firstAttribute="top" secondItem="pEz-xP-SV1" secondAttribute="bottom" id="e3e-Lp-qdD" userLabel="TitleWithAuthor"/>
-                    <constraint firstAttribute="bottom" secondItem="6oO-jQ-1c1" secondAttribute="bottom" id="hqO-nw-Lv8" userLabel="authorBottom"/>
-                    <constraint firstItem="6oO-jQ-1c1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="jN9-0d-UJD" userLabel="authorLeft"/>
-                    <constraint firstItem="7XR-qu-YY0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="wgG-rl-cBZ" userLabel="imageTop"/>
+                    <constraint firstAttribute="bottom" secondItem="7XR-qu-YY0" secondAttribute="bottom" constant="5" id="CGv-6I-exH"/>
+                    <constraint firstAttribute="trailing" secondItem="pEz-xP-SV1" secondAttribute="trailing" constant="5" id="Cw4-uC-3bq"/>
+                    <constraint firstItem="6oO-jQ-1c1" firstAttribute="top" secondItem="pEz-xP-SV1" secondAttribute="bottom" id="NyG-6Q-jl4"/>
+                    <constraint firstAttribute="trailing" secondItem="6oO-jQ-1c1" secondAttribute="trailing" constant="5" id="X12-4B-xN3"/>
+                    <constraint firstAttribute="trailing" secondItem="7XR-qu-YY0" secondAttribute="trailing" constant="5" id="YiL-Ex-mJh"/>
+                    <constraint firstItem="7XR-qu-YY0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="e2j-Ei-YDQ"/>
+                    <constraint firstItem="pEz-xP-SV1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="kBP-cv-vjM"/>
+                    <constraint firstItem="6oO-jQ-1c1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="klp-YU-yzb"/>
+                    <constraint firstAttribute="bottom" secondItem="6oO-jQ-1c1" secondAttribute="bottom" constant="10" id="ruv-y5-Txf"/>
+                    <constraint firstItem="7XR-qu-YY0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="vmR-kb-BGa"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

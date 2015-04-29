@@ -55,7 +55,7 @@ static PKFragmentViewController *fragmentSingletonInstance = nil;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-
+    self.navigationController.navigationBar.backgroundColor = [UIColor colorWithRed:0.31f green:0.76f blue:0.70f alpha:1.00f];
     // 1,设置tableView
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.backgroundColor = PKColor(226, 226, 226);

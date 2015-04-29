@@ -15,9 +15,15 @@
 #import "PKFragmentViewController.h"
 #import "PKSettingViewController.h"
 
+#import "PKLeftCell.h"
+
 @interface PKLeftMenuController ()<UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic, weak)UITableView * tableView;
+@property (nonatomic, strong)NSArray * nameArray;
+@property (nonatomic, strong)NSArray * picArray;
+
+
 
 @end
 
@@ -40,6 +46,8 @@
     [self.view addSubview:tableView];
     self.tableView = tableView;
 
+    self.nameArray = @[@"首页",@"电台",@"阅读",@"碎片",@"设置"];
+    self.picArray = @[@"LeftHome",@"LeftFM",@"LeftRead",@"LeftFre",@"LeftSetting"];
     
     
 //    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"leftMenu.jpg"]];
@@ -50,6 +58,7 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+   
 }
 
 
@@ -61,42 +70,9 @@
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //1,创建 cell
-    static NSString * ID = @"cell";
-    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
-        cell.backgroundColor = [UIColor clearColor];
-    }
-    
-    //2,设置 cell 的数据
-    switch (indexPath.row)
-    {
-        case 0:
-            cell.textLabel.text = @"首页";
-            break;
-            
-        case 1:
-            cell.textLabel.text = @"电台";
-            break;
-            
-        case 2:
-            cell.textLabel.text = @"阅读";
-            break;
-            
-//        case 3:
-//            cell.textLabel.text = @"社区";
-//            break;
-            
-        case 3:
-            cell.textLabel.text = @"碎片";
-            break;
-        case 4:
-            cell.textLabel.text = @"设置";
-            break;
-
-    }
-    
+    PKLeftCell * cell = [PKLeftCell cellWithTableView:tableView];
+    cell.textLabel.text=self.nameArray[indexPath.row];
+    [cell.imageView setImage:[UIImage imageNamed:self.picArray[indexPath.row]]];
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -151,7 +127,10 @@
 //    [[SlideNavigationController sharedInstance] popToRootViewControllerAnimated:YES];
 //    return;
 }
-
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 44;
+}
 
 
 

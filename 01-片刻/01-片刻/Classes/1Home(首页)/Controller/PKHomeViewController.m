@@ -59,6 +59,7 @@ static PKHomeViewController *HomesingletonInstance = nil;
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    self.navigationController.navigationBar.backgroundColor = [UIColor colorWithRed:1.00f green:0.85f blue:0.56f alpha:1.00f];;
     
     // 0,刷新控件
     [self setupRefreshView];
