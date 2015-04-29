@@ -160,6 +160,7 @@
 		BCC2911F1AEA1B2E009190D5 /* PKHomeCellRoot.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC2911E1AEA1B2E009190D5 /* PKHomeCellRoot.m */; };
 		BCC291211AEA2960009190D5 /* pig_3.png in Resources */ = {isa = PBXBuildFile; fileRef = BCC291201AEA295F009190D5 /* pig_3.png */; };
 		BCEBF6B41AF0A26700C491C6 /* PKLeftCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCEBF6B31AF0A26700C491C6 /* PKLeftCell.m */; };
+		BCEBF6B61AF0C4D800C491C6 /* LeftControllerBG.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BCEBF6B51AF0C4D800C491C6 /* LeftControllerBG.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -464,6 +465,7 @@
 		BCC291201AEA295F009190D5 /* pig_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pig_3.png; sourceTree = "<group>"; };
 		BCEBF6B21AF0A26700C491C6 /* PKLeftCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKLeftCell.h; sourceTree = "<group>"; };
 		BCEBF6B31AF0A26700C491C6 /* PKLeftCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKLeftCell.m; sourceTree = "<group>"; };
+		BCEBF6B51AF0C4D800C491C6 /* LeftControllerBG.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = LeftControllerBG.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -536,6 +538,7 @@
 		BC07A35D1AE8C34900A26B66 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				BCEBF6B51AF0C4D800C491C6 /* LeftControllerBG.jpg */,
 				BCC291201AEA295F009190D5 /* pig_3.png */,
 				BC07A36A1AE8C34900A26B66 /* Images.xcassets */,
 				BC07A36C1AE8C34900A26B66 /* LaunchScreen.xib */,
@@ -1282,6 +1285,7 @@
 				BC6823321AE92B32000C57B3 /* PKHomeCellTimeline.xib in Resources */,
 				BC6822BB1AE8DF60000C57B3 /* MJPhotoBrowser.bundle in Resources */,
 				BC50B9761AECCAE90037CE4B /* PKFMCellList.xib in Resources */,
+				BCEBF6B61AF0C4D800C491C6 /* LeftControllerBG.jpg in Resources */,
 				BC0F50A31AEDD91C00B8E020 /* PKReadCellDetial.xib in Resources */,
 				BC6822C21AE8DF60000C57B3 /* MJRefresh.bundle in Resources */,
 				BC6823251AE92ACC000C57B3 /* PKHomeCellMusic.xib in Resources */,

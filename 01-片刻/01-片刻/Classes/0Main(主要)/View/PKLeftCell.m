@@ -42,13 +42,10 @@
 - (void)setFrame:(CGRect)frame
 {
     frame.origin.y += 2*PKStatusTableBorder;
-//    frame.origin.x = 2*PKStatusTableBorder;
-    frame.size.width -= 4 * PKStatusTableBorder;
+    
     frame.size.height -= 2*PKStatusTableBorder;
     
     [super setFrame:frame];
-    
-    //    self.CellImageView.frame = self.frame;
     
 }
 - (void)awakeFromNib {

@@ -35,19 +35,28 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
+    CGFloat w = self.view.frame.size.width;
+    CGFloat wScale = 500/w;
+    CGFloat h = 800 / wScale;
+    
+    UIImageView * imageView= [[ UIImageView alloc]initWithFrame:CGRectMake(0, 0, w, h)];
+    [imageView setImage:[UIImage imageNamed:@"LeftControllerBG.jpg"]];
+    [self.view addSubview:imageView];
     
     self.slideOutAnimationEnabled = YES;
     
-    UITableView * tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 200, 320, self.view.frame.size.height-300) style:UITableViewStylePlain ];
+    UITableView * tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, w, self.view.frame.size.height) style:UITableViewStylePlain ];
+    tableView.contentInset = UIEdgeInsetsMake(100, 0, 100, 0);
     tableView.dataSource = self;
     tableView.delegate = self;
     tableView.separatorColor = [UIColor clearColor];
-    tableView.backgroundColor = [UIColor lightGrayColor];
+
+    tableView.backgroundColor = [UIColor clearColor];
     [self.view addSubview:tableView];
     self.tableView = tableView;
 
-    self.nameArray = @[@"首页",@"电台",@"阅读",@"碎片",@"设置"];
-    self.picArray = @[@"LeftHome",@"LeftFM",@"LeftRead",@"LeftFre",@"LeftSetting"];
+    self.nameArray = @[@"首页",@"电台",@"阅读",@"碎片"];
+    self.picArray = @[@"LeftHome",@"LeftFM",@"LeftRead",@"LeftFre"];
     
     
 //    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"leftMenu.jpg"]];
@@ -66,7 +75,7 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     
-    return 5   ;
+    return 4   ;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -110,9 +119,9 @@
             vc.title = @"碎片";
 
             break;
-        case 4:
-            vc = [PKSettingViewController sharedInstance];
-            vc.title = @"设置";
+//        case 4:
+//            vc = [PKSettingViewController sharedInstance];
+//            vc.title = @"设置";
 
             break;
     }
