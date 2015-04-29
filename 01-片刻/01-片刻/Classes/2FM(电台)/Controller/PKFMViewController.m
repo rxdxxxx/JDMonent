@@ -85,7 +85,7 @@ static PKFMViewController *FMsingletonInstance = nil;
     
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    
+    self.navigationController.navigationBar.backgroundColor = [UIColor colorWithRed:0.68f green:0.79f blue:1.00f alpha:1.00f];
     
     // 0.集成刷新控件
     [self setupRefreshView];
@@ -109,8 +109,7 @@ static PKFMViewController *FMsingletonInstance = nil;
     [self.tableView.header beginRefreshing];
     
     
-    // 2,上拉刷新(上拉加载更多数据)
-    [self.tableView addLegendFooterWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
+
 }
 /**
  *  发起网络请求
@@ -139,6 +138,9 @@ static PKFMViewController *FMsingletonInstance = nil;
         // 刷新tableView
         [self.tableView reloadData];
         
+        if (self.tableView.footer == nil) {
+            [self performSelectorOnMainThread:@selector(addFooterReflash) withObject:self waitUntilDone:YES];
+        }
         
         // 让刷新控件停止显示刷新状态
         [self.tableView.header endRefreshing];
@@ -150,6 +152,15 @@ static PKFMViewController *FMsingletonInstance = nil;
         
     }];
     
+}
+
+/**
+ * 上拉刷新(上拉加载更多数据
+ */
+-(void)addFooterReflash
+{
+    // 2,上拉刷新(上拉加载更多数据)
+    [self.tableView addLegendFooterWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
 }
 
 -(void)loadMoreData
@@ -212,7 +223,7 @@ static PKFMViewController *FMsingletonInstance = nil;
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 150;
+    return 160;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {

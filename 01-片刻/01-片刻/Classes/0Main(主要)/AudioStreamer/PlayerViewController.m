@@ -17,6 +17,7 @@
 #define JDPageNum 4
 #define PKBorderBottom 100
 #define PKBorderMusic 15
+#define PKPlayViewHeight 50
 
 #import "PlayerViewController.h"
 #import "Track.h"
@@ -28,6 +29,8 @@
 #import "PKHomeModelPlayInfo.h"
 #import "PKMainModelUserInfo.h"
 #import "UIImageView+WebCache.h"
+#import "MBProgressHUD+MJ.h"
+
 
 
 
@@ -111,52 +114,47 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
     
     NSMutableArray * tempArray = [NSMutableArray arrayWithCapacity:10];
     int currentMusic = 0;
+    
+    // 0,整理音频模型.
     for (PKHomeModelPlayInfo * playInfo in model.playList) {
         Track * track = [[Track alloc]init];
-        track.title = model.title;
-        track.artist = model.userinfo.uname;
+        track.title = playInfo.title;
+        track.artist = playInfo.userinfo.uname;
         track.audioFileURL = [NSURL URLWithString:playInfo.musicUrl];
         [tempArray addObject:track];
         
-        
-        if ([model.playInfo.title isEqualToString:model.title]) {
+        if ([model.playInfo.title isEqualToString:track.title]) {
             _currentTrackIndex = currentMusic;
         }else{
             currentMusic ++;
         }
-        
-        
     }
-
+    
     self.tracks = tempArray;
 
  
-    // 0,保存数据模型数组
+    // 1,保存数据模型数组
     self.playListArr = model.playList;
-    self.playInfo = model.playInfo; 
-    
-    // 1,设置播放器的控件
+    self.playInfo = model.playInfo;
+}
+// 初始化各个页面
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    // 1,设置播放器的控件 第二页
     [self myloadView:self.playInfo];
     
     // 2,刷新, 第一页
     [self.tableView reloadData];
     
-    // 3,设置音乐播放界面 第二页, 合并到了1中
-//    [self setupMusicView];
-    
-    // 4,添加webView  第三页
+    // 3,添加webView  第三页
     [self setupWebView:self.playInfo];
     [self createPageControl];
     
-    // 5,作者信息  第四页
-
+    // 4,作者信息  第四页
+    
     [self setupAuthorInfo:self.playInfo];
-    
-    
-    
 }
-
-
 
 
 -(UIScrollView *)scrollView
@@ -166,6 +164,7 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
         
         
         CGRect frame = self.view.bounds;
+        frame.origin.y += 64;
         
         // 1,创建scrollView
         UIScrollView * scrollView = [[UIScrollView alloc]init];
@@ -207,7 +206,7 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
         CGFloat tableViewX = 0;
         CGFloat tableViewY = 0;
         CGFloat tableViewW = PKOnePageWidth;
-        CGFloat tableViewH = self.view.frame.size.height - PKBorderBottom;
+        CGFloat tableViewH = self.view.bounds.size.height - 64 - PKPlayViewHeight;
         
         CGRect frame = CGRectMake(tableViewX, tableViewY, tableViewW, tableViewH);
         
@@ -271,7 +270,7 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
     CGFloat webViewX = PKOnePageWidth*2;
     CGFloat webViewY = 0;
     CGFloat webViewW = PKOnePageWidth;
-    CGFloat webViewH = self.view.frame.size.height - PKBorderBottom;
+    CGFloat webViewH = self.view.bounds.size.height - PKPlayViewHeight - 64;
     
     CGRect frame = CGRectMake(webViewX, webViewY, webViewW, webViewH);
     
@@ -293,27 +292,24 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
 -(void)createPageControl
 {
     CGFloat pageContorlX = 0;
-    CGFloat pageContorlY = self.scrollView.frame.size.height - 80;
+    CGFloat pageContorlY = self.scrollView.frame.size.height - PKPlayViewHeight;
     CGFloat pageContorlW = PKOnePageWidth;
     CGFloat pageContorlH = 10;
     //创建pageController
     UIPageControl * pageControl = [[UIPageControl alloc]initWithFrame:CGRectMake(pageContorlX, pageContorlY, pageContorlW, pageContorlH)];
     //    UIView * vv = [UIApplication sharedApplication].keyWindow;
     [self.view addSubview:pageControl];
-    self.pageControl.backgroundColor = [UIColor redColor];
+    
     self.pageControl = pageControl;
     //设置
     self.pageControl.numberOfPages = JDPageNum;
     
     self.pageControl.currentPageIndicatorTintColor = [UIColor colorWithRed:0.51f green:0.69f blue:0.21f alpha:1.00f];;
-    self.pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
+    self.pageControl.pageIndicatorTintColor = [UIColor whiteColor];
     
     
     //设置当前页数
     self.pageControl.currentPage = 1;
-    
-    PKLog(@"%@",NSStringFromCGRect(self.pageControl.frame));
-    PKLog(@"%@",self.view.subviews);
     
     
     
@@ -333,31 +329,22 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
     UILabel * unameLabeForl = [[UILabel alloc]initWithFrame:CGRectMake(unameLabelForX, unameLabelForY, unameLabelForW, unameLabelForH)];
     unameLabeForl.text = @"主播:";
     unameLabeForl.font = [UIFont systemFontOfSize:11];
-    unameLabeForl.backgroundColor = [UIColor yellowColor];
     [self.scrollView addSubview:unameLabeForl];
 
     
-    // 1.2,主播对应的图片和姓名
+    // 1.2,主播对应的图片
     CGFloat unameBtnX = CGRectGetMaxX(unameLabeForl.frame) + PKBorderMusic ;
     CGFloat unameBtnY = unameLabelForY;
     CGFloat unameBtnW = 30;
     CGFloat unameBtnH = 30;
-    {
-        //    UIButton * unameBtn = [[UIButton alloc]initWithFrame:CGRectMake(unameBtnX, unameBtnY, unameBtnW, unameBtnH)];
-        //    [unameBtn setImage:nil forState:UIControlStateNormal];
-        //    [unameBtn.imageView sd_setImageWithURL:[NSURL URLWithString:self.model.userinfo.icon] placeholderImage:[UIImage imageNamed:@"pig_3"]];
-        //    [unameBtn setTitle:self.model.userinfo.uname forState:UIControlStateNormal];
-        //    [self.scrollView addSubview:unameBtn];
-    }
     UIImageView * unameImageView = [[UIImageView alloc]initWithFrame:CGRectMake(unameBtnX, unameBtnY, unameBtnW, unameBtnH)];
     unameImageView.layer.cornerRadius = 15;
     unameImageView.layer.masksToBounds = YES;
     [unameImageView sd_setImageWithURL:[NSURL URLWithString:playInfo.userinfo.icon] placeholderImage:[UIImage imageNamed:PKPlaceholderImage]];
-//    PKLog(@"self.model.userinfo.icon:%@",playInfo.userinfo.icon);
     [self.scrollView addSubview:unameImageView];
     albumUserImage = unameImageView;
     
-    // 1.3
+    // 1.3主播对应的姓名
     CGFloat unameLabelX = CGRectGetMaxX(unameImageView.frame) + PKBorderMusic  ;
     CGFloat unameLabelY = unameBtnY;
     CGFloat unameLabelW = 100;
@@ -370,7 +357,7 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
     albumUserLabel = unameLabel;
     
     // 2,作者名称
-    // 2.1
+    // 2.1原文
     CGFloat authorLabelForX = 3 * PKOnePageWidth + PKBorderMusic ;
     CGFloat authorLabelForY = CGRectGetMaxY(unameLabeForl.frame) + PKBorderMusic;
     CGFloat authorLabelForW = 30;
@@ -378,10 +365,9 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
     UILabel * authorLabeForl = [[UILabel alloc]initWithFrame:CGRectMake(authorLabelForX, authorLabelForY, authorLabelForW, authorLabelForH)];
     authorLabeForl.text = @"原文:";
     authorLabeForl.font = [UIFont systemFontOfSize:11];
-    authorLabeForl.backgroundColor = [UIColor yellowColor];
     [self.scrollView addSubview:authorLabeForl];
     
-    // 2.2,作者对应的图片和姓名
+    // 2.2,作者对应的图片
     CGFloat authorImageViewX = CGRectGetMaxX(authorLabeForl.frame) + PKBorderMusic ;
     CGFloat authorImageViewY = authorLabelForY;
     CGFloat authorImageViewW = 30;
@@ -394,7 +380,7 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
     [self.scrollView addSubview:authorImageView];
     albumAuthorImage = authorImageView;
     
-    // 1.3
+    // 2.3作者对应的姓名
     CGFloat authorLabelX = CGRectGetMaxX(authorImageView.frame) + PKBorderMusic  ;
     CGFloat authorLabelY = authorLabelForY;
     CGFloat authorLabelW = 100;
@@ -487,6 +473,41 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
     self.pageControl.currentPage = page;
     
 }
+
+#pragma mark - webView的代理方法 -
+/**
+ *  开始发送请求的时候调用
+ *
+ *  @param webView
+ */
+-(void)webViewDidStartLoad:(UIWebView *)webView
+{
+    //显示提醒框
+    [MBProgressHUD showMessage:@"小丁哥正在帮你加载..."];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [MBProgressHUD hideHUD];
+    });
+}
+/**
+ *  请求完毕的时候调用
+ *
+ *  @param webView
+ */
+-(void)webViewDidFinishLoad:(UIWebView *)webView
+{
+    //隐藏提醒框
+    [MBProgressHUD hideHUD];
+}
+/**
+ *  webView 请求失败
+ */
+-(void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
+{
+    //隐藏提醒框
+    [MBProgressHUD hideHUD];
+}
+
 /**
  *  当 webView 发送一个请求之前,就会调用这个方法.询问代理可不可以加载这个页面.
  *
@@ -519,7 +540,7 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
 
 
 
-#pragma mark -AudioStreamer-
+#pragma mark - AudioStreamer -
 - (void)myloadView:(PKHomeModelPlayInfo *)playInfo
 {
     CGFloat viewX = PKOnePageWidth;
@@ -581,23 +602,6 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
     [_miscLabel setLineBreakMode:NSLineBreakByTruncatingTail];
     [view addSubview:_miscLabel];
     
-    _buttonPlayPause = [UIButton buttonWithType:UIButtonTypeSystem];
-    [_buttonPlayPause setFrame:CGRectMake(80.0,CGRectGetMaxY([musicImageView frame]) + 150.0, 60.0, 20.0)];
-    [_buttonPlayPause setTitle:@"Play" forState:UIControlStateNormal];
-    [_buttonPlayPause addTarget:self action:@selector(_actionPlayPause:) forControlEvents:UIControlEventTouchDown];
-    [view addSubview:_buttonPlayPause];
-    
-    _buttonNext = [UIButton buttonWithType:UIButtonTypeSystem];
-    [_buttonNext setFrame:CGRectMake(CGRectGetWidth([view bounds]) - 80.0 - 60.0, CGRectGetMaxY([musicImageView frame]) + 150.0, 60.0, 20.0)];
-    [_buttonNext setTitle:@"Next" forState:UIControlStateNormal];
-    [_buttonNext addTarget:self action:@selector(_actionNext:) forControlEvents:UIControlEventTouchDown];
-    [view addSubview:_buttonNext];
-    
-    _buttonStop = [UIButton buttonWithType:UIButtonTypeSystem];
-    [_buttonStop setFrame:CGRectMake(round((CGRectGetWidth([view bounds]) - 60.0) / 2.0), CGRectGetMaxY([musicImageView frame]) + 150.0, 60.0, 20.0)];
-    [_buttonStop setTitle:@"Stop" forState:UIControlStateNormal];
-    [_buttonStop addTarget:self action:@selector(_actionStop:) forControlEvents:UIControlEventTouchDown];
-    [view addSubview:_buttonStop];
     
     // 进度条
     _progressSlider = [[UISlider alloc] initWithFrame:CGRectMake(20.0, CGRectGetMaxY([musicImageView frame]) + 50.0, CGRectGetWidth([view bounds]) - 20.0 * 2.0, 40.0)];
@@ -613,11 +617,60 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
     _volumeSlider.hidden = YES;
     [view addSubview:_volumeSlider];
     
-    _audioVisualizer = [[DOUAudioVisualizer alloc] initWithFrame:CGRectMake(0.0,0, CGRectGetWidth([view bounds]), CGRectGetHeight([view bounds]) - CGRectGetMaxY([_volumeSlider frame]))];
+    _audioVisualizer = [[DOUAudioVisualizer alloc] initWithFrame:CGRectMake(0.0,-PKPlayViewHeight-64, CGRectGetWidth([view bounds]), CGRectGetHeight([view bounds]))];
     [_audioVisualizer setBackgroundColor:[UIColor colorWithRed:239.0 / 255.0 green:244.0 / 255.0 blue:240.0 / 255.0 alpha:1.0]];
     [view insertSubview:_audioVisualizer atIndex:0];
     
     [self.scrollView addSubview:view];
+    
+    
+    
+    /**   - -- - - - - - - - - - -*/
+    // 按钮板子
+
+
+    
+    UIView * PlayPauseView = [[UIView alloc]initWithFrame:CGRectMake(0, self.view.bounds.size.height-PKPlayViewHeight, self.view.bounds.size.width, PKPlayViewHeight)];
+    PlayPauseView.backgroundColor = [UIColor colorWithRed:0.68f green:0.79f blue:1.00f alpha:0.80f];;
+    [self.view addSubview:PlayPauseView];
+    
+    _buttonStop = [UIButton buttonWithType:UIButtonTypeSystem];
+    [_buttonStop setTitle:@"Stop" forState:UIControlStateNormal];
+    [_buttonStop addTarget:self action:@selector(_actionStop:) forControlEvents:UIControlEventTouchDown];
+    [PlayPauseView addSubview:_buttonStop];
+    
+    _buttonPlayPause = [UIButton buttonWithType:UIButtonTypeSystem];
+    [_buttonPlayPause setTitle:@"Play" forState:UIControlStateNormal];
+    [_buttonPlayPause addTarget:self action:@selector(_actionPlayPause:) forControlEvents:UIControlEventTouchDown];
+    [PlayPauseView addSubview:_buttonPlayPause];
+    
+    _buttonNext = [UIButton buttonWithType:UIButtonTypeSystem];
+    [_buttonNext setTitle:@"Next" forState:UIControlStateNormal];
+    [_buttonNext addTarget:self action:@selector(_actionNext:) forControlEvents:UIControlEventTouchDown];
+    [PlayPauseView addSubview:_buttonNext];
+
+
+
+    //按钮的 frame
+    CGFloat buttonW = self.view.bounds.size.width/PlayPauseView.subviews.count;
+    CGFloat buttonH = PKPlayViewHeight;
+    CGFloat buttonY = 0;
+    
+    
+    for (int index = 0; index <PlayPauseView.subviews.count; index++) {
+        //1,取出按钮
+        UIButton  * button = PlayPauseView.subviews[index];
+        
+        //2,设置按钮的 frame;
+        
+        CGFloat buttonX = index * buttonW;
+        
+        button.frame = CGRectMake(buttonX, buttonY, buttonW, buttonH);
+        
+    }
+    
+    
+    
 }
 
 
