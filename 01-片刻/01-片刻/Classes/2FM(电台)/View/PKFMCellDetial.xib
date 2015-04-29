@@ -23,7 +23,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S2C-in-Th5">
-                        <rect key="frame" x="251" y="25" width="40" height="40"/>
+                        <rect key="frame" x="260" y="25" width="40" height="40"/>
                     </imageView>
                 </subviews>
             </tableViewCellContentView>
