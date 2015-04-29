@@ -84,8 +84,7 @@ static PKHomeViewController *HomesingletonInstance = nil;
     [self.tableView.header beginRefreshing];
     
 
-    // 2,上拉刷新(上拉加载更多数据)
-    [self.tableView addLegendFooterWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
+
 }
 
 -(void)loadMoreData
@@ -114,6 +113,9 @@ static PKHomeViewController *HomesingletonInstance = nil;
         
         // 让刷新控件停止显示刷新状态
         [self.tableView.footer endRefreshing];
+        
+        
+       
         
     } failure:^(NSError *error) {
         // 让刷新控件停止显示刷新状态
@@ -145,6 +147,12 @@ static PKHomeViewController *HomesingletonInstance = nil;
         // 刷新tableView
         [self.tableView reloadData];
         
+        if (self.tableView.footer == nil) {
+            [self performSelectorOnMainThread:@selector(addFooterReflash) withObject:self waitUntilDone:YES];
+        }
+        
+        
+        
         
         // 让刷新控件停止显示刷新状态
         [self.tableView.header endRefreshing];
@@ -154,6 +162,16 @@ static PKHomeViewController *HomesingletonInstance = nil;
     }];
     
     
+}
+
+
+/**
+ *
+ */
+-(void)addFooterReflash
+{
+    // 2,上拉刷新(上拉加载更多数据)
+    [self.tableView addLegendFooterWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
 }
 
 /**

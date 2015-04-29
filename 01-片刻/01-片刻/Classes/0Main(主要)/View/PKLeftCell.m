@@ -28,11 +28,9 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        //        // 1.添加顶部的view
-        //        [self setupTopView];
-        //
-        //        // 2.添加微博的工具条
-        //        [self setupStatusToolbar];
+        
+        
+        
     }
     return self;
 }

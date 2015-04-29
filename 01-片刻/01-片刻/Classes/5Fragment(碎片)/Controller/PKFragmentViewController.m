@@ -80,9 +80,7 @@ static PKFragmentViewController *fragmentSingletonInstance = nil;
     // 马上进入刷新状态
     [self.tableView.header beginRefreshing];
     
-    
-    // 2,上拉刷新(上拉加载更多数据)
-    [self.tableView addLegendFooterWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
+
 }
 /**
  *  发起网络请求
@@ -115,6 +113,10 @@ static PKFragmentViewController *fragmentSingletonInstance = nil;
         
         [self.tableView reloadData];
         
+        // 添加上拉加载
+        if (self.tableView.footer == nil) {
+            [self performSelectorOnMainThread:@selector(addFooterReflash) withObject:self waitUntilDone:YES];
+        }
         
         // 让刷新控件停止显示刷新状态
         [self.tableView.header endRefreshing];
@@ -127,7 +129,14 @@ static PKFragmentViewController *fragmentSingletonInstance = nil;
     }];
     
 }
-
+/**
+ *  2,上拉刷新(上拉加载更多数据)
+ */
+-(void)addFooterReflash
+{
+    // 2,上拉刷新(上拉加载更多数据)
+    [self.tableView addLegendFooterWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
+}
 -(void)loadMoreData
 {
     
