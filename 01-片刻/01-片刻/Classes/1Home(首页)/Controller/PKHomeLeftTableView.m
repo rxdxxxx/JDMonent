@@ -1,17 +1,20 @@
 //
-//  PKHomeViewController.m
+//  PKHomeLeftTableView.m
 //  01-片刻
 //
-//  Created by qianfeng on 15-4-23.
+//  Created by qianfeng on 15-4-30.
 //  Copyright (c) 2015年 Jason Ding. All rights reserved.
 //
 
-#import "PKHomeViewController.h"
-#import "SlideNavigationController.h"
+#import "PKHomeLeftTableView.h"
 #import "AFNetworking.h"
 #import "MJExtension.h"
 #import "PKHomeModelRoot.h"
 #import "MJRefresh.h"
+#import "PKAccountTool.h"
+
+#import "SlideNavigationController.h"
+
 
 /*不同类型的cell*/
 #import "PKHomeCellSound.h"
@@ -25,49 +28,68 @@
 #import "PKHomeDetialController.h"
 #import "PKHomeMorController.h"
 
+
+
 /*工具类*/
 #import "IWHttpTool.h"
 
 #import "PlayerViewController.h"
 
+@interface PKHomeLeftTableView()<UITableViewDelegate,UITableViewDataSource>
 
 
-@interface PKHomeViewController ()
 
 @property (nonatomic, strong)NSMutableArray * statuses;
 
+
+@property (nonatomic, weak)UITableView * tableView;
+
 @end
 
-@implementation PKHomeViewController
 
+@implementation PKHomeLeftTableView
 
-static PKHomeViewController *HomesingletonInstance = nil;
-
-#pragma mark - Initialization -
-
-+ (PKHomeViewController *)sharedInstance
+- (instancetype)initWithFrame:(CGRect)frame
 {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        HomesingletonInstance = [[self alloc]init];
-    });
-    
-    return HomesingletonInstance;
+    self = [super initWithFrame:frame];
+    if (self) {
+        
+        // 0,刷新控件
+        [self setupRefreshView];
+        
+    }
+    return self;
 }
 
-
-- (void)viewDidLoad {
-    
-    [super viewDidLoad];
-    self.navigationController.navigationBar.backgroundColor = [UIColor colorWithRed:1.00f green:0.85f blue:0.56f alpha:1.00f];;
-    
-    // 0,刷新控件
-    [self setupRefreshView];
-    
-    // 1,设置tableView
-    [self setupTableView];
-    
+-(UITableView *)tableView
+{
+        
+        if (_tableView == nil) {
+            
+            CGFloat tableViewX = 0;
+            CGFloat tableViewY = 0;
+            CGFloat tableViewW = PKOnePageWidth;
+            CGFloat tableViewH = self.bounds.size.height - 64;
+            
+            CGRect frame = CGRectMake(tableViewX, tableViewY, tableViewW, tableViewH);
+            
+            // 1,创建tableView
+            UITableView * tableView = [[UITableView alloc]initWithFrame:frame style:UITableViewStylePlain];
+            
+            tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+            tableView.delegate = self;
+            tableView.dataSource = self;
+            
+            [self addSubview:tableView];
+            _tableView = tableView;
+            
+        }
+        
+        return _tableView;
+        
 }
+
+#pragma mark - 数据刷新模块
 /**
  *  集成刷新控件
  */
@@ -83,49 +105,18 @@ static PKHomeViewController *HomesingletonInstance = nil;
     // 马上进入刷新状态
     [self.tableView.header beginRefreshing];
     
-
-
 }
-
--(void)loadMoreData
-{   
-    NSMutableDictionary * params = [NSMutableDictionary dictionary];
-    params[@"start"] = @(self.statuses.count);
-    params[@"limit"] = @10;
-    params[@"client"] = @"1";
-    
-    NSString * url = @"http://api2.pianke.me/pub/today";
-    
-    
-    
-    // 2,发送请求
-    [IWHttpTool postWithURL:url params:params success:^(id json) {
-        
-        // 创建frame模型对象
-        NSMutableArray* temp = (NSMutableArray *)[PKHomeModelRoot objectArrayWithKeyValuesArray:json[@"data"][@"list"]];
-
-        
-        // 添加
-        [self.statuses addObjectsFromArray:temp];
-        
-        // 刷新表格
-        [self.tableView reloadData];
-        
-        // 让刷新控件停止显示刷新状态
-        [self.tableView.footer endRefreshing];
-        
-        
-       
-        
-    } failure:^(NSError *error) {
-        // 让刷新控件停止显示刷新状态
-        [self.tableView.footer endRefreshing];
-        
-    }];
-}
-
 /**
- *  发起网络请求
+ * 2,增加上拉模块(上拉加载更多数据)
+ */
+-(void)addFooterReflash
+{
+    // 2,上拉刷新(上拉加载更多数据)
+    [self.tableView addLegendFooterWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
+    
+}
+/**
+ *  发起网络请求, 下拉刷新
  */
 -(void)loadNewData
 {
@@ -133,6 +124,11 @@ static PKHomeViewController *HomesingletonInstance = nil;
     params[@"start"] = @0;
     params[@"limit"] = @10;
     params[@"client"] = @"1";
+    
+    if ([PKAccountTool account].auth) {
+        params[@"auth"] =  [PKAccountTool account].auth ;
+    }
+    
     
     NSString * url = @"http://api2.pianke.me/pub/today";
     
@@ -163,42 +159,50 @@ static PKHomeViewController *HomesingletonInstance = nil;
     
     
 }
-
-
 /**
- *
+ *  上拉加载
  */
--(void)addFooterReflash
+-(void)loadMoreData
 {
-    // 2,上拉刷新(上拉加载更多数据)
-    [self.tableView addLegendFooterWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
-}
-
-/**
- *  2,设置tableView
- */
--(void)setupTableView
-{
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-
-
-#pragma mark - SlideNavigationControllerDelegate -
-- (BOOL)slideNavigationControllerShouldDisplayLeftMenu
-{
-    return YES;
+    NSMutableDictionary * params = [NSMutableDictionary dictionary];
+    params[@"start"] = @(self.statuses.count);
+    params[@"limit"] = @10;
+    params[@"client"] = @"1";
+    
+    NSString * url = @"http://api2.pianke.me/pub/today";
+    
+    
+    
+    // 2,发送请求
+    [IWHttpTool postWithURL:url params:params success:^(id json) {
+        
+        // 创建frame模型对象
+        NSMutableArray* temp = (NSMutableArray *)[PKHomeModelRoot objectArrayWithKeyValuesArray:json[@"data"][@"list"]];
+        
+        
+        // 添加
+        [self.statuses addObjectsFromArray:temp];
+        
+        // 刷新表格
+        [self.tableView reloadData];
+        
+        // 让刷新控件停止显示刷新状态
+        [self.tableView.footer endRefreshing];
+        
+        
+        
+        
+    } failure:^(NSError *error) {
+        // 让刷新控件停止显示刷新状态
+        [self.tableView.footer endRefreshing];
+        
+    }];
 }
 
 
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
+    
     //一共有多少行.
     return self.statuses.count;
 }
@@ -225,13 +229,13 @@ static PKHomeViewController *HomesingletonInstance = nil;
         case 17:
         {
             cell = [PKHomeCellPhoto cellWithTableView:tableView];
-   
+            
         }
             break;
         case 5:
         {
             cell = [PKHomeCellMusic cellWithTableView:tableView];
-
+            
         }
             break;
         case 24:
@@ -258,7 +262,7 @@ static PKHomeViewController *HomesingletonInstance = nil;
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     PKHomeModelRoot * model = self.statuses[indexPath.row];
-
+    
     
     // 1,选择不同的cell的高度.
     switch (model.type.intValue) {
@@ -271,21 +275,21 @@ static PKHomeViewController *HomesingletonInstance = nil;
         case 3:
         {
             return 320;
-
+            
         }
             break;
         case 4:
         case 17:
-
+            
         {
             return 440;
-
+            
         }
             break;
         case 5:
         {
             return 0;
-
+            
         }
             break;
         case 24:
@@ -299,7 +303,7 @@ static PKHomeViewController *HomesingletonInstance = nil;
             return 350;
         }
             
-        break;
+            break;
     }
 }
 
@@ -312,9 +316,9 @@ static PKHomeViewController *HomesingletonInstance = nil;
     switch (model.type.intValue) {
         case 2://sound
         {
-//            PKHomeDetialController * dc = [[PKHomeDetialController alloc]init];
-//            dc = model;
-
+            //            PKHomeDetialController * dc = [[PKHomeDetialController alloc]init];
+            //            dc = model;
+            
             PlayerViewController * pvc = [[PlayerViewController alloc]init];
             pvc.model = model;
             [[SlideNavigationController sharedInstance] pushViewController:pvc animated:YES];
@@ -327,7 +331,7 @@ static PKHomeViewController *HomesingletonInstance = nil;
             PKHomeMorController * mc = [[PKHomeMorController alloc]init];
             mc.model = model;
             [[SlideNavigationController sharedInstance] pushViewController:mc animated:YES];
-
+            
         }
             break;
         case 4://photo
@@ -342,7 +346,7 @@ static PKHomeViewController *HomesingletonInstance = nil;
             break;
         case 5://Music
         {
-           
+            
             
         }
             break;
@@ -351,7 +355,7 @@ static PKHomeViewController *HomesingletonInstance = nil;
             PKHomeMorController * mc = [[PKHomeMorController alloc]init];
             mc.model = model;
             [[SlideNavigationController sharedInstance] pushViewController:mc animated:YES];
-
+            
         }
             break;
             
@@ -360,56 +364,12 @@ static PKHomeViewController *HomesingletonInstance = nil;
             PKHomeMorController * mc = [[PKHomeMorController alloc]init];
             mc.model = model;
             [[SlideNavigationController sharedInstance] pushViewController:mc animated:YES];
-
+            
         }
             
             break;
     }
 }
 
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

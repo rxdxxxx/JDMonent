@@ -55,8 +55,8 @@
     [self.view addSubview:tableView];
     self.tableView = tableView;
 
-    self.nameArray = @[@"首页",@"电台",@"阅读",@"碎片"];
-    self.picArray = @[@"LeftHome",@"LeftFM",@"LeftRead",@"LeftFre"];
+    self.nameArray = @[@"首页",@"电台",@"阅读",@"碎片",@"设置"];
+    self.picArray = @[@"LeftHome",@"LeftFM",@"LeftRead",@"LeftFre",@"LeftSetting"];
     
     
 //    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"leftMenu.jpg"]];
@@ -75,7 +75,7 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     
-    return 4   ;
+    return 5   ;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -119,22 +119,14 @@
             vc.title = @"碎片";
 
             break;
-//        case 4:
-//            vc = [PKSettingViewController sharedInstance];
-//            vc.title = @"设置";
+        case 4:
+            vc = [PKSettingViewController sharedInstance];
+            vc.title = @"设置";
 
             break;
     }
     
     [[SlideNavigationController sharedInstance]popAllAndSwitchToViewController:vc withSlideOutAnimation:self.slideOutAnimationEnabled andCompletion:nil];
-    
-//    [[SlideNavigationController sharedInstance] popToRootAndSwitchToViewController:vc
-//                                                             withSlideOutAnimation:self.slideOutAnimationEnabled
-//                                                                     andCompletion:nil];
-//    
-//    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
-//    [[SlideNavigationController sharedInstance] popToRootViewControllerAnimated:YES];
-//    return;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {

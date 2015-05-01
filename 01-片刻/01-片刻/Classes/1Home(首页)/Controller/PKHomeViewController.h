@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PKHomeViewController : UITableViewController
+@interface PKHomeViewController : UIViewController
 
 + (PKHomeViewController *)sharedInstance;
 

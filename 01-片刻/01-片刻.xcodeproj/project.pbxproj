@@ -63,12 +63,23 @@
 		BC1AA2411AED0CC10090D934 /* PKFMDetialController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1AA2401AED0CC10090D934 /* PKFMDetialController.m */; };
 		BC1AA2441AED0FE00090D934 /* PKFMModelList.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1AA2431AED0FE00090D934 /* PKFMModelList.m */; };
 		BC1AA2471AED0FF30090D934 /* PKFMModelRadioInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1AA2461AED0FF30090D934 /* PKFMModelRadioInfo.m */; };
+		BC24AF551AF1D6FA009005A1 /* PKAccountTool.m in Sources */ = {isa = PBXBuildFile; fileRef = BC24AF541AF1D6FA009005A1 /* PKAccountTool.m */; };
+		BC24AF581AF1D713009005A1 /* PKAccountParam.m in Sources */ = {isa = PBXBuildFile; fileRef = BC24AF571AF1D713009005A1 /* PKAccountParam.m */; };
+		BC24AF5B1AF1D72D009005A1 /* PKAccountResult.m in Sources */ = {isa = PBXBuildFile; fileRef = BC24AF5A1AF1D72D009005A1 /* PKAccountResult.m */; };
+		BC24AF5E1AF1DAAE009005A1 /* PKAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = BC24AF5D1AF1DAAE009005A1 /* PKAccount.m */; };
+		BC24AF611AF2039C009005A1 /* PKHomeLeftTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC24AF601AF2039C009005A1 /* PKHomeLeftTableView.m */; };
+		BC24AF641AF207AF009005A1 /* PKHomeRightView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC24AF631AF207AF009005A1 /* PKHomeRightView.m */; };
+		BC24AF6C1AF21398009005A1 /* PKLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC24AF6B1AF21398009005A1 /* PKLoginController.m */; };
+		BC24AF6F1AF2170E009005A1 /* PKRegController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC24AF6E1AF2170E009005A1 /* PKRegController.m */; };
+		BC24AF721AF25241009005A1 /* PKHomeModelFeedRoot.m in Sources */ = {isa = PBXBuildFile; fileRef = BC24AF711AF25241009005A1 /* PKHomeModelFeedRoot.m */; };
+		BC24AF751AF25350009005A1 /* PKMainModelCounter.m in Sources */ = {isa = PBXBuildFile; fileRef = BC24AF741AF25350009005A1 /* PKMainModelCounter.m */; };
 		BC2FCF8C1AE9E42F0014B413 /* PKMainModelUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2FCF8B1AE9E42F0014B413 /* PKMainModelUserInfo.m */; };
 		BC2FCF951AE9E5150014B413 /* PKHomeModelRoot.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2FCF941AE9E5150014B413 /* PKHomeModelRoot.m */; };
 		BC2FCF981AE9F28B0014B413 /* PKHomeModelPlayInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2FCF971AE9F28B0014B413 /* PKHomeModelPlayInfo.m */; };
 		BC2FCF9E1AE9F3E20014B413 /* PKMainModelShareInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2FCF9D1AE9F3E20014B413 /* PKMainModelShareInfo.m */; };
 		BC50B9751AECCAE90037CE4B /* PKFMCellList.m in Sources */ = {isa = PBXBuildFile; fileRef = BC50B9731AECCAE90037CE4B /* PKFMCellList.m */; };
 		BC50B9761AECCAE90037CE4B /* PKFMCellList.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC50B9741AECCAE90037CE4B /* PKFMCellList.xib */; };
+		BC5B42901AF31A000078D106 /* PKHomeModelFeedRootFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5B428F1AF31A000078D106 /* PKHomeModelFeedRootFrame.m */; };
 		BC6822A51AE8DF60000C57B3 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = BC68222E1AE8DF60000C57B3 /* AFHTTPRequestOperation.m */; };
 		BC6822A61AE8DF60000C57B3 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BC6822301AE8DF60000C57B3 /* AFHTTPRequestOperationManager.m */; };
 		BC6822A71AE8DF60000C57B3 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BC6822321AE8DF60000C57B3 /* AFHTTPSessionManager.m */; };
@@ -279,6 +290,26 @@
 		BC1AA2431AED0FE00090D934 /* PKFMModelList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKFMModelList.m; sourceTree = "<group>"; };
 		BC1AA2451AED0FF30090D934 /* PKFMModelRadioInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKFMModelRadioInfo.h; sourceTree = "<group>"; };
 		BC1AA2461AED0FF30090D934 /* PKFMModelRadioInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKFMModelRadioInfo.m; sourceTree = "<group>"; };
+		BC24AF531AF1D6FA009005A1 /* PKAccountTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKAccountTool.h; sourceTree = "<group>"; };
+		BC24AF541AF1D6FA009005A1 /* PKAccountTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKAccountTool.m; sourceTree = "<group>"; };
+		BC24AF561AF1D713009005A1 /* PKAccountParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKAccountParam.h; sourceTree = "<group>"; };
+		BC24AF571AF1D713009005A1 /* PKAccountParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKAccountParam.m; sourceTree = "<group>"; };
+		BC24AF591AF1D72D009005A1 /* PKAccountResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKAccountResult.h; sourceTree = "<group>"; };
+		BC24AF5A1AF1D72D009005A1 /* PKAccountResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKAccountResult.m; sourceTree = "<group>"; };
+		BC24AF5C1AF1DAAE009005A1 /* PKAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKAccount.h; sourceTree = "<group>"; };
+		BC24AF5D1AF1DAAE009005A1 /* PKAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKAccount.m; sourceTree = "<group>"; };
+		BC24AF5F1AF2039C009005A1 /* PKHomeLeftTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKHomeLeftTableView.h; sourceTree = "<group>"; };
+		BC24AF601AF2039C009005A1 /* PKHomeLeftTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKHomeLeftTableView.m; sourceTree = "<group>"; };
+		BC24AF621AF207AF009005A1 /* PKHomeRightView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKHomeRightView.h; sourceTree = "<group>"; };
+		BC24AF631AF207AF009005A1 /* PKHomeRightView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKHomeRightView.m; sourceTree = "<group>"; };
+		BC24AF6A1AF21398009005A1 /* PKLoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKLoginController.h; sourceTree = "<group>"; };
+		BC24AF6B1AF21398009005A1 /* PKLoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKLoginController.m; sourceTree = "<group>"; };
+		BC24AF6D1AF2170E009005A1 /* PKRegController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKRegController.h; sourceTree = "<group>"; };
+		BC24AF6E1AF2170E009005A1 /* PKRegController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKRegController.m; sourceTree = "<group>"; };
+		BC24AF701AF25241009005A1 /* PKHomeModelFeedRoot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKHomeModelFeedRoot.h; sourceTree = "<group>"; };
+		BC24AF711AF25241009005A1 /* PKHomeModelFeedRoot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKHomeModelFeedRoot.m; sourceTree = "<group>"; };
+		BC24AF731AF25350009005A1 /* PKMainModelCounter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKMainModelCounter.h; sourceTree = "<group>"; };
+		BC24AF741AF25350009005A1 /* PKMainModelCounter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKMainModelCounter.m; sourceTree = "<group>"; };
 		BC2FCF8A1AE9E42F0014B413 /* PKMainModelUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKMainModelUserInfo.h; sourceTree = "<group>"; };
 		BC2FCF8B1AE9E42F0014B413 /* PKMainModelUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKMainModelUserInfo.m; sourceTree = "<group>"; };
 		BC2FCF931AE9E5150014B413 /* PKHomeModelRoot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKHomeModelRoot.h; sourceTree = "<group>"; };
@@ -290,6 +321,8 @@
 		BC50B9721AECCAE90037CE4B /* PKFMCellList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKFMCellList.h; sourceTree = "<group>"; };
 		BC50B9731AECCAE90037CE4B /* PKFMCellList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKFMCellList.m; sourceTree = "<group>"; };
 		BC50B9741AECCAE90037CE4B /* PKFMCellList.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PKFMCellList.xib; sourceTree = "<group>"; };
+		BC5B428E1AF319FF0078D106 /* PKHomeModelFeedRootFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKHomeModelFeedRootFrame.h; sourceTree = "<group>"; };
+		BC5B428F1AF31A000078D106 /* PKHomeModelFeedRootFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKHomeModelFeedRootFrame.m; sourceTree = "<group>"; };
 		BC68222D1AE8DF60000C57B3 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		BC68222E1AE8DF60000C57B3 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
 		BC68222F1AE8DF60000C57B3 /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
@@ -628,6 +661,58 @@
 			path = AudioStreamerDB;
 			sourceTree = "<group>";
 		};
+		BC24AF521AF1D6E9009005A1 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				BC24AF531AF1D6FA009005A1 /* PKAccountTool.h */,
+				BC24AF541AF1D6FA009005A1 /* PKAccountTool.m */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
+		BC24AF651AF20F2E009005A1 /* 8LoginAndReg(登录注册) */ = {
+			isa = PBXGroup;
+			children = (
+				BC24AF661AF20FBA009005A1 /* Controller */,
+				BC24AF671AF20FBA009005A1 /* Model */,
+				BC24AF681AF20FBA009005A1 /* Tool */,
+				BC24AF691AF20FBA009005A1 /* View */,
+			);
+			path = "8LoginAndReg(登录注册)";
+			sourceTree = "<group>";
+		};
+		BC24AF661AF20FBA009005A1 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BC24AF6A1AF21398009005A1 /* PKLoginController.h */,
+				BC24AF6B1AF21398009005A1 /* PKLoginController.m */,
+				BC24AF6D1AF2170E009005A1 /* PKRegController.h */,
+				BC24AF6E1AF2170E009005A1 /* PKRegController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		BC24AF671AF20FBA009005A1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BC24AF681AF20FBA009005A1 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
+		BC24AF691AF20FBA009005A1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		BC68220C1AE8DD2F000C57B3 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -638,6 +723,7 @@
 				BC68221D1AE8DD2F000C57B3 /* 移除 4Community(社区) */,
 				BC6822211AE8DD2F000C57B3 /* 5Fragment(碎片) */,
 				BC6822251AE8DD2F000C57B3 /* 6Setting(设置) */,
+				BC24AF651AF20F2E009005A1 /* 8LoginAndReg(登录注册) */,
 				BC6822291AE8DD2F000C57B3 /* 7Other(其他) */,
 			);
 			path = Classes;
@@ -646,6 +732,7 @@
 		BC68220D1AE8DD2F000C57B3 /* 0Main(主要) */ = {
 			isa = PBXGroup;
 			children = (
+				BC24AF521AF1D6E9009005A1 /* Tool */,
 				BC0274621AEF1F3D005DF800 /* AudioStreamer */,
 				BC68220E1AE8DD2F000C57B3 /* Controller */,
 				BC68220F1AE8DD2F000C57B3 /* Model */,
@@ -670,6 +757,14 @@
 				BC2FCF8B1AE9E42F0014B413 /* PKMainModelUserInfo.m */,
 				BC2FCF9C1AE9F3E20014B413 /* PKMainModelShareInfo.h */,
 				BC2FCF9D1AE9F3E20014B413 /* PKMainModelShareInfo.m */,
+				BC24AF561AF1D713009005A1 /* PKAccountParam.h */,
+				BC24AF571AF1D713009005A1 /* PKAccountParam.m */,
+				BC24AF591AF1D72D009005A1 /* PKAccountResult.h */,
+				BC24AF5A1AF1D72D009005A1 /* PKAccountResult.m */,
+				BC24AF5C1AF1DAAE009005A1 /* PKAccount.h */,
+				BC24AF5D1AF1DAAE009005A1 /* PKAccount.m */,
+				BC24AF731AF25350009005A1 /* PKMainModelCounter.h */,
+				BC24AF741AF25350009005A1 /* PKMainModelCounter.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -702,6 +797,10 @@
 				BC0BE8D61AEA70D9003D7491 /* PKHomeDetialController.m */,
 				BC01DE411AEBC3C4003875B5 /* PKHomeMorController.h */,
 				BC01DE421AEBC3C4003875B5 /* PKHomeMorController.m */,
+				BC24AF5F1AF2039C009005A1 /* PKHomeLeftTableView.h */,
+				BC24AF601AF2039C009005A1 /* PKHomeLeftTableView.m */,
+				BC24AF621AF207AF009005A1 /* PKHomeRightView.h */,
+				BC24AF631AF207AF009005A1 /* PKHomeRightView.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -715,6 +814,10 @@
 				BC2FCF971AE9F28B0014B413 /* PKHomeModelPlayInfo.m */,
 				BCC2911A1AEA0C29009190D5 /* PKHomeModelImgUrl.h */,
 				BCC2911B1AEA0C2A009190D5 /* PKHomeModelImgUrl.m */,
+				BC24AF701AF25241009005A1 /* PKHomeModelFeedRoot.h */,
+				BC24AF711AF25241009005A1 /* PKHomeModelFeedRoot.m */,
+				BC5B428E1AF319FF0078D106 /* PKHomeModelFeedRootFrame.h */,
+				BC5B428F1AF31A000078D106 /* PKHomeModelFeedRootFrame.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1313,6 +1416,7 @@
 			files = (
 				BC6822F61AE8E473000C57B3 /* SlideNavigationContorllerAnimatorFade.m in Sources */,
 				BCEBF6B41AF0A26700C491C6 /* PKLeftCell.m in Sources */,
+				BC24AF751AF25350009005A1 /* PKMainModelCounter.m in Sources */,
 				BC6822D91AE8DF60000C57B3 /* UIImage+MultiFormat.m in Sources */,
 				BC0F509E1AEDD78300B8E020 /* PKReadViewDetialController.m in Sources */,
 				BC0F50A21AEDD91C00B8E020 /* PKReadCellDetial.m in Sources */,
@@ -1325,11 +1429,13 @@
 				BC6822C51AE8DF60000C57B3 /* MJRefreshFooter.m in Sources */,
 				BC2FCF9E1AE9F3E20014B413 /* PKMainModelShareInfo.m in Sources */,
 				BC6822C61AE8DF60000C57B3 /* MJRefreshGifFooter.m in Sources */,
+				BC24AF5E1AF1DAAE009005A1 /* PKAccount.m in Sources */,
 				BC6822CF1AE8DF60000C57B3 /* NSData+ImageContentType.m in Sources */,
 				BC6822AE1AE8DF60000C57B3 /* MBProgressHUD+MJ.m in Sources */,
 				BC1AA2471AED0FF30090D934 /* PKFMModelRadioInfo.m in Sources */,
 				BCC2911F1AEA1B2E009190D5 /* PKHomeCellRoot.m in Sources */,
 				BCC2911C1AEA0C2A009190D5 /* PKHomeModelImgUrl.m in Sources */,
+				BC5B42901AF31A000078D106 /* PKHomeModelFeedRootFrame.m in Sources */,
 				BC01DE431AEBC3C5003875B5 /* PKHomeMorController.m in Sources */,
 				BC0F50BB1AEE034900B8E020 /* PKFragmentCellRoot.m in Sources */,
 				BC6822D41AE8DF60000C57B3 /* SDWebImageDownloaderOperation.m in Sources */,
@@ -1339,6 +1445,7 @@
 				BC6822D21AE8DF60000C57B3 /* SDWebImageDecoder.m in Sources */,
 				BC6823481AE92BDD000C57B3 /* PKHomeCellPhoto.m in Sources */,
 				BC6822BD1AE8DF60000C57B3 /* MJPhotoLoadingView.m in Sources */,
+				BC24AF6F1AF2170E009005A1 /* PKRegController.m in Sources */,
 				BC0274721AEF6657005DF800 /* PlayerViewController.m in Sources */,
 				BC0274A61AEF669F005DF800 /* DOUAudioRenderer.m in Sources */,
 				BC0274AE1AEF669F005DF800 /* NSData+DOUMappedFile.m in Sources */,
@@ -1347,15 +1454,19 @@
 				BC0274A31AEF669F005DF800 /* DOUAudioFrequencyAnalyzer.m in Sources */,
 				BC6822CC1AE8DF60000C57B3 /* UIScrollView+MJRefresh.m in Sources */,
 				BC0274A21AEF669F005DF800 /* DOUAudioFileProvider.m in Sources */,
+				BC24AF581AF1D713009005A1 /* PKAccountParam.m in Sources */,
 				BC6823021AE8E555000C57B3 /* PKLeftMenuController.m in Sources */,
 				BC6822CB1AE8DF60000C57B3 /* UIScrollView+MJExtension.m in Sources */,
 				BC2FCF951AE9E5150014B413 /* PKHomeModelRoot.m in Sources */,
+				BC24AF641AF207AF009005A1 /* PKHomeRightView.m in Sources */,
 				BC6822CE1AE8DF60000C57B3 /* MKAnnotationView+WebCache.m in Sources */,
 				BC0274AB1AEF669F005DF800 /* DOUEAGLView.m in Sources */,
 				BC6822E11AE8DFA1000C57B3 /* IWHttpTool.m in Sources */,
 				BC6822C01AE8DF60000C57B3 /* MJPhotoView.m in Sources */,
 				BC6822DB1AE8DF60000C57B3 /* UIImageView+HighlightedWebCache.m in Sources */,
 				BC0274A71AEF669F005DF800 /* DOUAudioSpatialAnalyzer.m in Sources */,
+				BC24AF6C1AF21398009005A1 /* PKLoginController.m in Sources */,
+				BC24AF5B1AF1D72D009005A1 /* PKAccountResult.m in Sources */,
 				BC68230A1AE8FA84000C57B3 /* PKFMViewController.m in Sources */,
 				BC6823131AE8FBBB000C57B3 /* PKFragmentViewController.m in Sources */,
 				BC6822AA1AE8DF60000C57B3 /* AFURLConnectionOperation.m in Sources */,
@@ -1371,6 +1482,7 @@
 				BC0F509B1AEDCDB400B8E020 /* PKReadModelRoot.m in Sources */,
 				BC6822F81AE8E473000C57B3 /* SlideNavigationContorllerAnimatorScaleAndFade.m in Sources */,
 				BC6822FF1AE8E473000C57B3 /* SlideNavigationController.m in Sources */,
+				BC24AF551AF1D6FA009005A1 /* PKAccountTool.m in Sources */,
 				BC50B9751AECCAE90037CE4B /* PKFMCellList.m in Sources */,
 				BC6822C81AE8DF60000C57B3 /* MJRefreshHeader.m in Sources */,
 				BC6822B71AE8DF60000C57B3 /* NSObject+MJCoding.m in Sources */,
@@ -1405,6 +1517,7 @@
 				BC6823431AE92BB8000C57B3 /* PKHomeCellMor.m in Sources */,
 				BC6822D81AE8DF60000C57B3 /* UIImage+GIF.m in Sources */,
 				BC6822B51AE8DF60000C57B3 /* MJType.m in Sources */,
+				BC24AF611AF2039C009005A1 /* PKHomeLeftTableView.m in Sources */,
 				BC0274A01AEF669F005DF800 /* DOUAudioEventLoop.m in Sources */,
 				BC0274A11AEF669F005DF800 /* DOUAudioFilePreprocessor.m in Sources */,
 				BC6822F71AE8E473000C57B3 /* SlideNavigationContorllerAnimatorScale.m in Sources */,
@@ -1418,6 +1531,7 @@
 				BC6822D11AE8DF60000C57B3 /* SDWebImageCompat.m in Sources */,
 				BC0F50B81AEE01C000B8E020 /* PKFragmentModelRoot.m in Sources */,
 				BC0F50B21AEDEBA000B8E020 /* PKReadViewArticleController.m in Sources */,
+				BC24AF721AF25241009005A1 /* PKHomeModelFeedRoot.m in Sources */,
 				BC6822CD1AE8DF60000C57B3 /* UIView+MJExtension.m in Sources */,
 				BC6823161AE8FBD8000C57B3 /* PKSettingViewController.m in Sources */,
 				BC6822A71AE8DF60000C57B3 /* AFHTTPSessionManager.m in Sources */,
