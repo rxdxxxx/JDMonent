@@ -172,6 +172,7 @@
 		BCC291211AEA2960009190D5 /* pig_3.png in Resources */ = {isa = PBXBuildFile; fileRef = BCC291201AEA295F009190D5 /* pig_3.png */; };
 		BCEBF6B41AF0A26700C491C6 /* PKLeftCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCEBF6B31AF0A26700C491C6 /* PKLeftCell.m */; };
 		BCEBF6B61AF0C4D800C491C6 /* LeftControllerBG.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BCEBF6B51AF0C4D800C491C6 /* LeftControllerBG.jpg */; };
+		BCF88DB51AF48B4D00A67682 /* PKHomeCellRightFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF88DB41AF48B4C00A67682 /* PKHomeCellRightFeed.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -499,6 +500,8 @@
 		BCEBF6B21AF0A26700C491C6 /* PKLeftCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKLeftCell.h; sourceTree = "<group>"; };
 		BCEBF6B31AF0A26700C491C6 /* PKLeftCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKLeftCell.m; sourceTree = "<group>"; };
 		BCEBF6B51AF0C4D800C491C6 /* LeftControllerBG.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = LeftControllerBG.jpg; sourceTree = "<group>"; };
+		BCF88DB31AF48B4C00A67682 /* PKHomeCellRightFeed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKHomeCellRightFeed.h; sourceTree = "<group>"; };
+		BCF88DB41AF48B4C00A67682 /* PKHomeCellRightFeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKHomeCellRightFeed.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -845,6 +848,8 @@
 				BC6823471AE92BDD000C57B3 /* PKHomeCellPhoto.xib */,
 				BCC2911D1AEA1B2E009190D5 /* PKHomeCellRoot.h */,
 				BCC2911E1AEA1B2E009190D5 /* PKHomeCellRoot.m */,
+				BCF88DB31AF48B4C00A67682 /* PKHomeCellRightFeed.h */,
+				BCF88DB41AF48B4C00A67682 /* PKHomeCellRightFeed.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1476,6 +1481,7 @@
 				BC6822C91AE8DF60000C57B3 /* MJRefreshLegendFooter.m in Sources */,
 				BC6822F91AE8E473000C57B3 /* SlideNavigationContorllerAnimatorSlide.m in Sources */,
 				BC0274AC1AEF669F005DF800 /* DOUMPMediaLibraryAssetLoader.m in Sources */,
+				BCF88DB51AF48B4D00A67682 /* PKHomeCellRightFeed.m in Sources */,
 				BC0274731AEF6657005DF800 /* Track.m in Sources */,
 				BC6822DC1AE8DF60000C57B3 /* UIImageView+WebCache.m in Sources */,
 				BC0274A41AEF669F005DF800 /* DOUAudioLPCM.m in Sources */,

@@ -25,8 +25,9 @@
 - (void)awakeFromNib {
     // Initialization code
     
-    self.selectedBackgroundView = [[UIView alloc]init];
-    self.backgroundColor = [UIColor clearColor];
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
+//    self.selectedBackgroundView = [[UIView alloc]init];
+//    self.backgroundColor = [UIColor clearColor];
     
 }
 

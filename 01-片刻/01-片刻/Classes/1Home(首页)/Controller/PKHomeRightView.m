@@ -14,6 +14,8 @@
 #import "MJRefresh.h"
 #import "PKHomeModelFeedRoot.h"
 #import "MJExtension.h"
+#import "PKHomeCellRightFeed.h"
+#import "PKHomeModelFeedRootFrame.h"
 
 @interface PKHomeRightView ()<PKLoginControllerDelegate,UITableViewDelegate,UITableViewDataSource>
 
@@ -210,7 +212,15 @@
     [IWHttpTool postWithURL:url params:params success:^(id json) {
         
         NSMutableArray* temp = (NSMutableArray *)[PKHomeModelFeedRoot objectArrayWithKeyValuesArray:json[@"data"][@"list"]];
-        [temp addObjectsFromArray:self.statuses];
+        
+        NSMutableArray * frameArray = [NSMutableArray arrayWithCapacity:10];
+        for (PKHomeModelFeedRoot * model in temp) {
+            PKHomeModelFeedRootFrame * frameModel = [[PKHomeModelFeedRootFrame alloc]init];
+            frameModel.status = model;
+            [frameArray addObject:frameModel];
+        }
+        temp = frameArray;
+        
         self.statuses = temp;
         
         
@@ -257,6 +267,14 @@
         // 创建frame模型对象
         NSMutableArray* temp = (NSMutableArray *)[PKHomeModelFeedRoot objectArrayWithKeyValuesArray:json[@"data"][@"list"]];
         
+        NSMutableArray * frameArray = [NSMutableArray arrayWithCapacity:10];
+        for (PKHomeModelFeedRoot * model in temp) {
+            PKHomeModelFeedRootFrame * frameModel = [[PKHomeModelFeedRootFrame alloc]init];
+            frameModel.status = model;
+            [frameArray addObject:frameModel];
+        }
+        temp = frameArray;
+        
         
         // 添加
         [self.statuses addObjectsFromArray:temp];
@@ -290,20 +308,17 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //1,创建 cell
-    static NSString * ID = @"cell";
-    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
-    }
-    
-    //2,设置 cell 的数据
-    PKHomeModelFeedRoot * feedModel = self.statuses[indexPath.row];
-    cell.textLabel.text = feedModel.title;
+    PKHomeCellRightFeed * cell = [PKHomeCellRightFeed cellWithTableView:tableView];
+    cell.statuesFrame = self.statuses[indexPath.row];
     
     return cell;
 }
 
-
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    PKHomeModelFeedRootFrame * frame = self.statuses[indexPath.row];
+    return frame.cellHeight;
+}
 
 
 
