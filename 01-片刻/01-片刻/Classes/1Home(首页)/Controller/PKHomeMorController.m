@@ -9,7 +9,6 @@
 #import "PKHomeMorController.h"
 #import "PKHomeModelPlayInfo.h"
 #import "PKHomeModelRoot.h"
-#import "MBProgressHUD+MJ.h"
 
 
 
@@ -31,42 +30,6 @@
     [self setupWebView];
     
 }
-
-
-#pragma mark - webView的代理方法 -
-/**
- *  开始发送请求的时候调用
- *
- *  @param webView
- */
--(void)webViewDidStartLoad:(UIWebView *)webView
-{
-    //显示提醒框
-    [MBProgressHUD showMessage:@"小丁哥正在帮你加载..."];
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [MBProgressHUD hideHUD];
-    });
-}
-/**
- *  请求完毕的时候调用
- *
- *  @param webView
- */
--(void)webViewDidFinishLoad:(UIWebView *)webView
-{
-    //隐藏提醒框
-    [MBProgressHUD hideHUD];
-}
-/**
- *  webView 请求失败
- */
--(void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
-{
-    //隐藏提醒框
-    [MBProgressHUD hideHUD];
-}
-
 /**
  *
  */

@@ -52,8 +52,7 @@
         UIImageView *headerView= [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 320, 150)];
         headerView.contentMode = UIViewContentModeScaleAspectFill;
         headerView.clipsToBounds = YES;
-//        [headerView sd_setImageWithURL:[NSURL URLWithString:self.radioInfo.coverimg] placeholderImage:[UIImage imageNamed:PKPlaceholderImage]];
-        [headerView sd_setImageWithURL:[NSURL URLWithString:self.model.coverimg] placeholderImage:[UIImage imageNamed:PKPlaceholderImage]];
+        [headerView sd_setImageWithURL:[NSURL URLWithString:self.radioInfo.coverimg] placeholderImage:[UIImage imageNamed:PKPlaceholderImage]];
         tableView.tableHeaderView = headerView;
         
         
@@ -88,7 +87,9 @@
     // 马上进入刷新状态
     [self.tableView.header beginRefreshing];
     
-
+    
+    // 2,上拉刷新(上拉加载更多数据)
+    [self.tableView addLegendFooterWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
 }
 /**
  *  发起网络请求
@@ -118,11 +119,6 @@
         
         [self.tableView reloadData];
         
-        // 添加上拉加载
-        if (self.tableView.footer == nil) {
-            [self performSelectorOnMainThread:@selector(addFooterReflash) withObject:self waitUntilDone:YES];
-        }
-        
         // 让刷新控件停止显示刷新状态
         [self.tableView.header endRefreshing];
         
@@ -133,15 +129,6 @@
         
     }];
     
-}
-
-/**
- * 上拉刷新(上拉加载更多数据
- */
--(void)addFooterReflash
-{
-    // 2,上拉刷新(上拉加载更多数据)
-    [self.tableView addLegendFooterWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
 }
 
 -(void)loadMoreData

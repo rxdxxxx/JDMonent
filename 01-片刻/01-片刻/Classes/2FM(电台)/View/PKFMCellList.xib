@@ -13,34 +13,22 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7XR-qu-YY0">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7XR-qu-YY0">
                         <rect key="frame" x="0.0" y="0.0" width="310" height="140"/>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pEz-xP-SV1">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pEz-xP-SV1">
                         <rect key="frame" x="0.0" y="100" width="310" height="20"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6oO-jQ-1c1">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6oO-jQ-1c1">
                         <rect key="frame" x="0.0" y="120" width="310" height="20"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
-                <constraints>
-                    <constraint firstAttribute="bottom" secondItem="7XR-qu-YY0" secondAttribute="bottom" constant="5" id="CGv-6I-exH"/>
-                    <constraint firstAttribute="trailing" secondItem="pEz-xP-SV1" secondAttribute="trailing" constant="5" id="Cw4-uC-3bq"/>
-                    <constraint firstItem="6oO-jQ-1c1" firstAttribute="top" secondItem="pEz-xP-SV1" secondAttribute="bottom" id="NyG-6Q-jl4"/>
-                    <constraint firstAttribute="trailing" secondItem="6oO-jQ-1c1" secondAttribute="trailing" constant="5" id="X12-4B-xN3"/>
-                    <constraint firstAttribute="trailing" secondItem="7XR-qu-YY0" secondAttribute="trailing" constant="5" id="YiL-Ex-mJh"/>
-                    <constraint firstItem="7XR-qu-YY0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="e2j-Ei-YDQ"/>
-                    <constraint firstItem="pEz-xP-SV1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="kBP-cv-vjM"/>
-                    <constraint firstItem="6oO-jQ-1c1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="klp-YU-yzb"/>
-                    <constraint firstAttribute="bottom" secondItem="6oO-jQ-1c1" secondAttribute="bottom" constant="10" id="ruv-y5-Txf"/>
-                    <constraint firstItem="7XR-qu-YY0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="vmR-kb-BGa"/>
-                </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="CellImageView" destination="7XR-qu-YY0" id="2ez-2k-yBn"/>

@@ -91,10 +91,10 @@
  */
 - (void)setFrame:(CGRect)frame
 {
-    frame.origin.y += 2*PKStatusTableBorder;
-    frame.origin.x = 2*PKStatusTableBorder;
-    frame.size.width -= 4 * PKStatusTableBorder;
-    frame.size.height -= 2*PKStatusTableBorder;
+    frame.origin.y += PKStatusTableBorder;
+    frame.origin.x = PKStatusTableBorder;
+    frame.size.width -= 2 * PKStatusTableBorder;
+    frame.size.height -= PKStatusTableBorder;
     
     [super setFrame:frame];
     

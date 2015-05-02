@@ -49,23 +49,23 @@
     // 5.配图
     if (status.coverimg.length > 1) {
         NSArray * stringWH = [status.coverimg_wh componentsSeparatedByString:@"*"];
-        CGFloat photoWSac = ((NSString *)stringWH[0]).floatValue / 280.f;
+        CGFloat photoWSac = ((NSString *)stringWH[0]).floatValue / 300.0f;
         CGFloat photoH = ((NSString *)stringWH[1]).floatValue / photoWSac;
-        CGSize photosViewSize = CGSizeMake(280, photoH);
-        CGFloat photoViewX = iconViewX+10;
+        CGSize photosViewSize = CGSizeMake(300, photoH);
+        CGFloat photoViewX = iconViewX;
         CGFloat photoViewY = CGRectGetMaxY(_iconViewF) + PKStatusTableBorder * 0.5;
         _photoViewF = CGRectMake(photoViewX, photoViewY, photosViewSize.width, photosViewSize.height);
     }
     
     // 6.正文内容
-    CGFloat contentLabelX = iconViewX + 4 * PKStatusTableBorder ;
+    CGFloat contentLabelX = iconViewX;
     CGFloat contentLabelY = 0;
     if (status.coverimg.length > 1) {
-        contentLabelY = CGRectGetMaxY(_photoViewF) + PKStatusTableBorder ;
+        contentLabelY = CGRectGetMaxY(_photoViewF) + PKStatusTableBorder * 0.5;
     }else{
-        contentLabelY = CGRectGetMaxY(_timeLabelF) + PKStatusTableBorder ;
+        contentLabelY = CGRectGetMaxY(_timeLabelF) + PKStatusTableBorder * 0.5;
     }
-    CGFloat contentLabelMaxW = topViewW - 8 * PKStatusTableBorder;
+    CGFloat contentLabelMaxW = topViewW - 4 * PKStatusTableBorder;
     CGSize contentLabelSize = [self sizeWithText:status.content font:PKStatusContentFont maxSize:CGSizeMake(contentLabelMaxW, MAXFLOAT)];
     _contentLabelF = (CGRect){{contentLabelX, contentLabelY}, contentLabelSize};
     

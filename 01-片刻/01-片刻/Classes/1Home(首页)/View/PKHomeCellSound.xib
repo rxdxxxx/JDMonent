@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -19,10 +18,10 @@
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BXk-dt-Y4l">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BXk-dt-Y4l">
                         <rect key="frame" x="30" y="45" width="260" height="140"/>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oGs-s3-5Rf">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oGs-s3-5Rf">
                         <rect key="frame" x="0.0" y="245" width="320" height="20"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -35,32 +34,24 @@
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                     </button>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FdX-Mt-mEk"/>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="10L-cM-koH">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FdX-Mt-mEk">
+                        <rect key="frame" x="0.0" y="165" width="320" height="50"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="10L-cM-koH">
                         <rect key="frame" x="0.0" y="215" width="320" height="30"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WCC-EM-5rZ">
-                        <rect key="frame" x="0.0" y="0.0" width="400" height="1"/>
+                        <rect key="frame" x="0.0" y="290" width="320" height="1"/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rlg-jk-gwv">
-                        <rect key="frame" x="0.0" y="290" width="400" height="1"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="1"/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </subviews>
-                <constraints>
-                    <constraint firstAttribute="trailing" secondItem="BXk-dt-Y4l" secondAttribute="trailing" constant="22" id="FLD-lZ-31R" userLabel="imageRight"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="oGs-s3-5Rf" secondAttribute="trailing" id="Szf-0R-S5t" userLabel="unameRight"/>
-                    <constraint firstItem="BXk-dt-Y4l" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="37" id="Wsp-Az-mJl" userLabel="imageTop"/>
-                    <constraint firstItem="oGs-s3-5Rf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="c6J-fa-M6u" userLabel="unameLeft"/>
-                    <constraint firstItem="10L-cM-koH" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="cV7-ju-H35" userLabel="TitleLeft"/>
-                    <constraint firstAttribute="bottom" secondItem="BXk-dt-Y4l" secondAttribute="bottom" constant="96" id="dWH-dN-gQa" userLabel="imageBottom"/>
-                    <constraint firstItem="BXk-dt-Y4l" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="22" id="guC-Kc-gZA" userLabel="ImageLeft"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="10L-cM-koH" secondAttribute="trailing" id="woC-ax-k7I" userLabel="TitleRight"/>
-                </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="LabelTitle" destination="10L-cM-koH" id="v6L-Yd-3nz"/>

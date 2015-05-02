@@ -16,7 +16,6 @@
 #import "PKHomeModelPlayInfo.h"
 #import "PKMainModelUserInfo.h"
 #import "UIImageView+WebCache.h"
-#import "MBProgressHUD+MJ.h"
 
 @interface PKHomeDetialController ()<UIScrollViewDelegate,UITableViewDelegate,UITableViewDataSource,UIWebViewDelegate>
 
@@ -370,41 +369,6 @@
     [self.scrollView addSubview:webView];
 }
 
-
-
-#pragma mark - webView的代理方法 -
-/**
- *  开始发送请求的时候调用
- *
- *  @param webView
- */
--(void)webViewDidStartLoad:(UIWebView *)webView
-{
-    //显示提醒框
-    [MBProgressHUD showMessage:@"小丁哥正在帮你加载..."];
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [MBProgressHUD hideHUD];
-    });
-}
-/**
- *  请求完毕的时候调用
- *
- *  @param webView
- */
--(void)webViewDidFinishLoad:(UIWebView *)webView
-{
-    //隐藏提醒框
-//    [MBProgressHUD hideHUD];
-}
-/**
- *  webView 请求失败
- */
--(void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
-{
-    //隐藏提醒框
-//    [MBProgressHUD hideHUD];
-}
 /**
  *  当 webView 发送一个请求之前,就会调用这个方法.询问代理可不可以加载这个页面.
  *

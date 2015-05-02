@@ -59,7 +59,6 @@ static PKHomeViewController *HomesingletonInstance = nil;
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    self.navigationController.navigationBar.backgroundColor = [UIColor colorWithRed:1.00f green:0.85f blue:0.56f alpha:1.00f];;
     
     // 0,刷新控件
     [self setupRefreshView];
@@ -84,7 +83,8 @@ static PKHomeViewController *HomesingletonInstance = nil;
     [self.tableView.header beginRefreshing];
     
 
-
+    // 2,上拉刷新(上拉加载更多数据)
+    [self.tableView addLegendFooterWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
 }
 
 -(void)loadMoreData
@@ -114,9 +114,6 @@ static PKHomeViewController *HomesingletonInstance = nil;
         // 让刷新控件停止显示刷新状态
         [self.tableView.footer endRefreshing];
         
-        
-       
-        
     } failure:^(NSError *error) {
         // 让刷新控件停止显示刷新状态
         [self.tableView.footer endRefreshing];
@@ -129,6 +126,11 @@ static PKHomeViewController *HomesingletonInstance = nil;
  */
 -(void)loadNewData
 {
+    
+    AFHTTPRequestOperationManager * mgr = [AFHTTPRequestOperationManager manager];
+    //说明服务器,返回的是 json 类型
+    mgr.responseSerializer = [AFJSONResponseSerializer serializer];
+    
     NSMutableDictionary * params = [NSMutableDictionary dictionary];
     params[@"start"] = @0;
     params[@"limit"] = @10;
@@ -147,12 +149,6 @@ static PKHomeViewController *HomesingletonInstance = nil;
         // 刷新tableView
         [self.tableView reloadData];
         
-        if (self.tableView.footer == nil) {
-            [self performSelectorOnMainThread:@selector(addFooterReflash) withObject:self waitUntilDone:YES];
-        }
-        
-        
-        
         
         // 让刷新控件停止显示刷新状态
         [self.tableView.header endRefreshing];
@@ -162,16 +158,6 @@ static PKHomeViewController *HomesingletonInstance = nil;
     }];
     
     
-}
-
-
-/**
- *
- */
--(void)addFooterReflash
-{
-    // 2,上拉刷新(上拉加载更多数据)
-    [self.tableView addLegendFooterWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
 }
 
 /**

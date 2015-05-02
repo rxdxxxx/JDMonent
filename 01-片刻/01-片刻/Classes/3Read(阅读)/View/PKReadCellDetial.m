@@ -16,7 +16,6 @@
 @property (nonatomic, weak)UIImageView * myImageView;
 
 
-
 @end
 
 @implementation PKReadCellDetial
@@ -74,26 +73,18 @@
     
     // 3,设置图片
     CGFloat imageViewX = self.title.frame.origin.x + 10;
-    CGFloat imageViewY = self.content.frame.origin.y ;
+    CGFloat imageViewY = self.content.frame.origin.y + 10;
     CGFloat imageViewW = 130;
     CGFloat imageViewH = 65;
 
-    [self.myImageView setFrame:CGRectMake(imageViewX, imageViewY, imageViewW, imageViewH)];
+    UIImageView * myImageView = [[UIImageView alloc]initWithFrame:CGRectMake(imageViewX, imageViewY, imageViewW, imageViewH)];
+    [self.contentView addSubview:myImageView];
+    self.myImageView = myImageView;
     [self.myImageView sd_setImageWithURL:[NSURL URLWithString:model.coverimg] placeholderImage:[UIImage imageNamed:PKPlaceholderImage]];
     self.myImageView.contentMode = UIViewContentModeScaleAspectFill;
     self.myImageView.clipsToBounds = YES;
     
     
-}
-
--(UIImageView *)myImageView
-{
-    if (_myImageView == nil) {
-        UIImageView* imageVView = [[UIImageView alloc]init];
-        [self.contentView addSubview:imageVView];
-        _myImageView = imageVView;
-    }
-    return _myImageView;
 }
 
 /**

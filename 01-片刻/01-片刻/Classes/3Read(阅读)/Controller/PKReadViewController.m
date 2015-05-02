@@ -53,7 +53,7 @@ static PKReadViewController *ReadsingletonInstance = nil;
     
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    self.navigationController.navigationBar.backgroundColor = [UIColor colorWithRed:0.56f green:0.88f blue:0.63f alpha:1.00f];
+    
     // 1,发起网络请求
     [self setupRequest];
     
