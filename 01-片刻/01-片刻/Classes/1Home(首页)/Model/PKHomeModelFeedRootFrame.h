@@ -48,6 +48,12 @@ typedef NS_ENUM(NSInteger, PKFeedCellType) {
 /** 发布时间 */
 @property (nonatomic, assign, readonly) CGRect timeLabelF;
 
+// 推荐的文字
+@property (nonatomic, copy)NSString * removmandString;
+
+/** 推荐类型 */
+@property (nonatomic, assign, readonly) CGRect recommandLabelF;
+
 /** 配图 */
 @property (nonatomic, assign, readonly) CGRect photoViewF;
 

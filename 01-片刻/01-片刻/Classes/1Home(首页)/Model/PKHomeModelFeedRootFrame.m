@@ -11,6 +11,13 @@
 #import "PKHomeModelPlayInfo.h"
 #import "PKMainModelUserInfo.h"
 
+@interface PKHomeModelFeedRootFrame ()
+{
+    CGFloat cellW;
+}
+
+@end
+
 @implementation PKHomeModelFeedRootFrame
 
 -(void)setStatus:(PKHomeModelFeedRoot *)status
@@ -19,14 +26,8 @@
     
     
     // 0.cell的宽度
-    CGFloat cellW = [UIScreen mainScreen].bounds.size.width - 2 * PKStatusTableBorder;
+    cellW = [UIScreen mainScreen].bounds.size.width - 2 * PKStatusTableBorder;
     
-    
-    // 1.topView
-    CGFloat topViewW = cellW;
-    CGFloat topViewH = 0;
-    CGFloat topViewX = 0;
-    CGFloat topViewY = 0;
     
     // 2.头像
     CGFloat iconViewWH = 35;
@@ -52,25 +53,64 @@
     _nameLabelF = (CGRect){{nameLabelX, nameLabelY}, nameLabelSize};
     
     // 4.时间
-    CGFloat timeLabelX = nameLabelX;
     CGFloat timeLabelY = CGRectGetMaxY(_nameLabelF) + PKStatusTableBorder * 0.5;
     CGSize timeLabelSize = [status.addtime_f sizeWithAttributes:@{NSFontAttributeName:PKStatusTimeFont}];
-    _timeLabelF = (CGRect){{timeLabelX, timeLabelY}, timeLabelSize};
+    CGFloat timeLabelX = cellW - timeLabelSize.width;
 
+    _timeLabelF = (CGRect){{timeLabelX, timeLabelY}, timeLabelSize};
     
-    
-    self.cellHeight = CGRectGetMaxY(_timeLabelF);
-    
+    //
+    NSString *recommandStr = nil;
     if ([status.title isEqualToString:@"无题"]) {
+        
         self.cellType = PKFeedCellTypeTimeLine; // 碎片
-        [self setupTimeLine];
+        
+        recommandStr = @"碎片";
+        
     }else{
+        
         if (status.playInfo.title == nil) {
+            recommandStr = @"文章";
+            
             self.cellType = PKFeedCellTypeArticle; // 文章
         }else{
+            
+            recommandStr = @"Ting";
             self.cellType = PKFeedCellTypeTing;  // 音频
+           
         }
     }
+    
+    // 5,推荐类别
+    CGFloat recommandLabelX = nameLabelX;
+    CGFloat recommandLabelY = CGRectGetMaxY(_nameLabelF) + PKStatusTableBorder * 0.5;
+    CGSize recommandLabelSize = [recommandStr sizeWithAttributes:@{NSFontAttributeName:PKStatusTimeFont}];
+    self.removmandString = recommandStr;
+    _recommandLabelF = (CGRect){{recommandLabelX,recommandLabelY},recommandLabelSize};
+    
+    
+    CGFloat cellMaxHeight = CGRectGetMaxY(_recommandLabelF);
+    
+    if (PKFeedCellTypeTing == self.cellType) {
+        
+        cellMaxHeight = [self setupTingView:CGRectGetMaxY(_recommandLabelF)];
+        
+    }else if(PKFeedCellTypeArticle == self.cellType){
+        
+#warning 暂且放置,去开发,阅读模块.
+        
+    }else if(PKFeedCellTypeTimeLine == self.cellType){
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    self.cellHeight = cellMaxHeight;
+
     
 }
 /**
@@ -81,7 +121,30 @@
     
 }
 
-
+/**
+ *  Ting的布局
+ */
+-(CGFloat)setupTingView:(CGFloat)maxY
+{
+    if (self.status.coverimg.length > 1) {
+        
+        CGFloat photoX = _iconViewF.origin.x + 40;
+        CGFloat photoY = maxY+20;
+        CGFloat photoW = 50;
+        CGFloat photoH = 50;
+        
+//        CGFloat photoW = cellW - 2*_iconViewF.origin.x;
+//        NSArray * stringWH = [self.status.coverimg_wh componentsSeparatedByString:@"*"];
+//        CGFloat photoWSac = ((NSString *)stringWH[0]).floatValue / photoW;
+//        CGFloat photoH = ((NSString *)stringWH[1]).floatValue / photoWSac;
+        
+        _photoViewF = (CGRect){{photoX,photoY},{photoW,photoH}};
+        
+        return CGRectGetMaxY(_photoViewF);
+    }
+    
+    return maxY;
+}
 /**
  *  计算文字尺寸
  *

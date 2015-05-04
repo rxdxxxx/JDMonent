@@ -7,7 +7,6 @@
 //
 
 #import "PKHomeLeftTableView.h"
-#import "AFNetworking.h"
 #import "MJExtension.h"
 #import "PKHomeModelRoot.h"
 #import "MJRefresh.h"

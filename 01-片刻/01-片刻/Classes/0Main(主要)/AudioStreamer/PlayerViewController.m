@@ -704,8 +704,8 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
         [_streamer addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:kStatusKVOKey];
         [_streamer addObserver:self forKeyPath:@"duration" options:NSKeyValueObservingOptionNew context:kDurationKVOKey];
         [_streamer addObserver:self forKeyPath:@"bufferingRatio" options:NSKeyValueObservingOptionNew context:kBufferingRatioKVOKey];
-        
-        [_streamer play];
+#warning y音乐播放崩溃
+//        [_streamer play];
         
         [self _updateBufferingStatus];
         [self _setupHintForStreamer];
@@ -822,7 +822,8 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
 {
   if ([_streamer status] == DOUAudioStreamerPaused ||
       [_streamer status] == DOUAudioStreamerIdle) {
-    [_streamer play];
+#warning y音乐播放崩溃
+//    [_streamer play];
   }
   else {
     [_streamer pause];

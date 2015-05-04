@@ -58,7 +58,7 @@
     [IWHttpTool postWithURL:@"http://api2.pianke.me/user/reg" params:param.keyValues success:^(id json) {
         if (success) {
             //字典转模型
-            PKAccountResult * result = [PKAccountResult objectWithKeyValues:json];
+            PKAccountResult * result = [PKAccountResult objectWithKeyValues:json[@"data"]];
             success(result);
         }
     } failure:^(NSError *error) {

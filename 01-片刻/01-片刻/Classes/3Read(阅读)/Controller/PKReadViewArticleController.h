@@ -11,7 +11,7 @@
 @class PKReadModelDetialHot;
 @interface PKReadViewArticleController : UIViewController
 
-@property (nonatomic, strong)PKReadModelDetialHot * model;
+@property (nonatomic, copy)PKReadModelDetialHot * model;
 
 
 @end

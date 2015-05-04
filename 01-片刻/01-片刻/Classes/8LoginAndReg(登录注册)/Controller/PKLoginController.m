@@ -13,7 +13,7 @@
 #import "PKAccount.h"
 #import "MBProgressHUD+MJ.h"
 
-@interface PKLoginController ()
+@interface PKLoginController ()<PKRegControllerDelegate>
 @property (nonatomic, weak)UITextField * emailField;
 @property (nonatomic, weak)UITextField * passwordField;
 
@@ -142,6 +142,8 @@
     CGFloat loginBtnW = sliderPassWordW;
     CGFloat loginBtnH = 30;
     
+    
+    
     UIButton * loginBtn = [[UIButton alloc]initWithFrame:CGRectMake(loginBtnX, loginBtnY, loginBtnW, loginBtnH)];
     loginBtn.backgroundColor = [UIColor greenColor];
     [loginBtn setTitle:@"登录" forState:UIControlStateNormal];
@@ -150,12 +152,20 @@
     
 }
 
+-(void)sendLoginEmail:(NSString *)emailStr passWord:(NSString *)passwordStr
+{
+    self.emailField.text = emailStr;
+    self.passwordField.text = passwordStr;
+    
+    [self loginClick];
+}
 /**
  *  登录按钮点击
  */
 -(void)loginClick
 {
-    [MBProgressHUD showMessage:@"正在验证信息"];
+    PKLog(@"22222222222222");
+    [MBProgressHUD showMessage:@"正在登录..."];
     
     PKLog(@"%@,%@",self.emailField.text,self.passwordField.text);
     PKAccountParam * param = [[PKAccountParam alloc]init];
@@ -170,8 +180,7 @@
         //存储登录后,获取的唯一auth字段~
         [PKAccountTool saveAccount:account];
         
-        // 退出登录页面
-        [self dismissViewControllerAnimated:YES completion:nil];
+        
         
         // 刷新HomeRight
         if ([self.delegate respondsToSelector:@selector(reloadViewAfterLogin:)]) {
@@ -180,6 +189,9 @@
         
         [MBProgressHUD hideHUD];
         [MBProgressHUD showSuccess:@"成功登录"];
+        
+        // 退出登录页面
+        [self dismissViewControllerAnimated:YES completion:nil];
 
     } failure:^(NSError * error) {
         [MBProgressHUD hideHUD];

@@ -20,6 +20,11 @@
 @property (nonatomic, weak) UILabel *nameLabel;
 /** 时间 */
 @property (nonatomic, weak) UILabel *timeLabel;
+/** 时间 */
+@property (nonatomic, weak) UILabel *recommandLabel;
+/** 配图 */
+@property (nonatomic, weak) UIImageView *photoView;
+
 @end
 
 @implementation PKHomeCellRightFeed
@@ -56,20 +61,34 @@
         self.iconView = iconView;
         
         
-        /** 5.昵称 */
+        /** 3.昵称 */
         UILabel *nameLabel = [[UILabel alloc] init];
         nameLabel.font = PKStatusNameFont;
         nameLabel.backgroundColor = [UIColor clearColor];
         [self addSubview:nameLabel];
         self.nameLabel = nameLabel;
         
-        /** 6.时间 */
+        /** 4.时间 */
         UILabel *timeLabel = [[UILabel alloc] init];
         timeLabel.font = PKStatusTimeFont;
         timeLabel.textColor = PKColor(240, 140, 19);
         timeLabel.backgroundColor = [UIColor clearColor];
         [self addSubview:timeLabel];
         self.timeLabel = timeLabel;
+        
+        //  5,类型文字
+        UILabel *recommandLabel = [[UILabel alloc]init];
+        recommandLabel.font = PKStatusTimeFont;
+        recommandLabel.textColor = PKColor(240, 140, 19);
+        recommandLabel.backgroundColor = [UIColor clearColor];
+        [self addSubview:recommandLabel];
+        self.recommandLabel = recommandLabel;
+        
+        // 6,配图
+        UIImageView * photoView = [[UIImageView alloc]init];
+        photoView.clipsToBounds = YES;
+        [self addSubview:photoView];
+        self.photoView = photoView;
         
     }
     return self;
@@ -102,12 +121,17 @@
     self.nameLabel.frame = self.statuesFrame.nameLabelF;
     
     
-    // 5.时间
+    // 4.时间
     self.timeLabel.text = statues.addtime_f;
-    CGFloat timeLabelX = self.statuesFrame.nameLabelF.origin.x;
-    CGFloat timeLabelY = CGRectGetMaxY(self.statuesFrame.nameLabelF) + PKStatusTableBorder * 0.5;
-    CGSize timeLabelSize = [statues.addtime_f sizeWithAttributes:@{NSFontAttributeName:PKStatusTimeFont}];
-    self.timeLabel.frame = (CGRect){{timeLabelX, timeLabelY}, timeLabelSize};
+    self.timeLabel.frame = statuesFrame.timeLabelF;
+    
+    // 5.推荐的文字
+    self.recommandLabel.text = statuesFrame.removmandString;
+    self.recommandLabel.frame = statuesFrame.recommandLabelF;
+    
+    // 6,配图
+    [self.photoView sd_setImageWithURL:[NSURL URLWithString:statues.coverimg] placeholderImage:[UIImage imageWithName:PKPlaceholderImage]];
+    self.photoView.frame = self.statuesFrame.photoViewF;
 }
 
 @end
