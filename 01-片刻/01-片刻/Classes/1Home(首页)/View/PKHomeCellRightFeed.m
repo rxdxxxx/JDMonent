@@ -20,7 +20,7 @@
 @property (nonatomic, weak) UILabel *nameLabel;
 /** 时间 */
 @property (nonatomic, weak) UILabel *timeLabel;
-/** 时间 */
+/** 类型 */
 @property (nonatomic, weak) UILabel *recommandLabel;
 /** 配图 */
 @property (nonatomic, weak) UIImageView *photoView;

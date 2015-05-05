@@ -27,6 +27,10 @@
 
 /** 正文\内容 */
 @property (nonatomic, assign, readonly) CGRect contentLabelF;
+/** 正文\内容 */
+@property (nonatomic, assign, readonly) CGRect commintBtnF;
+/** 正文\内容 */
+@property (nonatomic, assign, readonly) CGRect likeBtnF;
 
 /** cell的高度 */
 @property (nonatomic, assign, readonly) CGFloat cellHeight;

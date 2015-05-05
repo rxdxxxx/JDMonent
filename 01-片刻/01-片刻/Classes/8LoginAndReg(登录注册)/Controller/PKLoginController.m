@@ -183,8 +183,8 @@
         
         
         // 刷新HomeRight
-        if ([self.delegate respondsToSelector:@selector(reloadViewAfterLogin:)]) {
-            [self.delegate reloadViewAfterLogin:self];
+        if ([self.delegate respondsToSelector:@selector(LoginAfterReloadView:)]) {
+            [self.delegate LoginAfterReloadView:self];
         }
         
         [MBProgressHUD hideHUD];

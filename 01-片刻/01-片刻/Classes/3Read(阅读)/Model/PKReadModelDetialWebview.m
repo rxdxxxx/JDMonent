@@ -7,7 +7,12 @@
 //
 
 #import "PKReadModelDetialWebview.h"
+#import "MJExtension.h"
+#import "PKMainModelCommentGet.h"
 
 @implementation PKReadModelDetialWebview
-
+-(NSDictionary *)objectClassInArray
+{
+    return @{@"commentlist":[PKMainModelCommentGet class]};
+}
 @end

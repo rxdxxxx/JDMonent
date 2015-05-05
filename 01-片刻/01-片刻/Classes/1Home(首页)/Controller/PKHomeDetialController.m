@@ -348,6 +348,10 @@
  */
 -(void)setupWebView
 {
+    
+    
+    
+    // 1,刷新网页
     CGFloat webViewX = PKOnePageWidth*2;
     CGFloat webViewY = 0;
     CGFloat webViewW = PKOnePageWidth;

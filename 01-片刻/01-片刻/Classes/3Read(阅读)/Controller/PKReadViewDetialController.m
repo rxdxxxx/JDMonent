@@ -47,7 +47,6 @@
     
     
     // 2,创建右侧的视图.
-    // 如果没有登录,显示一个View  登录了显示TableView
     
     CGFloat rightViewX = PKOnePageWidth;
     CGFloat rightViewY = 0;

@@ -99,6 +99,7 @@
         
 #warning 暂且放置,去开发,阅读模块.
         
+        
     }else if(PKFeedCellTypeTimeLine == self.cellType){
         
     }
@@ -130,8 +131,8 @@
         
         CGFloat photoX = _iconViewF.origin.x + 40;
         CGFloat photoY = maxY+20;
-        CGFloat photoW = 50;
-        CGFloat photoH = 50;
+        CGFloat photoW = 80;
+        CGFloat photoH = 80;
         
 //        CGFloat photoW = cellW - 2*_iconViewF.origin.x;
 //        NSArray * stringWH = [self.status.coverimg_wh componentsSeparatedByString:@"*"];
@@ -139,6 +140,18 @@
 //        CGFloat photoH = ((NSString *)stringWH[1]).floatValue / photoWSac;
         
         _photoViewF = (CGRect){{photoX,photoY},{photoW,photoH}};
+        
+        
+        // 5,推荐类别
+        CGFloat titleLabelX = CGRectGetMaxX(_photoViewF)+ 2*PKStatusTableBorder;
+        CGFloat titleLabelY = CGRectGetMaxY(_photoViewF)+ 2*PKStatusTableBorder;
+        
+        CGSize titleLabelSize = [self.status.title sizeWithAttributes:@{NSFontAttributeName:PKStatusNameFont}];
+        _titleLabelF = (CGRect){{titleLabelX,titleLabelY},titleLabelSize};
+        
+        
+        // 6,浏览次数
+        
         
         return CGRectGetMaxY(_photoViewF);
     }

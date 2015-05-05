@@ -17,6 +17,10 @@
 @property (nonatomic, copy)NSString * addtime_f;
 @property (nonatomic, copy)NSString * content;
 @property (nonatomic, assign)BOOL isdel;
+@property (nonatomic, strong)NSNumber * likenum;
+@property (nonatomic, assign)BOOL islike;
+
+
 
 
 @end

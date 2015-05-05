@@ -10,10 +10,13 @@
 #import "UIImageView+WebCache.h"
 
 @class PKHomeModelRoot;
+@class PKHomeModelFeedRoot;
 
 @interface PKHomeCellRoot : UITableViewCell
 
 + (instancetype)cellWithTableView:(UITableView *)tableView;
 @property (nonatomic, strong)PKHomeModelRoot * model;
+@property (nonatomic, strong)PKHomeModelFeedRoot * rightModel;
+
 
 @end

@@ -8,6 +8,8 @@
 
 #import "IWHttpTool.h"
 #import "AFNetworking.h"
+#import "PKAccount.h"
+#import "PKAccountTool.h"
 
 @implementation IWHttpTool
 
@@ -83,6 +85,44 @@
           }
           
       }];
+}
+
+
++(void)postLikeWithContentID:(NSString *)contentID success:(void (^)(id))success failure:(void (^)(NSError *))failure
+{
+    AFHTTPRequestOperationManager * mgr = [AFHTTPRequestOperationManager manager];
+    //说明服务器,返回的是 json 类型
+    mgr.responseSerializer = [AFJSONResponseSerializer serializer];
+    
+    
+    NSMutableDictionary * params = [NSMutableDictionary dictionaryWithCapacity:3];
+    params[@"version"] = @"3.0.1";
+    params[@"deviceid"] = @"7E603523-75CB-4DC7-A16C-2C9B802D7C9C";
+    params[@"client"] = @"1";
+    params[@"contentid"] = contentID;
+    
+    if ([PKAccountTool account].auth) {
+        params[@"auth"] =  [PKAccountTool account].auth ;
+    }
+    
+    NSString * url = @"http://api2.pianke.me/like/add";
+    
+    
+    //发送请求
+    [mgr GET:url parameters:params
+     success:^(AFHTTPRequestOperation *operation, id responseObject) {
+         
+         if (success) {
+             success(responseObject);
+         }
+         
+     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         
+         if (error) {
+             failure(error);
+         }
+         
+     }];
 }
 
 

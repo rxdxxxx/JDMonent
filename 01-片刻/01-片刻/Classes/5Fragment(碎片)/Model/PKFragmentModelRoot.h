@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 @class PKMainModelUserInfo;
+@class PKMainModelCounter;
 
 
 @interface PKFragmentModelRoot : NSObject
@@ -18,6 +19,7 @@
 @property (nonatomic, copy)NSString * addtime_f;
 @property (nonatomic, copy)NSString * songid;
 @property (nonatomic, copy)NSString * content;
+@property (nonatomic, strong)PKMainModelCounter * counterList;
 @property (nonatomic, copy)NSString * coverimg;
 @property (nonatomic, copy)NSString * coverimg_wh;
 

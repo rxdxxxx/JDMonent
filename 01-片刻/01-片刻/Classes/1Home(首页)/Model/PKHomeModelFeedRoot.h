@@ -11,6 +11,19 @@
 @class PKMainModelCounter;
 @class PKHomeModelPlayInfo;
 
+typedef NS_ENUM(NSInteger, PKCellFeedType) {
+    PKCellFeedTypeTing = 1,
+    
+    PKCellFeedTypeTimelineNone,
+    PKCellFeedTypeTimelinePhoto,
+    
+    PKCellFeedTypeArticleWithPhoto,
+    PKCellFeedTypeArticleWithoutPhoto,
+    
+    PKCellFeedTypeOther
+};
+
+
 @interface PKHomeModelFeedRoot : NSObject
 
 @property (nonatomic, copy)NSString * contentid;
@@ -30,6 +43,7 @@
 @property (nonatomic, copy)NSString * ting_contentid;
 @property (nonatomic, strong)PKHomeModelPlayInfo * playInfo;
 @property (nonatomic, strong)NSNumber * imgtotal;
+@property (nonatomic, assign)PKCellFeedType  feedType;
 
 
 @end

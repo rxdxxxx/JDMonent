@@ -57,6 +57,9 @@ typedef NS_ENUM(NSInteger, PKFeedCellType) {
 /** 配图 */
 @property (nonatomic, assign, readonly) CGRect photoViewF;
 
+/** 配图 */
+@property (nonatomic, assign, readonly) CGRect titleLabelF;
+
 /** 正文\内容 */
 @property (nonatomic, assign, readonly) CGRect contentLabelF;
 

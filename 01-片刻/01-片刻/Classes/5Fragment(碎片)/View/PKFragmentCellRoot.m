@@ -11,6 +11,8 @@
 #import "PKFragmentModelRoot.h"
 #import "PKMainModelUserInfo.h"
 #import "UIImageView+WebCache.h"
+#import "PKMainModelCounter.h"
+
 
 @interface PKFragmentCellRoot ()
 
@@ -24,6 +26,10 @@
 @property (nonatomic, weak) UIImageView *photoView;
 /** 正文\内容 */
 @property (nonatomic, weak) UILabel *contentLabel;
+/** 评论*/
+@property (nonatomic, weak)UIButton * commintBtn;
+/** 喜欢*/
+@property (nonatomic, weak)UIButton * likeBtn;
 
 @end
 
@@ -53,8 +59,6 @@
         self.selectedBackgroundView = [[UIView alloc]init];
         self.backgroundColor = [UIColor clearColor];
         
-        
-        
         /** 2.头像 */
         UIImageView *iconView = [[UIImageView alloc] init];
         iconView.layer.cornerRadius = 35;
@@ -65,14 +69,14 @@
         
         /** 4.配图 */
         UIImageView *photoView = [[UIImageView alloc] init];
-        [self addSubview:photoView];
+        [self.contentView addSubview:photoView];
         self.photoView = photoView;
         
         /** 5.昵称 */
         UILabel *nameLabel = [[UILabel alloc] init];
         nameLabel.font = PKStatusNameFont;
         nameLabel.backgroundColor = [UIColor clearColor];
-        [self addSubview:nameLabel];
+        [self.contentView addSubview:nameLabel];
         self.nameLabel = nameLabel;
         
         /** 6.时间 */
@@ -80,7 +84,7 @@
         timeLabel.font = PKStatusTimeFont;
         timeLabel.textColor = PKColor(240, 140, 19);
         timeLabel.backgroundColor = [UIColor clearColor];
-        [self addSubview:timeLabel];
+        [self.contentView addSubview:timeLabel];
         self.timeLabel = timeLabel;
         
         
@@ -90,8 +94,21 @@
         contentLabel.textColor = PKColor(39, 39, 39);
         contentLabel.font = PKStatusContentFont;
         contentLabel.backgroundColor = [UIColor clearColor];
-        [self addSubview:contentLabel];
+        [self.contentView addSubview:contentLabel];
         self.contentLabel = contentLabel;
+        
+        // 评论
+        UIButton * commintBtn = [[UIButton alloc]init];
+        [commintBtn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+        [self.contentView addSubview:commintBtn];
+        self.commintBtn = commintBtn;
+        
+        
+        // 喜欢
+        UIButton * likeBtn = [[UIButton alloc]init];
+        [likeBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+        [self.contentView addSubview:likeBtn];
+        self.likeBtn = likeBtn;
     }
     return self;
 }
@@ -160,6 +177,14 @@
     // 7.正文
     self.contentLabel.text = statues.content;
     self.contentLabel.frame = self.statuesFrame.contentLabelF;
+    
+    // 评论按钮
+    self.commintBtn.frame = self.statuesFrame.commintBtnF;
+    [self.commintBtn setTitle:[NSString stringWithFormat:@"评论:%@",statues.counterList.comment] forState:UIControlStateNormal];
+    
+    // 喜欢按钮
+    self.likeBtn.frame = self.statuesFrame.likeBtnF;
+    [self.likeBtn setTitle:[NSString stringWithFormat:@"喜欢:%@",statues.counterList.like] forState:UIControlStateNormal];
     
 }
 

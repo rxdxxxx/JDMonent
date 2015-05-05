@@ -17,6 +17,17 @@
 #import "PKHomeCellRightFeed.h"
 #import "PKHomeModelFeedRootFrame.h"
 
+// 第二级
+#import "PlayerViewController.h"
+#import "PKMainViewCommentController.h"
+
+// cell类型
+#import "PKHomeCellRightTing.h"
+#import "PKHomeCellRIghtTimelinePic.h"
+#import "PKHomeCellRightTimelineText.h"
+#import "PKHomeCellRightArticlePic.h"
+#import "PKHomeCellRightArticleText.h"
+
 @interface PKHomeRightView ()<PKLoginControllerDelegate,UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic, weak)UITableView * tableView;
@@ -36,7 +47,7 @@
         
         if ([PKAccountTool account].auth) {
             // 1 如果已经注册过了,那么直接刷新tableView
-            [self reloadViewAfterLogin:nil];
+            [self LoginAfterReloadView:nil];
         }else{
             // 2,创建提示登录的view
             [self createLoginView];
@@ -113,7 +124,7 @@
 /**
  *  登录页面的代理方法,用于在登录成功后,刷新本页面.
  */
--(void)reloadViewAfterLogin:(PKLoginController *)loginController
+-(void)LoginAfterReloadView:(PKLoginController *)loginController
 {
     // 1,清除原本页面上的其他视图.
     [self removeOtherView];
@@ -122,6 +133,8 @@
     [self setupRefreshView];
     
 }
+
+
 /**
  *  1,清除原本页面上的其他视图.
  */
@@ -191,6 +204,48 @@
     [self.tableView addLegendFooterWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
     
 }
+
+-(void)setStatuses:(NSMutableArray *)statuses
+{
+    _statuses = statuses;
+    
+    for (PKHomeModelFeedRoot * feedModel in statuses) {
+        
+        if (feedModel.playInfo == [NSNull class]) {
+            // 电台
+            feedModel.feedType = PKCellFeedTypeTing;
+            
+        }else if([feedModel.title isEqualToString:@"无题"]){
+            // 碎片
+            if (feedModel.coverimg.length > 0) {
+                
+                feedModel.feedType = PKCellFeedTypeTimelinePhoto;
+            
+            }else{
+            
+                feedModel.feedType = PKCellFeedTypeTimelineNone;
+            
+            }
+        }else if(feedModel.type.intValue == 5 ){
+            // 推荐文章
+            if (feedModel.coverimg.length > 0) {
+                
+                feedModel.feedType = PKCellFeedTypeArticleWithPhoto;
+            }else{
+                
+                feedModel.feedType = PKCellFeedTypeArticleWithoutPhoto;
+            }
+        }else{
+            // 其他
+            feedModel.feedType = PKCellFeedTypeOther;
+        }
+        
+        
+    }
+    
+    
+}
+
 /**
  *  发起网络请求, 下拉刷新
  */
@@ -213,14 +268,6 @@
         
         NSMutableArray* temp = (NSMutableArray *)[PKHomeModelFeedRoot objectArrayWithKeyValuesArray:json[@"data"][@"list"]];
         
-        NSMutableArray * frameArray = [NSMutableArray arrayWithCapacity:10];
-        for (PKHomeModelFeedRoot * model in temp) {
-            PKHomeModelFeedRootFrame * frameModel = [[PKHomeModelFeedRootFrame alloc]init];
-            frameModel.status = model;
-            [frameArray addObject:frameModel];
-        }
-        temp = frameArray;
-        
         self.statuses = temp;
         
         
@@ -231,8 +278,6 @@
         if (self.tableView.footer == nil) {
             [self performSelectorOnMainThread:@selector(addFooterReflash) withObject:self waitUntilDone:YES];
         }
-        
-        
         
         
         // 让刷新控件停止显示刷新状态
@@ -267,17 +312,11 @@
         // 创建frame模型对象
         NSMutableArray* temp = (NSMutableArray *)[PKHomeModelFeedRoot objectArrayWithKeyValuesArray:json[@"data"][@"list"]];
         
-        NSMutableArray * frameArray = [NSMutableArray arrayWithCapacity:10];
-        for (PKHomeModelFeedRoot * model in temp) {
-            PKHomeModelFeedRootFrame * frameModel = [[PKHomeModelFeedRootFrame alloc]init];
-            frameModel.status = model;
-            [frameArray addObject:frameModel];
-        }
-        temp = frameArray;
-        
-        
         // 添加
         [self.statuses addObjectsFromArray:temp];
+        
+        // 对内部的模型重新计算一下类型
+        [self setStatuses:_statuses];
         
         // 刷新表格
         [self.tableView reloadData];
@@ -302,22 +341,70 @@
 #pragma mark - TableView代理方法
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    
     return self.statuses.count;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //1,创建 cell
-    PKHomeCellRightFeed * cell = [PKHomeCellRightFeed cellWithTableView:tableView];
-    cell.statuesFrame = self.statuses[indexPath.row];
+    PKHomeModelFeedRoot * model = self.statuses[indexPath.row];
+    PKHomeCellRoot * cell = nil;
+
+    switch (model.feedType) {
+        case PKCellFeedTypeTing:
+            cell = [PKHomeCellRightTing cellWithTableView:tableView];
+            cell.rightModel = model;
+            break;
+            
+        case PKCellFeedTypeTimelinePhoto:
+            cell = [PKHomeCellRIghtTimelinePic cellWithTableView:tableView];
+            cell.rightModel = model;
+            break;
+
+        case PKCellFeedTypeTimelineNone:
+            cell = [PKHomeCellRightTimelineText cellWithTableView:tableView];
+            cell.rightModel = model;
+            break;
+
+        case PKCellFeedTypeArticleWithPhoto:
+            cell = [PKHomeCellRightArticlePic cellWithTableView:tableView];
+            cell.rightModel = model;
+            break;
+        case PKCellFeedTypeArticleWithoutPhoto:
+            cell = [PKHomeCellRightArticleText cellWithTableView:tableView];
+            cell.rightModel = model;
+            break;
+            
+        default:
+            
+            cell = (PKHomeCellRoot*)[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"aaa"];
+            
+            break;
+    }
     
     return cell;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    PKHomeModelFeedRootFrame * frame = self.statuses[indexPath.row];
-    return frame.cellHeight;
+    PKHomeModelFeedRoot * model = self.statuses[indexPath.row];
+
+    switch (model.feedType) {
+        case PKCellFeedTypeTing:
+            return 264;
+        case PKCellFeedTypeTimelinePhoto:
+            return 425;
+        case PKCellFeedTypeTimelineNone:
+            return 257;
+        case PKCellFeedTypeArticleWithPhoto:
+        case PKCellFeedTypeArticleWithoutPhoto:
+            return 310;
+        default:
+            
+            return 0;
+            
+            break;
+    }
+    
 }
 
 

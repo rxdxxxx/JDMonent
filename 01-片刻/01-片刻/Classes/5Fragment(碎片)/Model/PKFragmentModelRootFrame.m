@@ -70,8 +70,22 @@
     _contentLabelF = (CGRect){{contentLabelX, contentLabelY}, contentLabelSize};
     
     
-    // 7.cell的高度
-    _cellHeight = CGRectGetMaxY(_contentLabelF) + 3 * PKStatusTableBorder;
+    // 7 commintBtn
+    CGFloat commintBtnW = 80;
+    CGFloat commintBtnH = 30;
+    CGFloat commintBtnX = CGRectGetMinX(_contentLabelF);
+    CGFloat commintBtnY = CGRectGetMaxY(_contentLabelF) + 3 * PKStatusTableBorder;
+    _commintBtnF = (CGRect){{commintBtnX,commintBtnY},{commintBtnW,commintBtnH}};
+
+    // 8 likeBtn
+    CGFloat likeBtnW = 80;
+    CGFloat likeBtnH = 30;
+    CGFloat likeBtnX = CGRectGetMaxX(_commintBtnF) + 3*PKStatusTableBorder;
+    CGFloat likeBtnY = commintBtnY;
+    _likeBtnF = (CGRect){{likeBtnX,likeBtnY},{likeBtnW,likeBtnH}};
+    
+    // 9.cell的高度
+    _cellHeight = CGRectGetMaxY(_likeBtnF) + 3 * PKStatusTableBorder;
     
 }
 

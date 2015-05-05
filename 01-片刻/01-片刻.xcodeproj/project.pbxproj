@@ -61,6 +61,7 @@
 		BC0F51251AEE64CE00B8E020 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC0F51111AEE648E00B8E020 /* MobileCoreServices.framework */; };
 		BC0F51261AEE64CE00B8E020 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC0F510F1AEE648800B8E020 /* AVFoundation.framework */; };
 		BC0F51271AEE64CE00B8E020 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC0F510D1AEE648200B8E020 /* MediaPlayer.framework */; };
+		BC1276981AF744E000AF46A2 /* PKFragmentDetialController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1276971AF744E000AF46A2 /* PKFragmentDetialController.m */; };
 		BC1AA2411AED0CC10090D934 /* PKFMDetialController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1AA2401AED0CC10090D934 /* PKFMDetialController.m */; };
 		BC1AA2441AED0FE00090D934 /* PKFMModelList.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1AA2431AED0FE00090D934 /* PKFMModelList.m */; };
 		BC1AA2471AED0FF30090D934 /* PKFMModelRadioInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1AA2461AED0FF30090D934 /* PKFMModelRadioInfo.m */; };
@@ -170,12 +171,22 @@
 		BC6823491AE92BDD000C57B3 /* PKHomeCellPhoto.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC6823471AE92BDD000C57B3 /* PKHomeCellPhoto.xib */; };
 		BC8434EF1AF4E18100ECE8FA /* PKReadViewDetialLeftView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8434EE1AF4E18100ECE8FA /* PKReadViewDetialLeftView.m */; };
 		BC8434F21AF4E19600ECE8FA /* PKReadViewDetialRightView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8434F11AF4E19600ECE8FA /* PKReadViewDetialRightView.m */; };
+		BCC1C3161AF89FEC00B2E249 /* PKHomeCellRightTimelineText.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC1C3141AF89FEC00B2E249 /* PKHomeCellRightTimelineText.m */; };
+		BCC1C3171AF89FEC00B2E249 /* PKHomeCellRightTimelineText.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCC1C3151AF89FEC00B2E249 /* PKHomeCellRightTimelineText.xib */; };
+		BCC1C31B1AF8AAA600B2E249 /* PKHomeCellRightArticlePic.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC1C3191AF8AAA600B2E249 /* PKHomeCellRightArticlePic.m */; };
+		BCC1C31C1AF8AAA600B2E249 /* PKHomeCellRightArticlePic.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCC1C31A1AF8AAA600B2E249 /* PKHomeCellRightArticlePic.xib */; };
+		BCC1C3201AF8B61100B2E249 /* PKHomeCellRightArticleText.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC1C31E1AF8B61000B2E249 /* PKHomeCellRightArticleText.m */; };
+		BCC1C3211AF8B61100B2E249 /* PKHomeCellRightArticleText.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCC1C31F1AF8B61000B2E249 /* PKHomeCellRightArticleText.xib */; };
 		BCC2911C1AEA0C2A009190D5 /* PKHomeModelImgUrl.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC2911B1AEA0C2A009190D5 /* PKHomeModelImgUrl.m */; };
 		BCC2911F1AEA1B2E009190D5 /* PKHomeCellRoot.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC2911E1AEA1B2E009190D5 /* PKHomeCellRoot.m */; };
 		BCC291211AEA2960009190D5 /* pig_3.png in Resources */ = {isa = PBXBuildFile; fileRef = BCC291201AEA295F009190D5 /* pig_3.png */; };
 		BCEBF6B41AF0A26700C491C6 /* PKLeftCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCEBF6B31AF0A26700C491C6 /* PKLeftCell.m */; };
 		BCEBF6B61AF0C4D800C491C6 /* LeftControllerBG.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BCEBF6B51AF0C4D800C491C6 /* LeftControllerBG.jpg */; };
 		BCF88DB51AF48B4D00A67682 /* PKHomeCellRightFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF88DB41AF48B4C00A67682 /* PKHomeCellRightFeed.m */; };
+		BCFA6CFF1AF8571E0043BF51 /* PKHomeCellRightTing.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFA6CFD1AF8571E0043BF51 /* PKHomeCellRightTing.m */; };
+		BCFA6D001AF8571E0043BF51 /* PKHomeCellRightTing.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCFA6CFE1AF8571E0043BF51 /* PKHomeCellRightTing.xib */; };
+		BCFA6D041AF873C40043BF51 /* PKHomeCellRIghtTimelinePic.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFA6D021AF873C40043BF51 /* PKHomeCellRIghtTimelinePic.m */; };
+		BCFA6D051AF873C40043BF51 /* PKHomeCellRIghtTimelinePic.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCFA6D031AF873C40043BF51 /* PKHomeCellRIghtTimelinePic.xib */; };
 		BCFDC7741AF5FB880024C297 /* PKMainModelCommentGet.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFDC7731AF5FB880024C297 /* PKMainModelCommentGet.m */; };
 		BCFDC7771AF5FC870024C297 /* PKMainViewCommentController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFDC7761AF5FC870024C297 /* PKMainViewCommentController.m */; };
 		BCFDC77A1AF601A10024C297 /* PKMainModelRoot.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFDC7791AF601A10024C297 /* PKMainModelRoot.m */; };
@@ -298,6 +309,8 @@
 		BC0F51191AEE64AB00B8E020 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		BC0F511B1AEE64B300B8E020 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		BC0F511D1AEE64BA00B8E020 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		BC1276961AF744E000AF46A2 /* PKFragmentDetialController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKFragmentDetialController.h; sourceTree = "<group>"; };
+		BC1276971AF744E000AF46A2 /* PKFragmentDetialController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKFragmentDetialController.m; sourceTree = "<group>"; };
 		BC1AA23F1AED0CC10090D934 /* PKFMDetialController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKFMDetialController.h; sourceTree = "<group>"; };
 		BC1AA2401AED0CC10090D934 /* PKFMDetialController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKFMDetialController.m; sourceTree = "<group>"; };
 		BC1AA2421AED0FE00090D934 /* PKFMModelList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKFMModelList.h; sourceTree = "<group>"; };
@@ -509,6 +522,15 @@
 		BC8434EE1AF4E18100ECE8FA /* PKReadViewDetialLeftView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKReadViewDetialLeftView.m; sourceTree = "<group>"; };
 		BC8434F01AF4E19600ECE8FA /* PKReadViewDetialRightView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKReadViewDetialRightView.h; sourceTree = "<group>"; };
 		BC8434F11AF4E19600ECE8FA /* PKReadViewDetialRightView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKReadViewDetialRightView.m; sourceTree = "<group>"; };
+		BCC1C3131AF89FEC00B2E249 /* PKHomeCellRightTimelineText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PKHomeCellRightTimelineText.h; path = rightCell/PKHomeCellRightTimelineText.h; sourceTree = "<group>"; };
+		BCC1C3141AF89FEC00B2E249 /* PKHomeCellRightTimelineText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PKHomeCellRightTimelineText.m; path = rightCell/PKHomeCellRightTimelineText.m; sourceTree = "<group>"; };
+		BCC1C3151AF89FEC00B2E249 /* PKHomeCellRightTimelineText.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PKHomeCellRightTimelineText.xib; path = rightCell/PKHomeCellRightTimelineText.xib; sourceTree = "<group>"; };
+		BCC1C3181AF8AAA600B2E249 /* PKHomeCellRightArticlePic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PKHomeCellRightArticlePic.h; path = rightCell/PKHomeCellRightArticlePic.h; sourceTree = "<group>"; };
+		BCC1C3191AF8AAA600B2E249 /* PKHomeCellRightArticlePic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PKHomeCellRightArticlePic.m; path = rightCell/PKHomeCellRightArticlePic.m; sourceTree = "<group>"; };
+		BCC1C31A1AF8AAA600B2E249 /* PKHomeCellRightArticlePic.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PKHomeCellRightArticlePic.xib; path = rightCell/PKHomeCellRightArticlePic.xib; sourceTree = "<group>"; };
+		BCC1C31D1AF8B61000B2E249 /* PKHomeCellRightArticleText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PKHomeCellRightArticleText.h; path = rightCell/PKHomeCellRightArticleText.h; sourceTree = "<group>"; };
+		BCC1C31E1AF8B61000B2E249 /* PKHomeCellRightArticleText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PKHomeCellRightArticleText.m; path = rightCell/PKHomeCellRightArticleText.m; sourceTree = "<group>"; };
+		BCC1C31F1AF8B61000B2E249 /* PKHomeCellRightArticleText.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PKHomeCellRightArticleText.xib; path = rightCell/PKHomeCellRightArticleText.xib; sourceTree = "<group>"; };
 		BCC2911A1AEA0C29009190D5 /* PKHomeModelImgUrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKHomeModelImgUrl.h; sourceTree = "<group>"; };
 		BCC2911B1AEA0C2A009190D5 /* PKHomeModelImgUrl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKHomeModelImgUrl.m; sourceTree = "<group>"; };
 		BCC2911D1AEA1B2E009190D5 /* PKHomeCellRoot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKHomeCellRoot.h; sourceTree = "<group>"; };
@@ -519,6 +541,12 @@
 		BCEBF6B51AF0C4D800C491C6 /* LeftControllerBG.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = LeftControllerBG.jpg; sourceTree = "<group>"; };
 		BCF88DB31AF48B4C00A67682 /* PKHomeCellRightFeed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKHomeCellRightFeed.h; sourceTree = "<group>"; };
 		BCF88DB41AF48B4C00A67682 /* PKHomeCellRightFeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKHomeCellRightFeed.m; sourceTree = "<group>"; };
+		BCFA6CFC1AF8571E0043BF51 /* PKHomeCellRightTing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PKHomeCellRightTing.h; path = rightCell/PKHomeCellRightTing.h; sourceTree = "<group>"; };
+		BCFA6CFD1AF8571E0043BF51 /* PKHomeCellRightTing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PKHomeCellRightTing.m; path = rightCell/PKHomeCellRightTing.m; sourceTree = "<group>"; };
+		BCFA6CFE1AF8571E0043BF51 /* PKHomeCellRightTing.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PKHomeCellRightTing.xib; path = rightCell/PKHomeCellRightTing.xib; sourceTree = "<group>"; };
+		BCFA6D011AF873C40043BF51 /* PKHomeCellRIghtTimelinePic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PKHomeCellRIghtTimelinePic.h; path = rightCell/PKHomeCellRIghtTimelinePic.h; sourceTree = "<group>"; };
+		BCFA6D021AF873C40043BF51 /* PKHomeCellRIghtTimelinePic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PKHomeCellRIghtTimelinePic.m; path = rightCell/PKHomeCellRIghtTimelinePic.m; sourceTree = "<group>"; };
+		BCFA6D031AF873C40043BF51 /* PKHomeCellRIghtTimelinePic.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PKHomeCellRIghtTimelinePic.xib; path = rightCell/PKHomeCellRIghtTimelinePic.xib; sourceTree = "<group>"; };
 		BCFDC7721AF5FB880024C297 /* PKMainModelCommentGet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKMainModelCommentGet.h; sourceTree = "<group>"; };
 		BCFDC7731AF5FB880024C297 /* PKMainModelCommentGet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKMainModelCommentGet.m; sourceTree = "<group>"; };
 		BCFDC7751AF5FC870024C297 /* PKMainViewCommentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKMainViewCommentController.h; sourceTree = "<group>"; };
@@ -871,24 +899,8 @@
 		BC6822141AE8DD2F000C57B3 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				BC6823171AE92921000C57B3 /* PKHomeCellSound.h */,
-				BC6823181AE92921000C57B3 /* PKHomeCellSound.m */,
-				BC6823191AE92921000C57B3 /* PKHomeCellSound.xib */,
-				BC6823211AE92ACC000C57B3 /* PKHomeCellMusic.h */,
-				BC6823221AE92ACC000C57B3 /* PKHomeCellMusic.m */,
-				BC6823231AE92ACC000C57B3 /* PKHomeCellMusic.xib */,
-				BC68232E1AE92B32000C57B3 /* PKHomeCellTimeline.h */,
-				BC68232F1AE92B32000C57B3 /* PKHomeCellTimeline.m */,
-				BC6823301AE92B32000C57B3 /* PKHomeCellTimeline.xib */,
-				BC68233B1AE92B8C000C57B3 /* PKHomeCellTopic.h */,
-				BC68233C1AE92B8C000C57B3 /* PKHomeCellTopic.m */,
-				BC68233D1AE92B8C000C57B3 /* PKHomeCellTopic.xib */,
-				BC6823401AE92BB8000C57B3 /* PKHomeCellMor.h */,
-				BC6823411AE92BB8000C57B3 /* PKHomeCellMor.m */,
-				BC6823421AE92BB8000C57B3 /* PKHomeCellMor.xib */,
-				BC6823451AE92BDD000C57B3 /* PKHomeCellPhoto.h */,
-				BC6823461AE92BDD000C57B3 /* PKHomeCellPhoto.m */,
-				BC6823471AE92BDD000C57B3 /* PKHomeCellPhoto.xib */,
+				BCFA6CFB1AF8567F0043BF51 /* rightCell */,
+				BCFA6CFA1AF8564E0043BF51 /* leftCell */,
 				BCC2911D1AEA1B2E009190D5 /* PKHomeCellRoot.h */,
 				BCC2911E1AEA1B2E009190D5 /* PKHomeCellRoot.m */,
 				BCF88DB31AF48B4C00A67682 /* PKHomeCellRightFeed.h */,
@@ -961,12 +973,12 @@
 				BC68230C1AE8FB43000C57B3 /* PKReadViewController.m */,
 				BC0F509C1AEDD78300B8E020 /* PKReadViewDetialController.h */,
 				BC0F509D1AEDD78300B8E020 /* PKReadViewDetialController.m */,
-				BC0F50B01AEDEBA000B8E020 /* PKReadViewArticleController.h */,
-				BC0F50B11AEDEBA000B8E020 /* PKReadViewArticleController.m */,
 				BC8434ED1AF4E18000ECE8FA /* PKReadViewDetialLeftView.h */,
 				BC8434EE1AF4E18100ECE8FA /* PKReadViewDetialLeftView.m */,
 				BC8434F01AF4E19600ECE8FA /* PKReadViewDetialRightView.h */,
 				BC8434F11AF4E19600ECE8FA /* PKReadViewDetialRightView.m */,
+				BC0F50B01AEDEBA000B8E020 /* PKReadViewArticleController.h */,
+				BC0F50B11AEDEBA000B8E020 /* PKReadViewArticleController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1045,6 +1057,8 @@
 			children = (
 				BC6823111AE8FBBB000C57B3 /* PKFragmentViewController.h */,
 				BC6823121AE8FBBB000C57B3 /* PKFragmentViewController.m */,
+				BC1276961AF744E000AF46A2 /* PKFragmentDetialController.h */,
+				BC1276971AF744E000AF46A2 /* PKFragmentDetialController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1351,6 +1365,53 @@
 			path = Assets;
 			sourceTree = "<group>";
 		};
+		BCFA6CFA1AF8564E0043BF51 /* leftCell */ = {
+			isa = PBXGroup;
+			children = (
+				BC6823171AE92921000C57B3 /* PKHomeCellSound.h */,
+				BC6823181AE92921000C57B3 /* PKHomeCellSound.m */,
+				BC6823191AE92921000C57B3 /* PKHomeCellSound.xib */,
+				BC6823211AE92ACC000C57B3 /* PKHomeCellMusic.h */,
+				BC6823221AE92ACC000C57B3 /* PKHomeCellMusic.m */,
+				BC6823231AE92ACC000C57B3 /* PKHomeCellMusic.xib */,
+				BC68232E1AE92B32000C57B3 /* PKHomeCellTimeline.h */,
+				BC68232F1AE92B32000C57B3 /* PKHomeCellTimeline.m */,
+				BC6823301AE92B32000C57B3 /* PKHomeCellTimeline.xib */,
+				BC68233B1AE92B8C000C57B3 /* PKHomeCellTopic.h */,
+				BC68233C1AE92B8C000C57B3 /* PKHomeCellTopic.m */,
+				BC68233D1AE92B8C000C57B3 /* PKHomeCellTopic.xib */,
+				BC6823401AE92BB8000C57B3 /* PKHomeCellMor.h */,
+				BC6823411AE92BB8000C57B3 /* PKHomeCellMor.m */,
+				BC6823421AE92BB8000C57B3 /* PKHomeCellMor.xib */,
+				BC6823451AE92BDD000C57B3 /* PKHomeCellPhoto.h */,
+				BC6823461AE92BDD000C57B3 /* PKHomeCellPhoto.m */,
+				BC6823471AE92BDD000C57B3 /* PKHomeCellPhoto.xib */,
+			);
+			name = leftCell;
+			sourceTree = "<group>";
+		};
+		BCFA6CFB1AF8567F0043BF51 /* rightCell */ = {
+			isa = PBXGroup;
+			children = (
+				BCFA6CFC1AF8571E0043BF51 /* PKHomeCellRightTing.h */,
+				BCFA6CFD1AF8571E0043BF51 /* PKHomeCellRightTing.m */,
+				BCFA6CFE1AF8571E0043BF51 /* PKHomeCellRightTing.xib */,
+				BCFA6D011AF873C40043BF51 /* PKHomeCellRIghtTimelinePic.h */,
+				BCFA6D021AF873C40043BF51 /* PKHomeCellRIghtTimelinePic.m */,
+				BCFA6D031AF873C40043BF51 /* PKHomeCellRIghtTimelinePic.xib */,
+				BCC1C3131AF89FEC00B2E249 /* PKHomeCellRightTimelineText.h */,
+				BCC1C3141AF89FEC00B2E249 /* PKHomeCellRightTimelineText.m */,
+				BCC1C3151AF89FEC00B2E249 /* PKHomeCellRightTimelineText.xib */,
+				BCC1C3181AF8AAA600B2E249 /* PKHomeCellRightArticlePic.h */,
+				BCC1C3191AF8AAA600B2E249 /* PKHomeCellRightArticlePic.m */,
+				BCC1C31A1AF8AAA600B2E249 /* PKHomeCellRightArticlePic.xib */,
+				BCC1C31D1AF8B61000B2E249 /* PKHomeCellRightArticleText.h */,
+				BCC1C31E1AF8B61000B2E249 /* PKHomeCellRightArticleText.m */,
+				BCC1C31F1AF8B61000B2E249 /* PKHomeCellRightArticleText.xib */,
+			);
+			name = rightCell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1435,10 +1496,13 @@
 				BC07A36E1AE8C34900A26B66 /* LaunchScreen.xib in Resources */,
 				BC07A36B1AE8C34900A26B66 /* Images.xcassets in Resources */,
 				BC6822FB1AE8E473000C57B3 /* menu-button.png in Resources */,
+				BCFA6D001AF8571E0043BF51 /* PKHomeCellRightTing.xib in Resources */,
 				BCFDC7851AF641C40024C297 /* searchbar_textfield_background.png in Resources */,
 				BC6822FE1AE8E473000C57B3 /* rightMenu.jpg in Resources */,
 				BC6823441AE92BB8000C57B3 /* PKHomeCellMor.xib in Resources */,
+				BCFA6D051AF873C40043BF51 /* PKHomeCellRIghtTimelinePic.xib in Resources */,
 				BC6822FD1AE8E473000C57B3 /* leftMenu.jpg in Resources */,
+				BCC1C3171AF89FEC00B2E249 /* PKHomeCellRightTimelineText.xib in Resources */,
 				BC6822FC1AE8E473000C57B3 /* menu-button@2x.png in Resources */,
 				BCFDC7821AF641B00024C297 /* searchbar_textfield_background_os7@2x.png in Resources */,
 				BC68233F1AE92B8C000C57B3 /* PKHomeCellTopic.xib in Resources */,
@@ -1450,9 +1514,11 @@
 				BC6822C21AE8DF60000C57B3 /* MJRefresh.bundle in Resources */,
 				BC6823251AE92ACC000C57B3 /* PKHomeCellMusic.xib in Resources */,
 				BC6822AF1AE8DF60000C57B3 /* MBProgressHUD.bundle in Resources */,
+				BCC1C31C1AF8AAA600B2E249 /* PKHomeCellRightArticlePic.xib in Resources */,
 				BC6823491AE92BDD000C57B3 /* PKHomeCellPhoto.xib in Resources */,
 				BCC291211AEA2960009190D5 /* pig_3.png in Resources */,
 				BC0274B31AEF71FE005DF800 /* PKFMCellDetial.xib in Resources */,
+				BCC1C3211AF8B61100B2E249 /* PKHomeCellRightArticleText.xib in Resources */,
 				BC68231B1AE92921000C57B3 /* PKHomeCellSound.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1473,8 +1539,10 @@
 			files = (
 				BC6822F61AE8E473000C57B3 /* SlideNavigationContorllerAnimatorFade.m in Sources */,
 				BCEBF6B41AF0A26700C491C6 /* PKLeftCell.m in Sources */,
+				BC1276981AF744E000AF46A2 /* PKFragmentDetialController.m in Sources */,
 				BC24AF751AF25350009005A1 /* PKMainModelCounter.m in Sources */,
 				BC6822D91AE8DF60000C57B3 /* UIImage+MultiFormat.m in Sources */,
+				BCFA6D041AF873C40043BF51 /* PKHomeCellRIghtTimelinePic.m in Sources */,
 				BC0F509E1AEDD78300B8E020 /* PKReadViewDetialController.m in Sources */,
 				BC0F50A21AEDD91C00B8E020 /* PKReadCellDetial.m in Sources */,
 				BC01DE491AEBCFE6003875B5 /* PKFMModelDetial.m in Sources */,
@@ -1518,6 +1586,7 @@
 				BC2FCF951AE9E5150014B413 /* PKHomeModelRoot.m in Sources */,
 				BC24AF641AF207AF009005A1 /* PKHomeRightView.m in Sources */,
 				BCFDC7771AF5FC870024C297 /* PKMainViewCommentController.m in Sources */,
+				BCFA6CFF1AF8571E0043BF51 /* PKHomeCellRightTing.m in Sources */,
 				BC6822CE1AE8DF60000C57B3 /* MKAnnotationView+WebCache.m in Sources */,
 				BC0274AB1AEF669F005DF800 /* DOUEAGLView.m in Sources */,
 				BC6822E11AE8DFA1000C57B3 /* IWHttpTool.m in Sources */,
@@ -1540,6 +1609,7 @@
 				BC6822DC1AE8DF60000C57B3 /* UIImageView+WebCache.m in Sources */,
 				BC0274A41AEF669F005DF800 /* DOUAudioLPCM.m in Sources */,
 				BCFDC7741AF5FB880024C297 /* PKMainModelCommentGet.m in Sources */,
+				BCC1C3201AF8B61100B2E249 /* PKHomeCellRightArticleText.m in Sources */,
 				BC0F509B1AEDCDB400B8E020 /* PKReadModelRoot.m in Sources */,
 				BC6822F81AE8E473000C57B3 /* SlideNavigationContorllerAnimatorScaleAndFade.m in Sources */,
 				BC6822FF1AE8E473000C57B3 /* SlideNavigationController.m in Sources */,
@@ -1602,6 +1672,7 @@
 				BC6822A71AE8DF60000C57B3 /* AFHTTPSessionManager.m in Sources */,
 				BC6822C11AE8DF60000C57B3 /* SDWebImageManager+MJ.m in Sources */,
 				BC6822B01AE8DF60000C57B3 /* MBProgressHUD.m in Sources */,
+				BCC1C31B1AF8AAA600B2E249 /* PKHomeCellRightArticlePic.m in Sources */,
 				BC6822A61AE8DF60000C57B3 /* AFHTTPRequestOperationManager.m in Sources */,
 				BC68233E1AE92B8C000C57B3 /* PKHomeCellTopic.m in Sources */,
 				BC6822D61AE8DF60000C57B3 /* SDWebImagePrefetcher.m in Sources */,
@@ -1614,6 +1685,7 @@
 				BC0F50B51AEDEBF400B8E020 /* PKReadModelArticle.m in Sources */,
 				BCFDC77D1AF6033F0024C297 /* PKMainCellComment.m in Sources */,
 				BC07A3601AE8C34900A26B66 /* main.m in Sources */,
+				BCC1C3161AF89FEC00B2E249 /* PKHomeCellRightTimelineText.m in Sources */,
 				BC0F50AE1AEDE54200B8E020 /* UIBarButtonItem+JD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

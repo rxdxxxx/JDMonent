@@ -13,7 +13,7 @@
 @protocol PKLoginControllerDelegate <NSObject>
 
 @optional
--(void)reloadViewAfterLogin:(PKLoginController *)loginController;
+-(void)LoginAfterReloadView:(PKLoginController *)loginController;
 
 @end
 

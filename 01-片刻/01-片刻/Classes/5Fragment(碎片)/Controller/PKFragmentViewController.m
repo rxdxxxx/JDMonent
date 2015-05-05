@@ -14,6 +14,7 @@
 #import "PKFragmentModelRootFrame.h"
 #import "PKFragmentCellRoot.h"
 #import "MJRefresh.h"
+#import "PKFragmentDetialController.h"
 
 @interface PKFragmentViewController ()
 
@@ -205,6 +206,14 @@ static PKFragmentViewController *fragmentSingletonInstance = nil;
 {
     PKFragmentModelRootFrame *statusFrame = self.statuses[indexPath.row];
     return statusFrame.cellHeight;
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    PKFragmentDetialController * detialController  =[[ PKFragmentDetialController alloc]init];
+    PKFragmentModelRootFrame * frame = self.statuses[indexPath.row];
+    detialController.model = frame.status;
+    
+    [[SlideNavigationController sharedInstance]pushViewController:detialController animated:YES];
 }
 
 @end

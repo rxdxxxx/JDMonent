@@ -19,10 +19,11 @@
 #import "MJRefresh.h"
 #import "PKAccountTool.h"
 #import "MBProgressHUD+MJ.h"
+#import "PKLoginController.h"
 
 #define TextFildBarHeight 30
 
-@interface PKMainViewCommentController ()<UITextFieldDelegate,UITableViewDelegate,UITableViewDataSource>
+@interface PKMainViewCommentController ()<UITextFieldDelegate,UITableViewDelegate,UITableViewDataSource,PKLoginControllerDelegate>
 
 @property (nonatomic, strong)NSMutableArray * statuses;
 @property (nonatomic, weak)UITextField * textField;
@@ -62,7 +63,7 @@
     return _tableView;
 }
 /**
- *  添加ToolBar
+ *  添加setupTextFildBar
  */
 -(void)setupTextFildBar
 {
@@ -193,10 +194,29 @@
         [self.view endEditing:YES];
 
     }else{
-        [MBProgressHUD showError:@"请先登录"];
+        
         [self.view endEditing:YES];
 
+        // 推出登录页面
+        
+        PKLoginController * controller = [[PKLoginController alloc]init];
+        controller.delegate = self;
+        UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:controller];
+        nav.navigationBar.backgroundColor = [UIColor clearColor];
+        
+        [self presentViewController:nav animated:YES completion:^{
+            
+        }];
+        
+
     }
+}
+/**
+ *  登录页面的代理方法
+ */
+-(void)LoginAfterReloadView:(PKLoginController *)loginController
+{
+    
 }
 
 - (void)didReceiveMemoryWarning {

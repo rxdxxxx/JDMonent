@@ -16,8 +16,11 @@
 @property (nonatomic, strong)PKMainModelUserInfo * userinfo;
 @property (nonatomic, copy)NSString * songid;
 @property (nonatomic, strong)PKMainModelCounter * counterList;
+@property (nonatomic, copy)NSString * addtime_f;
 @property (nonatomic, assign)BOOL islike;
 @property (nonatomic, assign)BOOL isfav;
 @property (nonatomic, copy)NSString * html;
+@property (nonatomic, strong)NSMutableArray * commentlist;
+
 
 @end
