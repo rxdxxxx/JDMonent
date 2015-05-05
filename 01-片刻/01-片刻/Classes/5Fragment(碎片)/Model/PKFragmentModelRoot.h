@@ -7,13 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "PKMainModelRoot.h"
+
 @class PKMainModelUserInfo;
 @class PKMainModelCounter;
 
 
-@interface PKFragmentModelRoot : NSObject
+@interface PKFragmentModelRoot : PKMainModelRoot
 
-@property (nonatomic, copy)NSString * contentid;
 @property (nonatomic, strong)PKMainModelUserInfo * userinfo;
 @property (nonatomic, strong)NSNumber * addtime;
 @property (nonatomic, copy)NSString * addtime_f;

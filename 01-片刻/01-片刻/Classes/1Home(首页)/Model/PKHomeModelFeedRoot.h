@@ -6,7 +6,7 @@
 //  Copyright (c) 2015年 Jason Ding. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "PKMainModelRoot.h"
 @class PKMainModelUserInfo;
 @class PKMainModelCounter;
 @class PKHomeModelPlayInfo;
@@ -24,9 +24,8 @@ typedef NS_ENUM(NSInteger, PKCellFeedType) {
 };
 
 
-@interface PKHomeModelFeedRoot : NSObject
+@interface PKHomeModelFeedRoot : PKMainModelRoot
 
-@property (nonatomic, copy)NSString * contentid;
 @property (nonatomic, strong)NSNumber * type;
 @property (nonatomic, strong)PKMainModelUserInfo * userinfo;
 @property (nonatomic, strong)PKMainModelUserInfo * reuseinfo;

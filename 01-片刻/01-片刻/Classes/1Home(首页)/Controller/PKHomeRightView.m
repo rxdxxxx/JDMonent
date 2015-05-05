@@ -20,6 +20,10 @@
 // 第二级
 #import "PlayerViewController.h"
 #import "PKMainViewCommentController.h"
+#import "PKFragmentDetialController.h"
+#import "PKReadViewArticleController.h"
+#import "PKReadViewController.h"
+#import "PKReadModelDetialHot.h"
 
 // cell类型
 #import "PKHomeCellRightTing.h"
@@ -406,7 +410,47 @@
     }
     
 }
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    PKHomeModelFeedRoot * model = self.statuses[indexPath.row];
+    
+    
+    
+    switch (model.feedType) {
+        case PKCellFeedTypeTing:
+        {
+//            PlayerViewController * pvc = [[PlayerViewController alloc]init];
+//
+//            pvc.model = model;
+//            [[SlideNavigationController sharedInstance] pushViewController:pvc animated:YES];
+        }
+            break;
 
+        case PKCellFeedTypeTimelinePhoto:
+        case PKCellFeedTypeTimelineNone:
+        {
+            PKFragmentDetialController * pvc = [[PKFragmentDetialController alloc]init];
+
+            pvc.model = model;
+            [[SlideNavigationController sharedInstance] pushViewController:pvc animated:YES];
+        }
+            break;
+        case PKCellFeedTypeArticleWithPhoto:
+        case PKCellFeedTypeArticleWithoutPhoto:
+        {
+            PKReadViewArticleController * pvc = [[PKReadViewArticleController alloc]init];
+            PKReadModelDetialHot *hotModle = [[PKReadModelDetialHot alloc]init];
+            hotModle.id = model.contentid;
+            pvc.model = hotModle;
+            [[SlideNavigationController sharedInstance] pushViewController:pvc animated:YES];
+        }
+            break;
+
+        default:
+            
+            break;
+    }
+}
 
 
 @end

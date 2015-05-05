@@ -27,7 +27,10 @@
 #import "PKHomeDetialController.h"
 #import "PKHomeMorController.h"
 
-
+#import "PKReadViewArticleController.h"
+#import "PKReadModelDetialHot.h"
+#import "PKFragmentDetialController.h"
+#import "PKMainModelRoot.h"
 
 /*工具类*/
 #import "IWHttpTool.h"
@@ -315,8 +318,7 @@
     switch (model.type.intValue) {
         case 2://sound
         {
-            //            PKHomeDetialController * dc = [[PKHomeDetialController alloc]init];
-            //            dc = model;
+
             
             PlayerViewController * pvc = [[PlayerViewController alloc]init];
             pvc.model = model;
@@ -327,9 +329,11 @@
         case 3://Topic
         {
             
-            PKHomeMorController * mc = [[PKHomeMorController alloc]init];
-            mc.model = model;
-            [[SlideNavigationController sharedInstance] pushViewController:mc animated:YES];
+            PKReadViewArticleController * pvc = [[PKReadViewArticleController alloc]init];
+            PKReadModelDetialHot *hotModle = [[PKReadModelDetialHot alloc]init];
+            hotModle.id = model.id;
+            pvc.model = hotModle;
+            [[SlideNavigationController sharedInstance] pushViewController:pvc animated:YES];
             
         }
             break;
@@ -337,9 +341,13 @@
         case 17://illustration
             
         {
-            PKHomeMorController * mc = [[PKHomeMorController alloc]init];
-            mc.model = model;
-            [[SlideNavigationController sharedInstance] pushViewController:mc animated:YES];
+       
+
+            PKReadViewArticleController * pvc = [[PKReadViewArticleController alloc]init];
+            PKReadModelDetialHot *hotModle = [[PKReadModelDetialHot alloc]init];
+            hotModle.id = model.id;
+            pvc.model = hotModle;
+            [[SlideNavigationController sharedInstance] pushViewController:pvc animated:YES];
             
         }
             break;
@@ -351,18 +359,25 @@
             break;
         case 24://Timeline
         {
-            PKHomeMorController * mc = [[PKHomeMorController alloc]init];
-            mc.model = model;
-            [[SlideNavigationController sharedInstance] pushViewController:mc animated:YES];
-            
+
+            PKFragmentDetialController * pvc = [[PKFragmentDetialController alloc]init];
+            PKMainModelRoot * modelRoot = [[PKMainModelRoot alloc]init];
+            modelRoot.contentid = model.id;
+            pvc.model = modelRoot;
+            [[SlideNavigationController sharedInstance] pushViewController:pvc animated:YES];
+        
         }
             break;
             
         default:// Mor 等
         {
-            PKHomeMorController * mc = [[PKHomeMorController alloc]init];
-            mc.model = model;
-            [[SlideNavigationController sharedInstance] pushViewController:mc animated:YES];
+            
+            PKReadViewArticleController * pvc = [[PKReadViewArticleController alloc]init];
+            PKReadModelDetialHot *hotModle = [[PKReadModelDetialHot alloc]init];
+            hotModle.id = model.id;
+            pvc.model = hotModle;
+            [[SlideNavigationController sharedInstance] pushViewController:pvc animated:YES];
+            
             
         }
             

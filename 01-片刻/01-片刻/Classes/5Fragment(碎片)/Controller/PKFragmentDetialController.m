@@ -147,7 +147,7 @@ typedef NS_ENUM(NSUInteger, ButtonTag) {
 
     
     /** 6.时间 */
-    CGFloat timeLabelY = CGRectGetMinY(iconView.frame) + PKStatusTableBorder * 0.5;
+    CGFloat timeLabelY = CGRectGetMaxY(iconView.frame) + PKStatusTableBorder * 3;
     CGSize timeLabelSize = [self.modelWebView.addtime_f sizeWithAttributes:@{NSFontAttributeName:PKStatusTimeFont}];
     CGFloat timeLabelX = PKOnePageWidth - 3*timeLabelSize.width;
     CGRect timeLabelF = (CGRect){{timeLabelX, timeLabelY}, timeLabelSize};
@@ -155,7 +155,7 @@ typedef NS_ENUM(NSUInteger, ButtonTag) {
     UILabel *timeLabel = [[UILabel alloc] initWithFrame:timeLabelF];
     timeLabel.text = self.modelWebView.addtime_f;
     timeLabel.font = PKStatusTimeFont;
-    timeLabel.textColor = PKColor(240, 140, 19);
+    timeLabel.textColor = [UIColor grayColor];
     timeLabel.backgroundColor = [UIColor clearColor];
     [headerView addSubview:timeLabel];
     

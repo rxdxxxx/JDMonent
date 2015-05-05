@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@class PKFragmentModelRoot;
+@class PKMainModelRoot;
 
 @interface PKFragmentDetialController : UIViewController
 
-@property (nonatomic, strong)PKFragmentModelRoot * model;
+@property (nonatomic, strong)PKMainModelRoot * model;
 
 
 @end
