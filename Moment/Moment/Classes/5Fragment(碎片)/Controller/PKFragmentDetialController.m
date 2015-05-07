@@ -34,7 +34,11 @@ typedef NS_ENUM(NSUInteger, ButtonTag) {
 @interface PKFragmentDetialController ()<PKLoginControllerDelegate,UIWebViewDelegate>
 {
     int kContentSizeFlag ;
+
 }
+
+
+
 @property (nonatomic, strong)NSMutableArray * statuses;
 @property (nonatomic, strong)PKReadModelDetialWebview * modelWebView;
 @property (nonatomic, weak)UIWebView * webView;
@@ -210,7 +214,7 @@ typedef NS_ENUM(NSUInteger, ButtonTag) {
         
         
         NSString * urlStr = [NSString stringWithFormat:@"http://pianke.me/webview/%@",self.modelWebView.contentid];
-        PKLog(@"%@",urlStr);
+
         NSURL * url = [NSURL URLWithString:urlStr];
         NSURLRequest * request = [NSURLRequest requestWithURL:url];
         [self.webView loadRequest:request];
@@ -329,32 +333,5 @@ typedef NS_ENUM(NSUInteger, ButtonTag) {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-//- (void)webViewDidFinishLoad:(UIWebView *)webView
-//{
-//    PKLog(@"dididdididd");
-//    
-//    
-//    NSString* mata = [NSString stringWithFormat:@"var script = document.createElement('script');"
-//                      "script.type = 'text/javascript';"
-//                      "script.text = \"function ResizeImages() { "
-//                      "var myimg,oldwidth;"
-//                      "var maxwidth=%f;" //缩放系数
-//                      "for(i=0;i <document.images.length;i++){"
-//                        "myimg = document.images[i];"
-//                        "if(myimg.width > maxwidth){"
-//                            "oldwidth = myimg.width;"
-//                            "myimg.width = maxwidth;"
-//                            "myimg.height = myimg.height * (maxwidth/oldwidth);"
-//                        "}"
-//                      "}"
-//                      "}\";"
-//                      "document.getElementsByTagName('head')[0].appendChild(script);",((float)(PKOnePageWidth-50))];
-//    
-//    //修改服务器页面的meta的值
-//    [webView stringByEvaluatingJavaScriptFromString: mata ];
-//    
-//    [webView stringByEvaluatingJavaScriptFromString:@"ResizeImages();"];
-//}
 
 @end
