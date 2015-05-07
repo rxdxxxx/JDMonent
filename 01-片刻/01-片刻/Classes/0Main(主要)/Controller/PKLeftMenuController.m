@@ -36,11 +36,13 @@
 {
     [super viewDidLoad];
     CGFloat w = self.view.frame.size.width;
-    CGFloat wScale = 500/w;
-    CGFloat h = 800 / wScale;
+//    CGFloat wScale = 500/w;
+//    CGFloat h = 800 / wScale;
+    CGFloat h = self.view.frame.size.height;
     
     UIImageView * imageView= [[ UIImageView alloc]initWithFrame:CGRectMake(0, 0, w, h)];
     [imageView setImage:[UIImage imageNamed:@"LeftControllerBG.jpg"]];
+    imageView.contentMode = UIViewContentModeScaleAspectFill;
     [self.view addSubview:imageView];
     
     self.slideOutAnimationEnabled = YES;
