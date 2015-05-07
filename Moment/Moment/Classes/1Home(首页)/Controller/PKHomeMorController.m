@@ -87,7 +87,7 @@
     //2,加载页面
     
     NSString * urlStr = [NSString stringWithFormat:@"http://pianke.me/webview/%@",self.model.id];
-    PKLog(@"%@",urlStr);
+
     NSURL * url = [NSURL URLWithString:urlStr];
     NSURLRequest * request = [NSURLRequest requestWithURL:url];
     [webView loadRequest:request];

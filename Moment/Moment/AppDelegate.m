@@ -37,17 +37,17 @@
     
     [[NSNotificationCenter defaultCenter] addObserverForName:SlideNavigationControllerDidClose object:nil queue:nil usingBlock:^(NSNotification *note) {
         NSString *menu = note.userInfo[@"menu"];
-        NSLog(@"Closed %@", menu);
+//        NSLog(@"Closed %@", menu);
     }];
     
     [[NSNotificationCenter defaultCenter] addObserverForName:SlideNavigationControllerDidOpen object:nil queue:nil usingBlock:^(NSNotification *note) {
         NSString *menu = note.userInfo[@"menu"];
-        NSLog(@"Opened %@", menu);
+//        NSLog(@"Opened %@", menu);
     }];
     
     [[NSNotificationCenter defaultCenter] addObserverForName:SlideNavigationControllerDidReveal object:nil queue:nil usingBlock:^(NSNotification *note) {
         NSString *menu = note.userInfo[@"menu"];
-        NSLog(@"Revealed %@", menu);
+//        NSLog(@"Revealed %@", menu);
     }];
 
     self.window = [[UIWindow alloc]initWithFrame:[[UIScreen mainScreen ]bounds]];

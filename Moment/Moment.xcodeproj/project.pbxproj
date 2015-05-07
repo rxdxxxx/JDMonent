@@ -604,7 +604,7 @@
 				BC17B0B61AF9BF6A0084D164 /* 1Home(首页) */,
 				BC17B0F51AF9BF6A0084D164 /* 2FM(电台) */,
 				BC17B1091AF9BF6A0084D164 /* 3Read(阅读) */,
-				BC17B1221AF9BF6A0084D164 /* 4Community(社区) */,
+				BC17B1221AF9BF6A0084D164 /* 4 弃用Community(社区) */,
 				BC17B1281AF9BF6A0084D164 /* 5Fragment(碎片) */,
 				BC17B1361AF9BF6A0084D164 /* 6Setting(设置) */,
 				BC17B13C1AF9BF6A0084D164 /* 7Other(其他) */,
@@ -897,13 +897,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		BC17B1221AF9BF6A0084D164 /* 4Community(社区) */ = {
+		BC17B1221AF9BF6A0084D164 /* 4 弃用Community(社区) */ = {
 			isa = PBXGroup;
 			children = (
 				BC17B1231AF9BF6A0084D164 /* Controller */,
 				BC17B1261AF9BF6A0084D164 /* Model */,
 				BC17B1271AF9BF6A0084D164 /* View */,
 			);
+			name = "4 弃用Community(社区)";
 			path = "4Community(社区)";
 			sourceTree = "<group>";
 		};

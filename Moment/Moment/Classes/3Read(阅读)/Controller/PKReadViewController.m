@@ -83,7 +83,6 @@ static PKReadViewController *ReadsingletonInstance = nil;
         
         
     } failure:^(NSError *error) {
-        NSLog(@"%@",error);
         
     }];
     
