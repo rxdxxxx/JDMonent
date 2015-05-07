@@ -1,0 +1,31 @@
+//
+//  PrefixHeader.pch
+//  01-片刻
+//
+//  Created by qianfeng on 15-4-23.
+//  Copyright (c) 2015年 Jason Ding. All rights reserved.
+//
+
+#ifndef _1____PrefixHeader_pch
+#define _1____PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#import <Availability.h>
+#ifndef __IPHONE_3_0
+#warning "This project uses features only available in iOS SDK 3.0 and later."
+#endif
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import<Foundation/Foundation.h>
+
+
+#import "PKCommon.h"
+
+
+#endif
+
+
+#endif
