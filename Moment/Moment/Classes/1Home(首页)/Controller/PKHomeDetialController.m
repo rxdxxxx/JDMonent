@@ -48,7 +48,6 @@
 
 -(void)dealloc
 {
-    NSLog(@"");
     self.playInfo = nil;
     self.playListArr = nil;
 }
@@ -111,7 +110,7 @@
     unameImageView.layer.cornerRadius = 15;
     unameImageView.layer.masksToBounds = YES;
     [unameImageView sd_setImageWithURL:[NSURL URLWithString:self.playInfo.userinfo.icon] placeholderImage:[UIImage imageNamed:PKPlaceholderImage]];
-    PKLog(@"self.model.userinfo.icon:%@",self.model.userinfo.icon);
+
     [self.scrollView addSubview:unameImageView];
     
     // 1.3
@@ -335,10 +334,6 @@
     //设置当前页数
     self.pageControl.currentPage = 1;
     
-    PKLog(@"%@",NSStringFromCGRect(self.pageControl.frame));
-    PKLog(@"%@",self.view.subviews);
-    
-    
     
 }
 
@@ -366,7 +361,7 @@
     PKHomeModelPlayInfo * playInfo = self.model.playList[0];
     
     NSString * urlStr = playInfo.webview_url;
-    PKLog(@"%@",urlStr);
+
     NSURL * url = [NSURL URLWithString:urlStr];
     NSURLRequest * request = [NSURLRequest requestWithURL:url];
     [webView loadRequest:request];
@@ -419,8 +414,6 @@
 -(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
 
-    
-    PKLog(@"webView");
     
     return YES;
 }

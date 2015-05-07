@@ -180,10 +180,8 @@
  */
 -(void)loginClick
 {
-    PKLog(@"22222222222222");
     [MBProgressHUD showMessage:@"正在登录..."];
     
-    PKLog(@"%@,%@",self.emailField.text,self.passwordField.text);
     PKAccountParam * param = [[PKAccountParam alloc]init];
     param.client = @(2);
     param.email = self.emailField.text;
@@ -200,7 +198,6 @@
             [MBProgressHUD hideHUD];
             NSString * message = [NSString stringWithFormat:@"%@",account.msg];
             [MBProgressHUD showError:message];
-            PKLog(@"%@",message);
             
         }else{
             

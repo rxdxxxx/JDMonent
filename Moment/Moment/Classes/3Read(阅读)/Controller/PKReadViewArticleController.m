@@ -46,7 +46,7 @@ typedef NS_ENUM(NSUInteger, ButtonTag) {
 
 - (void)dealloc
 {
-   
+
 }
 
 -(void)setModel:(PKReadModelDetialHot *)model

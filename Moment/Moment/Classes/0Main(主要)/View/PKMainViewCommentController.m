@@ -103,7 +103,6 @@
  */
 -(void)textDidChange
 {
-    PKLog(@"-----%@",self.textField.text);
     
     
     self.navigationItem.rightBarButtonItem.enabled = (self.textField.text.length != 0);
@@ -162,7 +161,6 @@
  */
 -(void)edit
 {
-    PKLog(@"%@",self.textField.text);
     
     if ([PKAccountTool account].auth) {
         
@@ -317,7 +315,6 @@
         NSInteger total = ((NSString *)json[@"data"][@"total"]).integerValue;
         if (self.statuses.count == total) {
             
-            PKLog(@"已经更新到了全部信息");
             dispatch_async(dispatch_get_main_queue(), ^{
                 
                 [self.tableView.footer noticeNoMoreData];
@@ -361,7 +358,6 @@
         NSInteger total = ((NSString *)json[@"data"][@"total"]).integerValue;
         if (self.statuses.count == total) {
             
-            PKLog(@"已经更新到了全部信息");
             dispatch_async(dispatch_get_main_queue(), ^{
 
                 [self.tableView.footer noticeNoMoreData];

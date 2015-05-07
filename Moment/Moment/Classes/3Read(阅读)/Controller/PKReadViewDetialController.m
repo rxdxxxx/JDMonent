@@ -21,6 +21,10 @@
 
 @implementation PKReadViewDetialController
 
+-(void)dealloc
+{
+
+}
 
 - (void)viewDidLoad {
     
@@ -34,6 +38,8 @@
     
     
 }
+
+
 
 /**
  *  初始化 Home页面信息

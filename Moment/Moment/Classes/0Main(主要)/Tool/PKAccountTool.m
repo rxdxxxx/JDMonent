@@ -82,8 +82,6 @@
             //字典转模型
             PKAccountResult * result = [PKAccountResult objectWithKeyValues:json[@"data"]];
             
-            PKLog(@"%@",result.auth);
-            
             success(result);
         }
     } failure:^(NSError *error) {

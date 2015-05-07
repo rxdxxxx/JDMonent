@@ -135,7 +135,6 @@
     CGFloat timeLabelY = CGRectGetMaxY(self.statuesFrame.nameLabelF) + PKStatusTableBorder * 0.5;
     CGSize timeLabelSize = [statues.addtime_f sizeWithAttributes:@{NSFontAttributeName:PKStatusTimeFont}];
     self.timeLabel.frame = (CGRect){{timeLabelX, timeLabelY}, timeLabelSize};
-    //    IWLog(@"text:%@  frame: %@",status.created_at,NSStringFromCGRect(self.timeLabel.frame));
     
     
     
