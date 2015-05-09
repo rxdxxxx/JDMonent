@@ -95,7 +95,7 @@
     UITextField * passWordTextField = [[UITextField alloc]initWithFrame:CGRectMake(passWordX, passWordY, passWordW, passWordH)];
     [self.view addSubview:passWordTextField];
     self.passwordField = passWordTextField;
-    
+    passWordTextField.secureTextEntry = YES;
     [PKNotificationCenter addObserver:self selector:@selector(textDidChange) name:UITextFieldTextDidChangeNotification object:passWordTextField];
 
     
