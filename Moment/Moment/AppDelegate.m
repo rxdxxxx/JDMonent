@@ -22,7 +22,9 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+
+    // 设置SDImage缓存的最大值,10M
+    [SDImageCache sharedImageCache].maxCacheSize = 1024 * 1024 * 10;
     
     
     PKHomeViewController * homeVC = [[PKHomeViewController alloc] init];
