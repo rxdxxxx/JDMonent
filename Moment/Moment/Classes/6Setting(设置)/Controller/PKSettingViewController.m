@@ -7,6 +7,15 @@
 //
 
 #import "PKSettingViewController.h"
+#import "PKSettingArrowItem.h"
+#import "PKSettingGroup.h"
+#import "PKSettingSwitchItem.h"
+#import "MBProgressHUD+MJ.h"
+#import "SDWebImageManager.h"
+#import "PKAccount.h"
+#import "PKAccountTool.h"
+#import "PKHomeViewController.h"
+#import "PKHomeRightView.h"
 
 @interface PKSettingViewController ()
 
@@ -29,6 +38,7 @@ static PKSettingViewController *SettingSingletonInstance = nil;
     }
     return SettingSingletonInstance;
 }
+
 - (BOOL)slideNavigationControllerShouldDisplayLeftMenu
 {
     return YES;
@@ -38,79 +48,99 @@ static PKSettingViewController *SettingSingletonInstance = nil;
     [super viewDidLoad];
     
     self.navigationController.navigationBar.backgroundColor = [UIColor colorWithRed:0.73f green:0.73f blue:0.73f alpha:1.00f];;
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
-}
-
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
     
-    // Configure the cell...
+    [self setupGroup0];
+
+    [self setupFooter];
+
+}
+
+
+- (void)setupGroup0
+{
+    PKSettingGroup *group = [self addGroup];
     
-    return cell;
+    PKSettingArrowItem *clearCache = [PKSettingArrowItem itemWithTitle:@"清除图片缓存"];
+    clearCache.operation = ^{
+        // 弹框
+        [MBProgressHUD showMessage:@"正在帮你拼命清理中..."];
+        
+        // 执行清除缓存 , 图片和SQLite
+        NSFileManager *mgr = [NSFileManager defaultManager];
+        NSString *cachePath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
+        [mgr removeItemAtPath:cachePath error:nil];
+        
+        
+        // 调用框架的清除缓存方法.
+        //        [[SDWebImageManager sharedManager].imageCache clearDisk];
+        
+        // 关闭弹框
+        [MBProgressHUD hideHUD];
+        
+        // 计算缓存文件夹的大小
+        //        NSArray *subpaths = [mgr subpathsAtPath:cachePath];
+        //        long long totalSize = 0;
+        //        for (NSString *subpath in subpaths) {
+        //            NSString *fullpath = [cachePath stringByAppendingPathComponent:subpath];
+        //            BOOL dir = NO;
+        //            [mgr fileExistsAtPath:fullpath isDirectory:&dir];
+        //            if (dir == NO) {// 文件
+        //                totalSize += [[mgr attributesOfItemAtPath:fullpath error:nil][NSFileSize] longLongValue];
+        //            }
+        //        }
+    };
+    
+    group.items = @[clearCache];
 }
-*/
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+- (void)setupFooter
+{
+    // 按钮
+    UIButton *logoutButton = [[UIButton alloc] init];
+    CGFloat logoutX = PKStatusTableBorder + 2;
+    CGFloat logoutY = 10;
+    CGFloat logoutW = self.tableView.frame.size.width - 2 * logoutX;
+    CGFloat logoutH = 44;
+    logoutButton.frame = CGRectMake(logoutX, logoutY, logoutW, logoutH);
+    
+    // 背景和文字
+    [logoutButton setBackgroundImage:[UIImage resizedImageWithName:@"common_button_red"] forState:UIControlStateNormal];
+    [logoutButton setBackgroundImage:[UIImage resizedImageWithName:@"common_button_red_highlighted"] forState:UIControlStateHighlighted];
+    [logoutButton setTitle:@"退出当前帐号" forState:UIControlStateNormal];
+    logoutButton.titleLabel.font = [UIFont systemFontOfSize:14];
+    [logoutButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [logoutButton addTarget:self action:@selector(logoutClick) forControlEvents:UIControlEventTouchUpInside];
+    
+    // footer
+    UIView *footer = [[UIView alloc] init];
+    CGFloat footerH = logoutH + 20;
+    footer.frame = CGRectMake(0, 0, 0, footerH);
+    self.tableView.tableFooterView = footer;
+    [footer addSubview:logoutButton];
 }
-*/
+/**
+ *
+ */
+-(void)logoutClick
+{
+    // 弹框
+    // 执行清除缓存 , 图片和SQLite
+    
+    PKAccount * account = [PKAccountTool account];
+    if (account == nil) {
+        [MBProgressHUD showError:@"请先登录"];
+        return;
+    }
+    
+    NSFileManager *mgr = [NSFileManager defaultManager];
+    [mgr removeItemAtPath:PKAccountFile error:nil];
+    PKHomeRightView * rightView  = [PKHomeViewController sharedInstance].rightView;
+    [rightView reshowRightView];
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+    
+    
+    // 关闭弹框
+    [MBProgressHUD showSuccess:@"已经成功退出"];
 }
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

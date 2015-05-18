@@ -3,48 +3,32 @@
 //  MJExtension
 //
 //  Created by mj on 14-1-15.
-//  Copyright (c) 2014年 小码哥. All rights reserved.
+//  Copyright (c) 2014年 itcast. All rights reserved.
 //
 
 #import "NSObject+MJCoding.h"
-#import "NSObject+MJProperty.h"
-#import "MJProperty.h"
+#import "NSObject+MJMember.h"
 
 @implementation NSObject (MJCoding)
-
+/**
+ *  编码（将对象写入文件中）
+ */
 - (void)encode:(NSCoder *)encoder
 {
-    Class class = [self class];
-    
-    NSArray *allowedCodingPropertyNames = [class totalAllowedCodingPropertyNames];
-    NSArray *ignoredCodingPropertyNames = [class totalIgnoredCodingPropertyNames];
-    
-    [class enumeratePropertiesWithBlock:^(MJProperty *property, BOOL *stop) {
-        if (allowedCodingPropertyNames.count && ![allowedCodingPropertyNames containsObject:property.name]) return;
-        // 检测是否被忽略
-        if ([ignoredCodingPropertyNames containsObject:property.name]) return;
-        
-        id value = [property valueFromObject:self];
-        if (value == nil) return;
-        [encoder encodeObject:value forKey:property.name];
+    [self enumerateIvarsWithBlock:^(MJIvar *ivar, BOOL *stop) {
+        if (ivar.isSrcClassFromFoundation) return;
+        [encoder encodeObject:ivar.value forKey:ivar.name];
     }];
 }
 
+/**
+ *  解码（从文件中解析对象）
+ */
 - (void)decode:(NSCoder *)decoder
 {
-    Class class = [self class];
-    
-    NSArray *allowedCodingPropertyNames = [class totalAllowedCodingPropertyNames];
-    NSArray *ignoredCodingPropertyNames = [class totalIgnoredCodingPropertyNames];
-    
-    [class enumeratePropertiesWithBlock:^(MJProperty *property, BOOL *stop) {
-        if (allowedCodingPropertyNames.count && ![allowedCodingPropertyNames containsObject:property.name]) return;
-        // 检测是否被忽略
-        if ([ignoredCodingPropertyNames containsObject:property.name]) return;
-        
-        id value = [decoder decodeObjectForKey:property.name];
-        if (value == nil) return;
-        [property setValue:value forObject:self];
+    [self enumerateIvarsWithBlock:^(MJIvar *ivar, BOOL *stop) {
+        if (ivar.isSrcClassFromFoundation) return;
+        ivar.value = [decoder decodeObjectForKey:ivar.name];
     }];
 }
 @end

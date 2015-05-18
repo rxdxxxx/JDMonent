@@ -10,6 +10,8 @@
 
 @interface PKHomeRightView : UIView
 
+-(void)reshowRightView;
+
 // 把父类控制器传进来,用于推出新的视图.
 @property (nonatomic, weak)id delegate;
 

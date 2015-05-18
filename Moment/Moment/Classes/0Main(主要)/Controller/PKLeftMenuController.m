@@ -57,10 +57,10 @@
     [self.view addSubview:tableView];
     self.tableView = tableView;
     
-//    self.nameArray = @[@"首页",@"电台",@"阅读",@"碎片",@"设置"];
-//    self.picArray = @[@"LeftHome",@"LeftFM",@"LeftRead",@"LeftFre",@"LeftSetting"];
-    self.nameArray = @[@"首页",@"电台",@"阅读",@"碎片"];
-    self.picArray = @[@"LeftHome",@"LeftFM",@"LeftRead",@"LeftFre"];
+    self.nameArray = @[@"首页",@"电台",@"阅读",@"碎片",@"设置"];
+    self.picArray = @[@"LeftHome",@"LeftFM",@"LeftRead",@"LeftFre",@"LeftSetting"];
+//    self.nameArray = @[@"首页",@"电台",@"阅读",@"碎片"];
+//    self.picArray = @[@"LeftHome",@"LeftFM",@"LeftRead",@"LeftFre"];
     
     
 //    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"leftMenu.jpg"]];
@@ -123,11 +123,11 @@
             vc.title = @"碎片";
 
             break;
-//        case 4:
-//            vc = [PKSettingViewController sharedInstance];
-//            vc.title = @"设置";
-//
-//            break;
+        case 4:
+            vc = [PKSettingViewController sharedInstance];
+            vc.title = @"设置";
+
+            break;
     }
     
     [[SlideNavigationController sharedInstance]popAllAndSwitchToViewController:vc withSlideOutAnimation:self.slideOutAnimationEnabled andCompletion:nil];
