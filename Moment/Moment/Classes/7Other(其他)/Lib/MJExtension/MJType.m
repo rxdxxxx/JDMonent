@@ -3,40 +3,62 @@
 //  MJExtension
 //
 //  Created by mj on 14-1-15.
-//  Copyright (c) 2014年 itcast. All rights reserved.
+//  Copyright (c) 2014年 小码哥. All rights reserved.
 //
 
 #import "MJType.h"
 #import "MJExtension.h"
+#import "MJFoundation.h"
+#import "MJConst.h"
 
 @implementation MJType
 
-- (instancetype)initWithCode:(NSString *)code
+static NSMutableDictionary *_cachedTypes;
++ (void)load
 {
-    if (self = [super init]) {
-        self.code = code;
-    }
-    return self;
+    _cachedTypes = [NSMutableDictionary dictionary];
 }
 
-/** 类型标识符 */
++ (instancetype)cachedTypeWithCode:(NSString *)code
+{
+    MJAssertParamNotNil2(code, nil);
+    
+    MJType *type = _cachedTypes[code];
+    if (type == nil) {
+        type = [[self alloc] init];
+        type.code = code;
+        _cachedTypes[code] = type;
+    }
+    return type;
+}
+
 - (void)setCode:(NSString *)code
 {
     _code = code;
     
-    if (_code.length == 0 || [_code isEqualToString:MJTypeSEL] ||
-        [_code isEqualToString:MJTypeIvar] ||
-        [_code isEqualToString:MJTypeMethod]) {
+    MJAssertParamNotNil(code);
+    
+    if ([code isEqualToString:MJTypeId]) {
+        _idType = YES;
+    } else if (code.length == 0) {
         _KVCDisabled = YES;
-    } else if ([_code hasPrefix:@"@"] && _code.length > 3) {
+    } else if (code.length > 3 && [code hasPrefix:@"@\""]) {
         // 去掉@"和"，截取中间的类型名称
-        _code = [_code substringFromIndex:2];
-        _code = [_code substringToIndex:_code.length - 1];
+        _code = [code substringWithRange:NSMakeRange(2, code.length - 3)];
         _typeClass = NSClassFromString(_code);
-        
-        _fromFoundation = [_code hasPrefix:@"NS"];
+        _fromFoundation = [MJFoundation isClassFromFoundation:_typeClass];
+        _numberType = (_typeClass == [NSNumber class] || [_typeClass isSubclassOfClass:[NSNumber class]]);
+    } else if ([code isEqualToString:MJTypeSEL] ||
+               [code isEqualToString:MJTypeIvar] ||
+               [code isEqualToString:MJTypeMethod]) {
+        _KVCDisabled = YES;
+    }
+    
+    // 是否为数字类型
+    NSString *lowerCode = _code.lowercaseString;
+    NSArray *numberTypes = @[MJTypeInt, MJTypeFloat, MJTypeDouble, MJTypeLong, MJTypeChar];
+    if ([numberTypes containsObject:lowerCode]) {
+        _numberType = YES;
     }
 }
-
-MJLogAllIvrs
 @end
