@@ -22,9 +22,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-
-    // 设置SDImage缓存的最大值,10M
-    [SDImageCache sharedImageCache].maxCacheSize = 1024 * 1024 * 10;
+    // Override point for customization after application launch.
     
     
     PKHomeViewController * homeVC = [[PKHomeViewController alloc] init];
@@ -65,10 +63,8 @@
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
- 
-    // 开启后台任务,让程序保持运行状态,在更改plist文件
-    [application beginBackgroundTaskWithExpirationHandler:nil];
-    
+    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
+    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {

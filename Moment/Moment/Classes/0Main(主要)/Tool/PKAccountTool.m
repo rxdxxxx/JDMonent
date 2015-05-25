@@ -12,6 +12,7 @@
 #import "MJExtension.h"
 
 
+#define PKAccountFile   [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)lastObject] stringByAppendingPathComponent:@"account.data"]
 
 @implementation PKAccountTool
 /**

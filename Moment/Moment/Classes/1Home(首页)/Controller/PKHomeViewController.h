@@ -7,12 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-@class PKHomeRightView;
 
 @interface PKHomeViewController : UIViewController
-
-@property (nonatomic, weak)PKHomeRightView * rightView;
-
 
 + (PKHomeViewController *)sharedInstance;
 

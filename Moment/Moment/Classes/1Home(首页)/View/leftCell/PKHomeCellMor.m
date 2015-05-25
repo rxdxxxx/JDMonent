@@ -29,14 +29,6 @@
     PKHomeCellMor *cell = [tableView dequeueReusableCellWithIdentifier:ID];
     if (cell == nil) {
         cell = [[[NSBundle mainBundle]loadNibNamed:@"PKHomeCellMor" owner:nil options:nil] lastObject];
-        
-        /**  nib注册方式写法.
-        UINib * nib = [UINib nibWithNibName:@"PKHomeCellMor" bundle:nil];
-        [tableView registerNib:nib forCellReuseIdentifier:ID];
-        NSArray * objs = [nib instantiateWithOwner:self options:nil];
-        cell = [objs lastObject];
-        */
-        
     }
     return cell;
 }
