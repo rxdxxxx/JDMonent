@@ -115,7 +115,6 @@
     CGFloat passWordY = CGRectGetMaxY(sliderEmail.frame)+passWordH;
     
     UITextField * passWordTextField = [[UITextField alloc]initWithFrame:CGRectMake(passWordX, passWordY, passWordW, passWordH)];
-    passWordTextField.secureTextEntry = YES;
     [self.view addSubview:passWordTextField];
     self.passwordField = passWordTextField;
     [PKNotificationCenter addObserver:self selector:@selector(textDidChange) name:UITextFieldTextDidChangeNotification object:passWordTextField];
