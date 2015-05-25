@@ -18,6 +18,9 @@
 @interface PKLeftMenuController ()<UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic, weak)UITableView * tableView;
+@property (nonatomic, strong)NSArray * nameArray;
+@property (nonatomic, strong)NSArray * picArray;
+
 
 @end
 
@@ -29,8 +32,6 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-<<<<<<< HEAD:01-片刻/01-片刻/Classes/0Main(主要)/Controller/PKLeftMenuController.m
-=======
     CGFloat w = self.view.frame.size.width;
 //    CGFloat wScale = 500/w;
 //    CGFloat h = 800 / wScale;
@@ -40,7 +41,6 @@
     [imageView setImage:[UIImage imageNamed:@"LeftControllerBG.jpg"]];
     imageView.contentMode = UIViewContentModeScaleAspectFill;
     [self.view addSubview:imageView];
->>>>>>> DeveloperBranch:Moment/Moment/Classes/0Main(主要)/Controller/PKLeftMenuController.m
     
     self.slideOutAnimationEnabled = YES;
     
@@ -51,15 +51,11 @@
     tableView.backgroundColor = [UIColor lightGrayColor];
     [self.view addSubview:tableView];
     self.tableView = tableView;
-<<<<<<< HEAD:01-片刻/01-片刻/Classes/0Main(主要)/Controller/PKLeftMenuController.m
-
-=======
     
-//    self.nameArray = @[@"首页",@"电台",@"阅读",@"碎片",@"设置"];
-//    self.picArray = @[@"LeftHome",@"LeftFM",@"LeftRead",@"LeftFre",@"LeftSetting"];
-    self.nameArray = @[@"首页",@"电台",@"阅读",@"碎片"];
-    self.picArray = @[@"LeftHome",@"LeftFM",@"LeftRead",@"LeftFre"];
->>>>>>> DeveloperBranch:Moment/Moment/Classes/0Main(主要)/Controller/PKLeftMenuController.m
+    self.nameArray = @[@"首页",@"电台",@"阅读",@"碎片",@"设置"];
+    self.picArray = @[@"LeftHome",@"LeftFM",@"LeftRead",@"LeftFre",@"LeftSetting"];
+//    self.nameArray = @[@"首页",@"电台",@"阅读",@"碎片"];
+//    self.picArray = @[@"LeftHome",@"LeftFM",@"LeftRead",@"LeftFre"];
     
     
 //    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"leftMenu.jpg"]];
@@ -77,11 +73,7 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     
-<<<<<<< HEAD:01-片刻/01-片刻/Classes/0Main(主要)/Controller/PKLeftMenuController.m
-    return 5   ;
-=======
     return self.picArray.count   ;
->>>>>>> DeveloperBranch:Moment/Moment/Classes/0Main(主要)/Controller/PKLeftMenuController.m
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -158,19 +150,11 @@
             vc.title = @"碎片";
 
             break;
-<<<<<<< HEAD:01-片刻/01-片刻/Classes/0Main(主要)/Controller/PKLeftMenuController.m
         case 4:
             vc = [PKSettingViewController sharedInstance];
             vc.title = @"设置";
 
             break;
-=======
-//        case 4:
-//            vc = [PKSettingViewController sharedInstance];
-//            vc.title = @"设置";
-//
-//            break;
->>>>>>> DeveloperBranch:Moment/Moment/Classes/0Main(主要)/Controller/PKLeftMenuController.m
     }
     
     [[SlideNavigationController sharedInstance]popAllAndSwitchToViewController:vc withSlideOutAnimation:self.slideOutAnimationEnabled andCompletion:nil];

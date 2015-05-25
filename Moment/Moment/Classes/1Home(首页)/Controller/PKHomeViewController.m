@@ -33,10 +33,12 @@ static PKHomeViewController *HomesingletonInstance = nil;
 
 + (PKHomeViewController *)sharedInstance
 {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
+    if(HomesingletonInstance == nil){
+        
         HomesingletonInstance = [[self alloc]init];
-    });
+     
+    }
+    
     
     return HomesingletonInstance;
 }
@@ -76,6 +78,7 @@ static PKHomeViewController *HomesingletonInstance = nil;
     PKHomeRightView * rightView = [[PKHomeRightView alloc]initWithFrame:CGRectMake(rightViewX, rightViewY, rightViewW, rightViewH)];
     rightView.delegate = self;
     [self.scrollView addSubview:rightView];
+    self.rightView = rightView;
     
     
 }

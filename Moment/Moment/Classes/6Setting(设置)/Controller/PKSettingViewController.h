@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PKSettingRootController.h"
 
-@interface PKSettingViewController : UITableViewController
+@interface PKSettingViewController : PKSettingRootController
 
 + (PKSettingViewController *)sharedInstance;
 

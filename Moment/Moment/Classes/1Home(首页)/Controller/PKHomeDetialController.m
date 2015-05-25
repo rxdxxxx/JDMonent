@@ -16,6 +16,7 @@
 #import "PKHomeModelPlayInfo.h"
 #import "PKMainModelUserInfo.h"
 #import "UIImageView+WebCache.h"
+#import "MBProgressHUD+MJ.h"
 
 @interface PKHomeDetialController ()<UIScrollViewDelegate,UITableViewDelegate,UITableViewDataSource,UIWebViewDelegate>
 
@@ -368,9 +369,6 @@
     [self.scrollView addSubview:webView];
 }
 
-<<<<<<< HEAD:01-片刻/01-片刻/Classes/1Home(首页)/Controller/PKHomeDetialController.m
-=======
-
 
 #pragma mark - webView的代理方法 -
 /**
@@ -395,7 +393,7 @@
 -(void)webViewDidFinishLoad:(UIWebView *)webView
 {
     //隐藏提醒框
-//    [MBProgressHUD hideHUD];
+    [MBProgressHUD hideHUD];
 }
 /**
  *  webView 请求失败
@@ -403,9 +401,9 @@
 -(void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
 {
     //隐藏提醒框
-//    [MBProgressHUD hideHUD];
+    [MBProgressHUD hideHUD];
 }
->>>>>>> DeveloperBranch:Moment/Moment/Classes/1Home(首页)/Controller/PKHomeDetialController.m
+
 /**
  *  当 webView 发送一个请求之前,就会调用这个方法.询问代理可不可以加载这个页面.
  *

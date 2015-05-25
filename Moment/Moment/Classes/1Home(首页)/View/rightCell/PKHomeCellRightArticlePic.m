@@ -75,7 +75,7 @@
     }
     
     
-    
+    PKLog(@"_iconImg %@",userinfo.icon);
     // 1,icon
     [_iconImg sd_setImageWithURL:[NSURL URLWithString:userinfo.icon] placeholderImage:[UIImage imageNamed:PKPlaceholderImage]];
     _iconImg.layer.cornerRadius = 20;
