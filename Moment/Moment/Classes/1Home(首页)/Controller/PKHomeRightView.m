@@ -49,28 +49,18 @@
     if (self) {
         
         
-        [self reshowRightView];
+        if ([PKAccountTool account].auth) {
+            // 1 如果已经注册过了,那么直接刷新tableView
+            [self LoginAfterReloadView:nil];
+        }else{
+            // 2,创建提示登录的view
+            [self createLoginView];
+        }
         
         
     }
     return self;
 }
-
--(void)reshowRightView
-{
-    // 1,清除原本页面上的其他视图.
-    [self removeOtherView];
-    
-    // 2,添加内容
-    if ([PKAccountTool account].auth) {
-        // 1 如果已经注册过了,那么直接刷新tableView
-        [self LoginAfterReloadView:nil];
-    }else{
-        // 2,创建提示登录的view
-        [self createLoginView];
-    }
-}
-
 /**
  *  创建提示登录的view
  */

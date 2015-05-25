@@ -55,18 +55,11 @@
 
 =======
     
-<<<<<<< HEAD
 //    self.nameArray = @[@"首页",@"电台",@"阅读",@"碎片",@"设置"];
 //    self.picArray = @[@"LeftHome",@"LeftFM",@"LeftRead",@"LeftFre",@"LeftSetting"];
     self.nameArray = @[@"首页",@"电台",@"阅读",@"碎片"];
     self.picArray = @[@"LeftHome",@"LeftFM",@"LeftRead",@"LeftFre"];
 >>>>>>> DeveloperBranch:Moment/Moment/Classes/0Main(主要)/Controller/PKLeftMenuController.m
-=======
-    self.nameArray = @[@"首页",@"电台",@"阅读",@"碎片",@"设置"];
-    self.picArray = @[@"LeftHome",@"LeftFM",@"LeftRead",@"LeftFre",@"LeftSetting"];
-//    self.nameArray = @[@"首页",@"电台",@"阅读",@"碎片"];
-//    self.picArray = @[@"LeftHome",@"LeftFM",@"LeftRead",@"LeftFre"];
->>>>>>> JDMoment
     
     
 //    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"leftMenu.jpg"]];
@@ -165,16 +158,12 @@
             vc.title = @"碎片";
 
             break;
-<<<<<<< HEAD
 <<<<<<< HEAD:01-片刻/01-片刻/Classes/0Main(主要)/Controller/PKLeftMenuController.m
-=======
->>>>>>> JDMoment
         case 4:
             vc = [PKSettingViewController sharedInstance];
             vc.title = @"设置";
 
             break;
-<<<<<<< HEAD
 =======
 //        case 4:
 //            vc = [PKSettingViewController sharedInstance];
@@ -182,8 +171,6 @@
 //
 //            break;
 >>>>>>> DeveloperBranch:Moment/Moment/Classes/0Main(主要)/Controller/PKLeftMenuController.m
-=======
->>>>>>> JDMoment
     }
     
     [[SlideNavigationController sharedInstance]popAllAndSwitchToViewController:vc withSlideOutAnimation:self.slideOutAnimationEnabled andCompletion:nil];

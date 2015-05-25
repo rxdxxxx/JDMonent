@@ -12,7 +12,6 @@
 // 0,导入自建分类
 #import "UIImage+name.h"
 
-#define PKAccountFile   [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)lastObject] stringByAppendingPathComponent:@"account.data"]
 
 
 //1,判断是否为 iOS7 iOS8
